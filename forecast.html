@@ -4,10 +4,13 @@
         <title>Central Oregon Forecast</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="weatherstyle.css">
-        <link rel="icon" type="image/x-icon" href="icons/28.png">
+        <div id="favicon"></div>
+        <!--<link rel="icon" type="image/x-icon" href="icons/28.png">-->
     </head>
     <body>
         <h1>Live local forecast:</h1>
+        <div class="column">
+            Current Conditions:
         <div id="currentc">
             <div id="icon">
                 <img src="icons/44.png" class="icon">
@@ -23,19 +26,30 @@
             <p id="uv">UV Index: --</p>
             <p id="feellike">Feels Like: --</p>
         </div>
+        </div>
         <p id="abspress" hidden></p>
-        <p id="condition1"></p>
+        <div class="column">
+        Today:
         <div id="icon1">
             <img src="icons/44.png" class="icon">
         </div>
+        <p id="condition1"></p>
+        <p id="hi1" class="hi">High: --º</p>
+        <p id="lo1" class="lo">Low: --º</p>
+        </div>
+        <div class="column">
+
+        </div>
         <script>
             var abspressEl = document.getElementById("abspress");
-            const inHGav = 30.05;
+            const inHGav = 29.97;
             const bendID = "KORBEND727";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             var today = document.getElementById("condition");
+            var tomorrow = document.getElementById("condition1");
             var iconEl = document.getElementById("icon");
             var icon1El =document.getElementById("icon1");
+            var favEl = document.getElementById("favicon");
             var currentpressure;
             var hindex;
             var wchill;
@@ -44,7 +58,13 @@
             var light;
             var rain;
             var time;
-            function drawPressure (d){
+            var amtemp;
+            function drawPressureHistory (d){
+                console.log("Historical Weather \n", d);
+                var pressureRateOfChange = d.observations[0].imperial.pressureTrend + d.observations[1].imperial.pressureTrend + d.observations[2].imperial.pressureTrend + d.observations[3].imperial.pressureTrend + d.observations[4].imperial.pressureTrend + d.observations[5].imperial.pressureTrend + d.observations[6].imperial.pressureTrend + d.observations[7].imperial.pressureTrend + d.observations[8].imperial.pressureTrend + d.observations[9].imperial.pressureTrend + d.observations[10].imperial.pressureTrend + d.observations[11].imperial.pressureTrend + d.observations[12].imperial.pressureTrend + d.observations[13].imperial.pressureTrend + d.observations[14].imperial.pressureTrend + d.observations[15].imperial.pressureTrend + d.observations[16].imperial.pressureTrend + d.observations[17].imperial.pressureTrend + d.observations[18].imperial.pressureTrend + d.observations[19].imperial.pressureTrend + d.observations[20].imperial.pressureTrend + d.observations[21].imperial.pressureTrend + d.observations[22].imperial.pressureTrend + d.observations[23].imperial.pressureTrend + d.observations[24].imperial.pressureTrend + d.observations[25].imperial.pressureTrend + d.observations[26].imperial.pressureTrend + d.observations[27].imperial.pressureTrend + d.observations[28].imperial.pressureTrend + d.observations[29].imperial.pressureTrend + d.observations[30].imperial.pressureTrend + d.observations[31].imperial.pressureTrend + d.observations[32].imperial.pressureTrend + d.observations[33].imperial.pressureTrend + d.observations[34].imperial.pressureTrend + d.observations[35].imperial.pressureTrend + d.observations[36].imperial.pressureTrend + d.observations[37].imperial.pressureTrend + d.observations[38].imperial.pressureTrend + d.observations[39].imperial.pressureTrend + d.observations[40].imperial.pressureTrend + d.observations[41].imperial.pressureTrend ;
+                console.log("Pressure Change: \n", pressureRateOfChange);
+            }
+            function drawWeather (d){
                 console.log("Weather data \n", d);
                 hindex = d.observations[0].imperial.heatIndex;
                 chill = d.observations[0].imperial.windChill; 
@@ -52,6 +72,7 @@
                 light = d.observations[0].solarRadiation;
                 rain = d.observations[0].imperial.precipRate;
                 time = d.observations[0].obsTimeLocal;
+                amtemp = d.observations[0].imperial.temp;
                 document.getElementById("condition").innerHTML = d.observations[0]
                 document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
                 document.getElementById("humidity").innerHTML = "Humidity: "+ d.observations[0].humidity +"%";
@@ -65,35 +86,40 @@
                 currentpressure = d.observations[0].imperial.pressure;
                 abspressEl.innerHTML = currentpressure;
                 forecast(currentpressure);
-                feelslike(hindex, wchill);
-                var light1 = parseInt(light);
-                var rain1 = parseInt(rain);
-                var time1 = parseInt(time);
-                currentconditions(light1, rain1, time1);
+                //feelslike(hindex, wchill);
+                currentConditions(light, rain, time, amtemp);
             }
             function weatherBalloon(cityID){
                 var key=apiKey;
                 fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
                 .then(function(resp) {return resp.json() })
                 .then(function(data) {
-                    drawPressure(data);
+                    drawWeather(data);
                 })
                 .catch(function(){
 
-                });   
+                });  
+                fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+                .then(function(resp) {return resp.json()})
+                .then(function(data) {
+                    drawPressureHistory(data);
+                })
+                .catch(function(){
+
+                });
             }
             var forecast= function( absval ){
                 console.log(parseInt(absval));
                 var cpress = parseInt(absval);
                 var av = parseInt(inHGav);
                 if(cpress > av){
-                    today.innerHTML = "<p>Sunny</p>";
+                    tomorrow.innerHTML = "<p>Sunny</p>";
                     icon1El.innerHTML = '<img src="icons/32.png" class="icon">';
                 } else if (cpress < av){
-                    today.innerHTML = "<p>Cloudy</p>";
+                    tomorrow.innerHTML = "<p>Cloudy</p>";
                     icon1El.innerHTML = '<img src="icons/26.png" class="icon">';
                 } else if (cpress = av){
-                    today.innerHTML = "Partly Cloudy";
+                    tomorrow.innerHTML = "Partly Cloudy";
                     icon1El.innerHTML = '<img src="icons/28.png" class="icon">';
                 }
             }
@@ -112,13 +138,35 @@
                 weatherBalloon(bendID);
                 //forecast(currentpressure);
             }
-            var currentconditions = function(l, r, t){
-                if(l > 0 && l <= 200 && r < 0.01){
+            var currentConditions = function(l, r, t, a){
+                var l1 = parseInt(l);
+                var r1 = parseInt(r);
+                var a1 = parseInt(a);
+                console.log(l1);
+                if(l1 > 0 && l1 <= 200 && r1 < 0.01){
                     iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
-                }else if(l > 200 && l<= 400 && r < 0.01){
+                    today.innerHTML = "<p>Cloudy</p>";
+                }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
                     iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
-                }else if(l > 400){
+                    today.innerHTML = "<p>Partly Cloudy</p>";
+                }else if(l1 > 400){
                     iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    today.innerHTML = "<p>Sunny</p>";
+                }else if(r1 === 0.01 && a1 > 32){
+                    iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
+                    today.innerHTML = "<p>Drizzle</p>";
+                }else if(r1 > 0.01 && a1 > 32){
+                    iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
+                    today.innerHTML = "<p>Rain Showers</p>"
+                }else if(r1 > 0 && a1 === 32){
+                    iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
+                    today.innerHTML = "<p>Wintery Mix</p>";
+                }else if(r1 === 0.01 && a1 < 32){
+                    iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
+                    today.innerHTML = "<p>Flurries</p>";
+                }else if(r1 > 0.01 && a1 < 32){
+                    iconEl.innerHTML = "<img src='icons/14.png' class='icon'>";
+                    today.innerHTML = "<p>Snow Showers</p>";
                 }
             }
         </script>
