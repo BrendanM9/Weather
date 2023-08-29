@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Central Oregon Forecast</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="weatherstyle.css">
+        <link rel="icon" type="image/x-icon" href="icons/28.png">
+    </head>
+    <body>
+        <h1>Live local forecast:</h1>
+        <div id="currentc">
+            <div id="icon">
+                <img src="icons/44.png" class="icon">
+            </div> 
+            <p id="condition"></p>
+            <p id="temp">Temperature: --ºF</p>
+            <p id="humidity">Humidity: --%</p>
+            <p id="winddir">Wind Direction: --º</p>
+            <p id="windspeed">Wind Speed: -- MPH</p>
+            <p id="windgusts">Wind Gust: -- MPH</p>
+            <p id="precip">Precipitation: -- in</p>
+            <p id="pressure">Absolute Pressure: -- inHG</p>
+            <p id="uv">UV Index: --</p>
+            <p id="feellike">Feels Like: --</p>
+        </div>
+        <p id="abspress" hidden></p>
+        <p id="condition1"></p>
+        <div id="icon1">
+            <img src="icons/44.png" class="icon">
+        </div>
+        <script>
+            var abspressEl = document.getElementById("abspress");
+            const inHGav = 30.05;
+            const bendID = "KORBEND727";
+            const apiKey = "be3a60645b954897ba60645b95f89776";
+            var today = document.getElementById("condition");
+            var iconEl = document.getElementById("icon");
+            var icon1El =document.getElementById("icon1");
+            var currentpressure;
+            var hindex;
+            var wchill;
+            var temp1;
+            var realFeel;
+            var light;
+            var rain;
+            var time;
+            function drawPressure (d){
+                console.log("Weather data \n", d);
+                hindex = d.observations[0].imperial.heatIndex;
+                chill = d.observations[0].imperial.windChill; 
+                temp1 = d.observations[0].imperial.temp;
+                light = d.observations[0].solarRadiation;
+                rain = d.observations[0].imperial.precipRate;
+                time = d.observations[0].obsTimeLocal;
+                document.getElementById("condition").innerHTML = d.observations[0]
+                document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
+                document.getElementById("humidity").innerHTML = "Humidity: "+ d.observations[0].humidity +"%";
+                document.getElementById("winddir").innerHTML = "Wind Direction: "+d.observations[0].winddir+"º";
+                document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
+                document.getElementById("windgusts").innerHTML = "Wind Gust: "+d.observations[0].imperial.windGust+" MPH";
+                document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+                document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
+                document.getElementById("uv").innerHTML = "UV Index: "+d.observations[0].uv;
+                var flEl = document.getElementById("feellike");
+                currentpressure = d.observations[0].imperial.pressure;
+                abspressEl.innerHTML = currentpressure;
+                forecast(currentpressure);
+                feelslike(hindex, wchill);
+                var light1 = parseInt(light);
+                var rain1 = parseInt(rain);
+                var time1 = parseInt(time);
+                currentconditions(light1, rain1, time1);
+            }
+            function weatherBalloon(cityID){
+                var key=apiKey;
+                fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+                .then(function(resp) {return resp.json() })
+                .then(function(data) {
+                    drawPressure(data);
+                })
+                .catch(function(){
+
+                });   
+            }
+            var forecast= function( absval ){
+                console.log(parseInt(absval));
+                var cpress = parseInt(absval);
+                var av = parseInt(inHGav);
+                if(cpress > av){
+                    today.innerHTML = "<p>Sunny</p>";
+                    icon1El.innerHTML = '<img src="icons/32.png" class="icon">';
+                } else if (cpress < av){
+                    today.innerHTML = "<p>Cloudy</p>";
+                    icon1El.innerHTML = '<img src="icons/26.png" class="icon">';
+                } else if (cpress = av){
+                    today.innerHTML = "Partly Cloudy";
+                    icon1El.innerHTML = '<img src="icons/28.png" class="icon">';
+                }
+            }
+            var feelslike = function (h, w){
+                let temp2 = parseInt(temp1)
+                if(temp2 >= 70){
+                    realFeel = h;
+                } else if (temp2 <= 61){
+                    realFeel = w;
+                } else if (temp2 > 61 && temp2 < 70){
+                    realFeel = temp1;
+                }
+                flEl.innerHTML = "Feels Like: "+ realFeel + "º";
+            }
+            window.onload = function(){
+                weatherBalloon(bendID);
+                //forecast(currentpressure);
+            }
+            var currentconditions = function(l, r, t){
+                if(l > 0 && l <= 200 && r < 0.01){
+                    iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
+                }else if(l > 200 && l<= 400 && r < 0.01){
+                    iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+                }else if(l > 400){
+                    iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
+                }
+            }
+        </script>
+    </body>
+</html>
