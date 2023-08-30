@@ -88,11 +88,11 @@
                 document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
                 document.getElementById("uv").innerHTML = "UV Index: "+d.observations[0].uv;
                 var flEl = document.getElementById("feellike");
+                currentConditions(light, rain, time, amtemp);
                 currentpressure = d.observations[0].imperial.pressure;
                 abspressEl.innerHTML = currentpressure;
                 //forecast(currentpressure);
                 //feelslike(hindex, wchill);
-                currentConditions(light, rain, time, amtemp);
             }
             function weatherBalloon(cityID){
                 var key=apiKey;
@@ -134,7 +134,7 @@
                     future.innerHTML = "<p>Thundershowers</p>";
                 }
             }
-            var feelslike = function (h, w){
+            /*var feelslike = function (h, w){
                 let temp2 = parseInt(temp1)
                 if(temp2 >= 70){
                     realFeel = h;
@@ -144,7 +144,7 @@
                     realFeel = temp1;
                 }
                 flEl.innerHTML = "Feels Like: "+ realFeel + "º";
-            }
+            }*/
             window.onload = function(){
                 weatherBalloon(bendID);
                 //forecast(currentpressure);
@@ -154,7 +154,7 @@
                 var r1 = parseInt(r);
                 var a1 = parseInt(a);
                 console.log(l1);
-                if(l1 > 0 && l1 <= 200 && r1 < 0.01){
+                if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
                     iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                     today.innerHTML = "<p>Cloudy</p>";
                 }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
