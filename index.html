@@ -62,12 +62,13 @@
             var pressureRateOfChange;
             function drawPressureHistory (d){
                 console.log("Historical Weather \n", d);
-                for (i = 0; i < 190; i+=2){
-                    pressureRateOfChange = d.observations[i].imperial.pressureTrend + d.observations[i+1].imperial.pressureTrend;
+                for (i = 0; i <= 188; i+=2){
+                    pressureRateOfChange = (d.observations[i].imperial.pressureTrend + d.observations[i+1].imperial.pressureTrend) * 100;
                     console.log(pressureRateOfChange);
                     console.log(i);
+                    forecast(pressureRateOfChange);
                 };
-                forecast(pressureRateOfChange);
+                //forecast(pressureRateOfChange);
             }
             function drawWeather (d){
                 console.log("Weather data \n", d);
@@ -116,20 +117,21 @@
             var forecast= function( proc ){
                 console.log(parseInt(proc));
                 var proc1 = parseInt(proc);
+                console.log(proc1);
                 var av = parseInt(inHGav);
-                if(proc1 < 0.05 && proc1 >= -0.05){
+                if(proc1 < 5 && proc1 >= -5){
                     icon1El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     future.innerHTML = "<p>Partly Cloudy</p>";
-                } else if(proc1 >= 0.05){
+                } else if(proc1 >= 5){
                     icon1El.innerHTML = "<img src='icons/32.png' class='icon'>";
                     future.innerHTML = "<p>Sunny</p>";
-                } else if(proc1 < -0.05 && proc1 >= -0.25){
+                } else if(proc1 < -5 && proc1 >= -25){
                     icon1El.innerHTML = "<img src='icons/26.png' class='icon'>";
                     future.innerHTML = "<p>Cloudy</p>"
-                } else if(proc1 < -0.25 && proc1 >= -0.50){
+                } else if(proc1 < -25 && proc1 >= -50){
                     icon1El.innerHTML = "<img src='icons/12.png' class='icon'>";
                     future.innerHTML = "<p>Rainy</p>";
-                } else if(proc1 < -0.50){
+                } else if(proc1 < -50){
                     icon1El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     future.innerHTML = "<p>Thundershowers</p>";
                 }
