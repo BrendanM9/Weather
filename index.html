@@ -33,12 +33,36 @@
         <div id="icon1">
             <img src="icons/44.png" class="icon">
         </div>
-        <p id="condition1"></p>
+        <p id="condition1">--</p>
         <p id="hi1" class="hi">High: --º</p>
         <p id="lo1" class="lo">Low: --º</p>
         </div>
         <div class="column">
-
+            Tomorrow:
+            <div id="icon2">
+                <img src="icons/44.png" class="icon">
+            </div>
+            <p id="condition2">--</p>
+            <p id="hi2" class="hi">High: --º</p>
+            <p id="lo2" class="lo">Low: --º</p>
+        </div>
+        <div class="column">
+            2 Days Out:
+            <div id="icon3">
+                <img src="icons/44.png" class="icon">
+            </div>
+            <p id="condition3">--</p>
+            <p id="hi3" class="hi">High: --º</p>
+            <p id="lo3" class="lo">Low: --º</p>
+        </div>
+        <div class="column">
+            3 Days Out:
+            <div id="icon4">
+                <img src="icons/44.png" class="icon">
+            </div>
+            <p id="condition4">--</p>
+            <p id="hi4" class="hi">High: --º</p>
+            <p id="lo4" class="lo">Low: --º</p>
         </div>
         <script>
             var abspressEl = document.getElementById("abspress");
@@ -47,8 +71,10 @@
             const apiKey = "be3a60645b954897ba60645b95f89776";
             var today = document.getElementById("condition");
             var future = document.getElementById("condition1");
+            var tomorrow = document.getElementById("condition2");
             var iconEl = document.getElementById("icon");
             var icon1El =document.getElementById("icon1");
+            var icon2El = document.getElementById("icon2");
             var favEl = document.getElementById("favicon");
             var currentpressure;
             var hindex;
@@ -60,15 +86,20 @@
             var time;
             var amtemp;
             var pressureRateOfChange;
+            var pressureRateOfChange1;
             function drawPressureHistory (d){
                 console.log("Historical Weather \n", d);
                 for (i = 0; i <= 188; i+=2){
                     pressureRateOfChange = (d.observations[i].imperial.pressureTrend + d.observations[i+1].imperial.pressureTrend) * 100;
-                    console.log(pressureRateOfChange);
-                    console.log(i);
                     forecast(pressureRateOfChange);
                 };
-                //forecast(pressureRateOfChange);
+                
+            }
+            function drawPressureHistory1 (d){
+                for (i = 0; i <= 188; i+=2){
+                    pressureRateOfChange1 = (d.observations[i].imperial.pressureTrend + d.observations[i+1].imperial.pressureTrend) * 100;
+                    forecast1(pressureRateOfChange1);
+                };
             }
             function drawWeather (d){
                 console.log("Weather data \n", d);
@@ -109,15 +140,24 @@
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
                     drawPressureHistory(data);
+                    drawPressureHistory1(data);
                 })
                 .catch(function(){
 
                 });
+                /*fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+                .then(function(resp) {return resp.json()})
+                .then(function(data) {
+                    drawPressureHistory1(data);
+                })
+                .catch(function(){
+
+                });*/
             }
             var forecast= function( proc ){
                 console.log(parseInt(proc));
                 var proc1 = parseInt(proc);
-                console.log(proc1);
+                console.log("0 \n", proc1);
                 var av = parseInt(inHGav);
                 if(proc1 < 5 && proc1 >= -5){
                     icon1El.innerHTML = "<img src='icons/28.png' class='icon'>";
@@ -134,6 +174,27 @@
                 } else if(proc1 < -50){
                     icon1El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     future.innerHTML = "<p>Thundershowers</p>";
+                }
+            }
+            var forecast1= function( proc ){
+                console.log(parseInt(proc));
+                var proc2 = parseInt(proc);
+                console.log("1 \n", proc2);
+                if(proc1 < 2.5 && proc1 >= -2.5){
+                    icon2El.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    tomorrow.innerHTML = "<p>Partly Cloudy</p>";
+                } else if(proc1 >= 2.5){
+                    icon2El.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    tomorrow.innerHTML = "<p>Sunny</p>";
+                } else if(proc1 < -2.5 && proc1 >= -12.5){
+                    icon2El.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    tomorrow.innerHTML = "<p>Cloudy</p>"
+                } else if(proc1 < -12.5 && proc1 >= -25){
+                    icon2El.innerHTML = "<img src='icons/12.png' class='icon'>";
+                    tomorrow.innerHTML = "<p>Rainy</p>";
+                } else if(proc1 < -25){
+                    icon2El.innerHTML = "<img src='icons/4.png' class='icon'>";
+                    tomorrow.innerHTML = "<p>Thundershowers</p>";
                 }
             }
             /*var feelslike = function (h, w){
@@ -155,16 +216,26 @@
                 var l1 = parseInt(l);
                 var r1 = parseInt(r);
                 var a1 = parseInt(a);
-                console.log(l1);
+                var currentDate = new Date();
+                var time = currentDate.getHours();
+                console.log(time);
                 if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
                     iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                     today.innerHTML = "<p>Cloudy</p>";
                 }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
-                    iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    if(t >= 7 && t < 19){
+                        iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    } else if(t < 7 || t >= 19){
+                        iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
+                    }
                     today.innerHTML = "<p>Partly Cloudy</p>";
                 }else if(l1 > 400){
-                    iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
-                    today.innerHTML = "<p>Sunny</p>";
+                    if(t >= 7 && t < 19){
+                        iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    } else if(t < 7 || t >= 19){
+                        iconEl.innerHTML = "<img src='icons/31.png' class='icon'>";
+                    }
+                    today.innerHTML = "<p>Clear</p>";
                 }else if(r1 === 0.01 && a1 > 32){
                     iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
                     today.innerHTML = "<p>Drizzle</p>";
