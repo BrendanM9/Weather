@@ -89,7 +89,7 @@
             var pressureRateOfChange1;
             function drawPressureHistory (d){
                 console.log("Historical Weather \n", d);
-                for (i = 0; i <= 188; i+=2){
+                for (i = 0; i <= 400; i+=2){
                     pressureRateOfChange = (d.observations[i].imperial.pressureTrend + d.observations[i+1].imperial.pressureTrend) * 100;
                     forecast(pressureRateOfChange);
                 };
