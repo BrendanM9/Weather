@@ -218,26 +218,26 @@
                 var a1 = parseInt(a);
                 var currentDate = new Date();
                 var time = currentDate.getHours();
-                console.log(time);
+                console.log("Time: \n", time);
                 if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
-                    if(t >= 7 && t < 19){
+                    if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                         today.innerHTML = "<p>Cloudy</p>";
-                    } else if(t < 7 || t >= 19){
+                    } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
                         today.innerHTML = "<p>Partly Cloudy</p>";
                     }
                 }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
-                    if(t >= 7 && t < 19){
+                    if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
-                    } else if(t < 7 || t >= 19){
+                    } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
                     }
                     today.innerHTML = "<p>Partly Cloudy</p>";
                 }else if(l1 > 400){
-                    if(t >= 7 && t < 19){
+                    if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
-                    } else if(t < 7 || t >= 19){
+                    } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/31.png' class='icon'>";
                     }
                     today.innerHTML = "<p>Clear</p>";
