@@ -100,14 +100,14 @@
                     
                 
             }
-            /*function drawPressureHistory1 (d){
-                for (j = 0; j <= 400; j+=2){
-                    pressureRateOfChange1 = (d.observations[j].imperial.pressureTrend + d.observations[j+1].imperial.pressureTrend) * 100;
-                    console.log("a", pressureRateOfChange1);
-                    console.log("a", parseInt(pressureRateOfChange1));
+            function drawPressureHistory1 (d){
+                for (var j = 0; j <= parseInt(f.observations.length); j++){
+                    pressureRateOfChange1 = parseInt(pressureRateOfChange1+ (f.observations[j].imperial.pressureTrend*100));
+                    console.log("A", f.observations[i].imperial.pressureTrend);
+                    console.log(pressureRateOfChange1);
                     forecast1(pressureRateOfChange1);
-                };
-            }*/
+                }
+            }
             function drawWeather (d){
                 console.log("Weather data \n", d);
                 hindex = d.observations[0].imperial.heatIndex;
