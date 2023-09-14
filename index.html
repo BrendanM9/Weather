@@ -100,11 +100,9 @@
                     
                 
             }
-            function drawPressureHistory1 (d){
-                for (var j = 0; j <= parseInt(f.observations.length); j++){
-                    pressureRateOfChange1 = parseInt(pressureRateOfChange1+ (f.observations[j].imperial.pressureTrend*100));
-                    console.log("A", f.observations[i].imperial.pressureTrend);
-                    console.log(pressureRateOfChange1);
+            function drawPressureHistory1 (e){
+                for (var j = 0; j <= parseInt(e.observations.length); j++){
+                    pressureRateOfChange1 = parseInt(pressureRateOfChange1+ (e.observations[j].imperial.pressureTrend*100));
                     forecast1(pressureRateOfChange1);
                 }
             }
@@ -147,7 +145,7 @@
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
                     drawPressureHistory(data);
-                    //drawPressureHistory1(data);
+                    drawPressureHistory1(data);
                 })
                 .catch(function(){
 
