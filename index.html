@@ -148,19 +148,19 @@
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
                     drawPressureHistory(data);
-                    //drawPressureHistory1(data);
+                    drawPressureHistory1(data);
                 })
                 .catch(function(){
 
                 });
-                fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+                /*fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
                     drawPressureHistory1(data);
                 })
                 .catch(function(){
 
-                }); 
+                }); */
                 /*fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
