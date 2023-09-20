@@ -194,19 +194,19 @@
                 console.log("1", parseInt(proca));
                 var proc2 = parseInt(proca);
                 console.log("1 \n", proc2);
-                if(proc1 < 2.5 && proc1 >= -2.5){
+                if(proc2 < 2.5 && proc2 >= -2.5){
                     icon2El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Partly Cloudy !</p>";
-                } else if(proc1 >= 2.5){
+                } else if(proc2 >= 2.5){
                     icon2El.innerHTML = "<img src='icons/32.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Sunny !</p>";
-                } else if(proc1 < -2.5 && proc1 >= -12.5){
+                } else if(proc2 < -2.5 && proc2 >= -12.5){
                     icon2El.innerHTML = "<img src='icons/26.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Cloudy</p>"
-                } else if(proc1 < -12.5 && proc1 >= -25){
+                } else if(proc2 < -12.5 && proc2 >= -25){
                     icon2El.innerHTML = "<img src='icons/12.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Rainy</p>";
-                } else if(proc1 < -25){
+                } else if(proc2 < -25){
                     icon2El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Thundershowers</p>";
                 }
