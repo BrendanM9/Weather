@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="weatherstyle.css">
         <!--<div id="favicon"></div>-->
-        <link rel="icon" type="image/x-icon" href="icons/12.png">
+        <link rel="icon" type="image/x-icon" href="icons/4.png">
     </head>
     <body>
         <h1>Live local forecast:</h1>
@@ -13,7 +13,7 @@
             Current Conditions:
         <div id="currentc">
             <div id="icon">
-                <img src="icons/4.png" class="icon">
+                <img src="icons/44.png" class="icon">
             </div> 
             <p id="condition"></p>
             <p id="temp">Temperature: --ºF</p>
@@ -88,7 +88,7 @@
             var pressureRate;
             var billyJoel;
             var pressureRateOfChange= 0 ;
-            var pressureRateOfChange1;
+            var pressureRateOfChange1= 0;
             function drawPressureHistory (f){
                 console.log("Historical Weather \n", f);
                 for (var i = 0; i <= parseInt(f.observations.length); i++){
@@ -150,6 +150,14 @@
                 .catch(function(){
 
                 });
+                fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+                .then(function(resp) {return resp.json()})
+                .then(function(data) {
+                    drawPressureHistory1(data);
+                })
+                .catch(function(){
+
+                }); 
                 /*fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
@@ -179,7 +187,7 @@
                     future.innerHTML = "<p>Thundershowers</p>";
                 }
             }
-            /*var forecast1= function( proca ){
+            var forecast1= function( proca ){
                 console.log("1", parseInt(proca));
                 var proc2 = parseInt(proca);
                 console.log("1 \n", proc2);
@@ -199,7 +207,7 @@
                     icon2El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Thundershowers</p>";
                 }
-            }*/
+            }
             window.onload = function(){
                 weatherBalloon(bendID);
                 //forecast(currentpressure);
