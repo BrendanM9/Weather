@@ -88,17 +88,19 @@
             var amtemp;
             var pressureRate;
             var billyJoel;
+            var tempAv;
             var pressureRateOfChange= 0 ;
             var pressureRateOfChange1= 0;
             function drawPressureHistory (f){
                 console.log("Historical Weather \n", f);
                 for (var i = 0; i <= parseInt(f.observations.length); i++){
                     pressureRateOfChange = parseInt(pressureRateOfChange+ (f.observations[i].imperial.pressureTrend*100));
+                    tempAv = parseInt(tempAv + (f.obserations[i]);
                     console.log("A", f.observations[i].imperial.pressureTrend);
                     console.log(pressureRateOfChange);
                     forecast(pressureRateOfChange);
                 }
-                    
+                    tempAv = (tempAv / f.observations.length);
                 
             }
             function drawPressureHistory1 (e){
