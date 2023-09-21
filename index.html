@@ -64,21 +64,34 @@
             <p id="hi4" class="hi">High: --º</p>
             <p id="lo4" class="lo">Low: --º</p>
         </div>
+        <div class="column">
+            4 Days Out:
+            <div id="icon5">
+                <img src="icons/44.png" class="icon">
+            </div>
+            <p id="condition5">--</p>
+            <p id="hi5" class="hi">High: --º</p>
+            <p id="lo5" class="lo">Low: --º</p>
+        </div>
         <script>
             var abspressEl = document.getElementById("abspress");
             const inHGav = 29.97;
             const bendID = "KORBEND727";
             const apiKey = "be3a60645b954897ba60645b95f89776";
+            var hi1El = document.getElementById("hi1");
+            var lo1El = document.getElementById("lo1");
             var today = document.getElementById("condition");
             var future = document.getElementById("condition1");
             var tomorrow = document.getElementById("condition2");
             var day2 = document.getElementById("condition3");
             var day3 = document.getElementById("condition4");
+            var day4 = document.getElementById("condition5");
             var iconEl = document.getElementById("icon");
             var icon1El =document.getElementById("icon1");
             var icon2El = document.getElementById("icon2a");
             var icon3El = document.getElementById("icon3");
             var icon4El = document.getElementById("icon4");
+            var icon5El = document.getElementById("icon5");
             //var favEl = document.getElementById("favicon");
             var currentpressure;
             var hindex;
@@ -108,6 +121,7 @@
                     forecast1(pressureRateOfChange);
                     forecast2(pressureRateOfChange);
                     forecast3(pressureRateOfChange);
+                    forecast4(pressureRateOfChange);
                 }
                     //tempAv = (tempAv / f.observations.length);
                 
@@ -137,7 +151,11 @@
                 document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
                 document.getElementById("windgusts").innerHTML = "Wind Gust: "+d.observations[0].imperial.windGust+" MPH";
                 document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
-                document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
+                if(parseInt(d.observations[0].imperial.pressure)===29.8){
+                    document.getElementById("pressure").innerHTML = "Pressure: 29.80inHG"
+                } else {
+                    document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
+                }
                 document.getElementById("uv").innerHTML = "UV Index: "+d.observations[0].uv;
                 document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.heatIndex+"º";
                 currentConditions(light, rain, time, amtemp);
@@ -178,23 +196,25 @@
                 var haa = ha/na;
                 var laa = la/na;
                 console.log(haa, laa);
+                hi1El.innerHTML = "High: "+parseInt(haa);
+                lo1El.innerHTML = "Low: "+parseInt(laa);
             }
             var forecast= function( proc ){
                 var proc1 = parseInt(proc);
                 var av = parseInt(inHGav);
-                if(proc1 < 5 && proc1 >= -5){
+                if(proc1 < 10 && proc1 >= -10){
                     icon1El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     future.innerHTML = "<p>Partly Cloudy</p>";
-                } else if(proc1 >= 5){
+                } else if(proc1 >= 10){
                     icon1El.innerHTML = "<img src='icons/32.png' class='icon'>";
                     future.innerHTML = "<p>Sunny</p>";
-                } else if(proc1 < -5 && proc1 >= -25){
+                } else if(proc1 < -10 && proc1 >= -50){
                     icon1El.innerHTML = "<img src='icons/26.png' class='icon'>";
                     future.innerHTML = "<p>Cloudy</p>"
-                } else if(proc1 < -25 && proc1 >= -50){
+                } else if(proc1 < -50 && proc1 >= -100){
                     icon1El.innerHTML = "<img src='icons/12.png' class='icon'>";
                     future.innerHTML = "<p>Rainy</p>";
-                } else if(proc1 < -50){
+                } else if(proc1 < -100){
                     icon1El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     future.innerHTML = "<p>Thundershowers</p>";
                 }
@@ -203,19 +223,19 @@
                 //console.log("1", parseInt(proca));
                 var proc2 = parseInt(proca);
                 //console.log("1 \n", proc2);
-                if(proc2 < 2.5 && proc2 >= -2.5){
+                if(proc2 < 3.75 && proc2 >= -3.75){
                     icon2El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Partly Cloudy !</p>";
-                } else if(proc2 >= 2.5){
+                } else if(proc2 >= 3.75){
                     icon2El.innerHTML = "<img src='icons/32.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Sunny !</p>";
-                } else if(proc2 < -2.5 && proc2 >= -12.5){
+                } else if(proc2 < -3.75 && proc2 >= -37.5){
                     icon2El.innerHTML = "<img src='icons/26.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Cloudy</p>"
-                } else if(proc2 < -12.5 && proc2 >= -25){
+                } else if(proc2 < -37.5 && proc2 >= -75){
                     icon2El.innerHTML = "<img src='icons/12.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Rainy</p>";
-                } else if(proc2 < -25){
+                } else if(proc2 < -75){
                     icon2El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Thundershowers</p>";
                 }
@@ -224,19 +244,19 @@
                 //console.log("3", parseInt(procb));
                 var proc3 = parseInt(procb);
                 //console.log("3 \n", proc3);
-                if(proc3 < 1.25 && proc3 >= -1.25){
+                if(proc3 < 2.5 && proc3 >= -2.5){
                     icon3El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     day2.innerHTML = "<p>Partly Cloudy !</p>";
-                } else if(proc3 >= 1.25){
+                } else if(proc3 >= 2.5){
                     icon3El.innerHTML = "<img src='icons/32.png' class='icon'>";
                     day2.innerHTML = "<p>Sunny !</p>";
-                } else if(proc3 < -1.25 && proc3 >= -6.25){
+                } else if(proc3 < -2.5 && proc3 >= -12.5){
                     icon3El.innerHTML = "<img src='icons/26.png' class='icon'>";
                     day2.innerHTML = "<p>Cloudy</p>"
-                } else if(proc3 < -6.25 && proc3 >= -12.5){
+                } else if(proc3 < -12.5 && proc3 >= -25){
                     icon3El.innerHTML = "<img src='icons/12.png' class='icon'>";
                     day2.innerHTML = "<p>Rainy</p>";
-                } else if(proc3 < -12.5){
+                } else if(proc3 < -25){
                     icon3El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     day2.innerHTML = "<p>Thundershowers</p>";
                 }
@@ -245,21 +265,42 @@
                 //console.log("3", parseInt(procb));
                 var proc4 = parseInt(procc);
                 //console.log("3 \n", proc3);
-                if(proc4 < .625 && proc4 >= -.625){
+                if(proc4 < 1.25 && proc4 >= -1.25){
                     icon4El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     day3.innerHTML = "<p>Partly Cloudy !</p>";
-                } else if(proc4 >= .625){
+                } else if(proc4 >= 1.25){
                     icon4El.innerHTML = "<img src='icons/32.png' class='icon'>";
                     day3.innerHTML = "<p>Sunny !</p>";
-                } else if(proc4 < -.625 && proc4 >= -3.125){
+                } else if(proc4 < -1.25 && proc4 >= -6.25){
                     icon4El.innerHTML = "<img src='icons/26.png' class='icon'>";
                     day3.innerHTML = "<p>Cloudy</p>"
-                } else if(proc4 < -3.125 && proc4 >= -6.5){
+                } else if(proc4 < -6.25 && proc4 >= -12.5){
                     icon4El.innerHTML = "<img src='icons/12.png' class='icon'>";
                     day3.innerHTML = "<p>Rainy</p>";
-                } else if(proc4 < -6.5){
+                } else if(proc4 < -12.5){
                     icon4El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     day3.innerHTML = "<p>Thundershowers</p>";
+                }
+            }
+            var forecast4= function( procd ){
+                //console.log("3", parseInt(procb));
+                var proc5 = parseInt(procd);
+                //console.log("3 \n", proc3);
+                if(proc5 < .625 && proc5 >= -.625){
+                    icon5El.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    day4.innerHTML = "<p>Partly Cloudy !</p>";
+                } else if(proc5 >= .625){
+                    icon5El.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    day4.innerHTML = "<p>Sunny !</p>";
+                } else if(proc5 < -.625 && proc5 >= -3.125){
+                    icon5El.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    day4.innerHTML = "<p>Cloudy</p>"
+                } else if(proc5 < -3.125 && proc5 >= -6.25){
+                    icon5El.innerHTML = "<img src='icons/12.png' class='icon'>";
+                    day4.innerHTML = "<p>Rainy</p>";
+                } else if(proc5 < -6.25){
+                    icon5El.innerHTML = "<img src='icons/4.png' class='icon'>";
+                    day4.innerHTML = "<p>Thundershowers</p>";
                 }
             }
             window.onload = function(){
