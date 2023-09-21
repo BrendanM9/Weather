@@ -72,9 +72,13 @@
             var today = document.getElementById("condition");
             var future = document.getElementById("condition1");
             var tomorrow = document.getElementById("condition2");
+            var day2 = document.getElementById("condition3");
+            var day3 = document.getElementById("condition4");
             var iconEl = document.getElementById("icon");
             var icon1El =document.getElementById("icon1");
             var icon2El = document.getElementById("icon2a");
+            var icon3El = document.getElementById("icon3");
+            var icon4El = document.getElementById("icon4");
             //var favEl = document.getElementById("favicon");
             var currentpressure;
             var hindex;
@@ -87,25 +91,34 @@
             var amtemp;
             var pressureRate;
             var billyJoel;
-            var tempAv;
+            var tempLo = 0;
+            var tempHi = 0;
+            var tempNo = 0;
             var pressureRateOfChange= 0 ;
             var pressureRateOfChange1= 0;
+            var pressureRateOfChange2 = 0;
             function drawPressureHistory (f){
                 console.log("Historical Weather \n", f);
                 for (var i = 0; i <= parseInt(f.observations.length); i++){
                     pressureRateOfChange = parseInt(pressureRateOfChange+ (f.observations[i].imperial.pressureTrend*100));
-                    tempAv = parseInt(tempAv + (f.obserations[i]));
-                    console.log("A", f.observations[i].imperial.pressureTrend);
-                    console.log(pressureRateOfChange);
+                    //tempAv = parseInt(tempAv + (f.obserations[i].imperial.temp));
+                    //console.log("A", f.observations[i].imperial.pressureTrend);
+                    //console.log(pressureRateOfChange);
                     forecast(pressureRateOfChange);
+                    forecast1(pressureRateOfChange);
+                    forecast2(pressureRateOfChange);
+                    forecast3(pressureRateOfChange);
                 }
-                    tempAv = (tempAv / f.observations.length);
+                    //tempAv = (tempAv / f.observations.length);
                 
             }
-            function drawPressureHistory1 (e){
-                for (var j = 0; j <= parseInt(e.observations.length); j++){
-                    pressureRateOfChange1 = parseInt(pressureRateOfChange1+ (e.observations[j].imperial.pressureTrend*100));
-                    forecast1(pressureRateOfChange1);
+            function drawTempHistory (g){
+                console.log("Historical Weather1 \n", g);
+                for (var k = 0; k <= parseInt(g.observations.length); k++){
+                    tempHi = parseInt(tempHi+ (g.observations[0].imperial.tempHigh));
+                    tempLo = parseInt(tempLo + (g.observations[k].imperial.tempLow));
+                    tempNo += 1;
+                    tempOutlook(tempHi, tempLo, tempNo);
                 }
             }
             function drawWeather (d){
@@ -147,27 +160,24 @@
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
                     drawPressureHistory(data);
-                    drawPressureHistory1(data);
+                    //drawPressureHistory1(data);
                 })
                 .catch(function(){
 
                 });
-                /*fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+                fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
                 .then(function(resp) {return resp.json()})
                 .then(function(data) {
-                    drawPressureHistory1(data);
+                    drawTempHistory(data);
                 })
                 .catch(function(){
 
-                }); */
-                /*fetch('https://api.weather.com/v2/pws/observations/all/1day?stationId='+cityID+'&format=json&units=e&apiKey='+key)
-                .then(function(resp) {return resp.json()})
-                .then(function(data) {
-                    drawPressureHistory1(data);
-                })
-                .catch(function(){
-
-                });*/
+                }); 
+            }
+            var tempOutlook=function(ha, la, na){
+                var haa = ha/na;
+                var laa = la/na;
+                console.log(haa, laa);
             }
             var forecast= function( proc ){
                 var proc1 = parseInt(proc);
@@ -190,9 +200,9 @@
                 }
             }
             var forecast1= function( proca ){
-                console.log("1", parseInt(proca));
+                //console.log("1", parseInt(proca));
                 var proc2 = parseInt(proca);
-                console.log("1 \n", proc2);
+                //console.log("1 \n", proc2);
                 if(proc2 < 2.5 && proc2 >= -2.5){
                     icon2El.innerHTML = "<img src='icons/28.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Partly Cloudy !</p>";
@@ -208,6 +218,48 @@
                 } else if(proc2 < -25){
                     icon2El.innerHTML = "<img src='icons/4.png' class='icon'>";
                     tomorrow.innerHTML = "<p>Thundershowers</p>";
+                }
+            }
+            var forecast2= function( procb ){
+                //console.log("3", parseInt(procb));
+                var proc3 = parseInt(procb);
+                //console.log("3 \n", proc3);
+                if(proc3 < 1.25 && proc3 >= -1.25){
+                    icon3El.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    day2.innerHTML = "<p>Partly Cloudy !</p>";
+                } else if(proc3 >= 1.25){
+                    icon3El.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    day2.innerHTML = "<p>Sunny !</p>";
+                } else if(proc3 < -1.25 && proc3 >= -6.25){
+                    icon3El.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    day2.innerHTML = "<p>Cloudy</p>"
+                } else if(proc3 < -6.25 && proc3 >= -12.5){
+                    icon3El.innerHTML = "<img src='icons/12.png' class='icon'>";
+                    day2.innerHTML = "<p>Rainy</p>";
+                } else if(proc3 < -12.5){
+                    icon3El.innerHTML = "<img src='icons/4.png' class='icon'>";
+                    day2.innerHTML = "<p>Thundershowers</p>";
+                }
+            }
+            var forecast3= function( procc ){
+                //console.log("3", parseInt(procb));
+                var proc4 = parseInt(procc);
+                //console.log("3 \n", proc3);
+                if(proc4 < .625 && proc4 >= -.625){
+                    icon4El.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    day3.innerHTML = "<p>Partly Cloudy !</p>";
+                } else if(proc4 >= .625){
+                    icon4El.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    day3.innerHTML = "<p>Sunny !</p>";
+                } else if(proc4 < -.625 && proc4 >= -3.125){
+                    icon4El.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    day3.innerHTML = "<p>Cloudy</p>"
+                } else if(proc4 < -3.125 && proc4 >= -6.5){
+                    icon4El.innerHTML = "<img src='icons/12.png' class='icon'>";
+                    day3.innerHTML = "<p>Rainy</p>";
+                } else if(proc4 < -6.5){
+                    icon4El.innerHTML = "<img src='icons/4.png' class='icon'>";
+                    day3.innerHTML = "<p>Thundershowers</p>";
                 }
             }
             window.onload = function(){
