@@ -141,7 +141,7 @@
                 chill = d.observations[0].imperial.windChill; 
                 temp1 = d.observations[0].imperial.temp;
                 light = d.observations[0].solarRadiation;
-                rain = d.observations[0].imperial.precipRate;
+                rain = d.observations[0].imperial.precipRate*10;
                 time = d.observations[0].obsTimeLocal;
                 amtemp = d.observations[0].imperial.temp;
                 document.getElementById("condition").innerHTML = d.observations[0]
