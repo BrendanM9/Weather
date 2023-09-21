@@ -94,7 +94,7 @@
                 console.log("Historical Weather \n", f);
                 for (var i = 0; i <= parseInt(f.observations.length); i++){
                     pressureRateOfChange = parseInt(pressureRateOfChange+ (f.observations[i].imperial.pressureTrend*100));
-                    tempAv = parseInt(tempAv + (f.obserations[i]);
+                    tempAv = parseInt(tempAv + (f.obserations[i]));
                     console.log("A", f.observations[i].imperial.pressureTrend);
                     console.log(pressureRateOfChange);
                     forecast(pressureRateOfChange);
