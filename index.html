@@ -314,7 +314,22 @@
                 var currentDate = new Date();
                 var time = currentDate.getHours();
                 console.log("Time: \n", time);
-                if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
+                if(r1 === 0.01 && a1 > 32){
+                    iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
+                    today.innerHTML = "<p>Drizzle</p>";
+                }else if(r1 > 0.01 && a1 > 32){
+                    iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
+                    today.innerHTML = "<p>Rain Showers</p>"
+                }else if(r1 > 0 && a1 === 32){
+                    iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
+                    today.innerHTML = "<p>Wintery Mix</p>";
+                }else if(r1 === 0.01 && a1 < 32){
+                    iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
+                    today.innerHTML = "<p>Flurries</p>";
+                }else if(r1 > 0.01 && a1 < 32){
+                    iconEl.innerHTML = "<img src='icons/14.png' class='icon'>";
+                    today.innerHTML = "<p>Snow Showers</p>";
+                }else if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
                     if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/26.png">'; 
@@ -338,21 +353,6 @@
                         iconEl.innerHTML = "<img src='icons/31.png' class='icon'>";
                     }
                     today.innerHTML = "<p>Clear</p>";
-                }else if(r1 === 0.01 && a1 > 32){
-                    iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
-                    today.innerHTML = "<p>Drizzle</p>";
-                }else if(r1 > 0.01 && a1 > 32){
-                    iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
-                    today.innerHTML = "<p>Rain Showers</p>"
-                }else if(r1 > 0 && a1 === 32){
-                    iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
-                    today.innerHTML = "<p>Wintery Mix</p>";
-                }else if(r1 === 0.01 && a1 < 32){
-                    iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
-                    today.innerHTML = "<p>Flurries</p>";
-                }else if(r1 > 0.01 && a1 < 32){
-                    iconEl.innerHTML = "<img src='icons/14.png' class='icon'>";
-                    today.innerHTML = "<p>Snow Showers</p>";
                 }
             }
         </script>
