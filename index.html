@@ -39,6 +39,7 @@
         <p id="hi1" class="hi">High: --º</p>
         <p id="lo1" class="lo">Low: --º</p>
         <p id="p1">Precipitation Chance: -- %</p>
+        <p id="qpf1">Amount of Precipitation: -.-- in</p>
         <p id="condition1">--</p>
         </div>
         <div class="column">
@@ -52,6 +53,7 @@
             <p id="hi3" class="hi">High: --º</p>
             <p id="lo3" class="lo">Low: --º</p>
             <p id="p3">Precipitation Chance: -- %</p>
+            <p id="qpf3">Amount of Precipitation: -.-- in</p>
             <p id="condition3">--</p>
         </div>
         <div class="column">
@@ -64,7 +66,8 @@
             </div>
             <p id="hi5" class="hi">High: --º</p>
             <p id="lo5" class="lo">Low: --º</p>
-            <p id="p5">Precipitation Chance: -- %</p> 
+            <p id="p5">Precipitation Chance: -- %</p>
+            <p id="qpf5">Amount of Precipitation: -.-- in</p>
             <p id="condition5">--</p>
         </div>
         <div class="column">
@@ -78,6 +81,7 @@
             <p id="hi7" class="hi">High: --º</p>
             <p id="lo7" class="lo">Low: --º</p>
             <p id="p7">Precipitation Chance: -- %</p>
+            <p id="qpf7">Amount of Precipitation: -.-- in</p>
             <p id="condition7">--</p>
         </div>
         <div class="column">
@@ -91,6 +95,7 @@
             <p id="hi9" class="hi">High: --º</p>
             <p id="lo9" class="lo">Low: --º</p>
             <p id="p9">Precipitation Chance: -- %</p>
+            <p id="qpf9">Amount of Precipitation: -.-- in</p>
             <p id="condition9">--</p>
         </div>
         <div class="column">
@@ -104,13 +109,14 @@
             <p id="hi11" class="hi">High: --º</p>
             <p id="lo11" class="lo">Low: --º</p>
             <p id="p11">Precipitation Chance: -- %</p>
+            <p id="qpf11">Amount of Precipitation: -.-- in</p>
             <p id="condition11">--</p>
         </div>
         <script>
             var abspressEl = document.getElementById("abspress");
             const inHGav = 29.97;
             const bendID = "KORBEND727";
-            const ICAO = "KBDN";
+            const ICAO = "KRDM";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
@@ -176,6 +182,35 @@
                 document.getElementById("p7").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[7]+"%";
                 document.getElementById("p9").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[9]+"%";
                 document.getElementById("p11").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
+                if (parseFloat(f.qpf[0])>= parseFloat(f.qpfSnow[0])){
+                    document.getElementById("qpf1").innerHTML = "Rain Amount: "+ f.qpf[0]+"in";
+                } else {
+                    document.getElementById("qpf1").innerHTML = "Snow Amount: "+ f.qpfSnow[0]+"in";
+                }
+                if (parseFloat(f.qpf[1])>= parseFloat(f.qpfSnow[1])){
+                    document.getElementById("qpf3").innerHTML = "Rain Amount: "+ f.qpf[1]+"in";
+                } else {
+                    document.getElementById("qpf3").innerHTML = "Snow Amount: "+ f.qpfSnow[1]+"in";
+                }
+                if (parseFloat(f.qpf[2])>= parseFloat(f.qpfSnow[2])){
+                    document.getElementById("qpf5").innerHTML = "Rain Amount: "+ f.qpf[2]+"in";
+                } else {
+                    document.getElementById("qpf5").innerHTML = "Snow Amount: "+ f.qpfSnow[2]+"in";
+                }if (parseFloat(f.qpf[3])>= parseFloat(f.qpfSnow[3])){
+                    document.getElementById("qpf7").innerHTML = "Rain Amount: "+ f.qpf[3]+"in";
+                } else {
+                    document.getElementById("qpf7").innerHTML = "Snow Amount: "+ f.qpfSnow[3]+"in";
+                }
+                if (parseFloat(f.qpf[4])>= parseFloat(f.qpfSnow[4])){
+                    document.getElementById("qpf9").innerHTML = "Rain Amount: "+ f.qpf[4]+"in";
+                } else {
+                    document.getElementById("qpf9").innerHTML = "Snow Amount: "+ f.qpfSnow[4]+"in";
+                }
+                if (parseFloat(f.qpf[5])>= parseFloat(f.qpfSnow[5])){
+                    document.getElementById("qpf11").innerHTML = "Rain Amount: "+ f.qpf[5]+"in";
+                } else {
+                    document.getElementById("qpf11").innerHTML = "Snow Amount: "+ f.qpfSnow[5]+"in";
+                }
             }
             var currentpressure;
             var hindex;
