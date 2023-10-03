@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Live local forecast:</h1>
-        <div class="column">
+        <div class="column" id="b1">
             Current Conditions:
         <div id="currentc">
             <div id="icon">
@@ -25,10 +25,11 @@
             <p id="pressure">Absolute Pressure: -- inHG</p>
             <p id="uv">UV Index: --</p>
             <p id="feellike">Feels Like: --</p>
+            <br><br><br>
         </div>
         </div>
         <p id="abspress" hidden></p>
-        <div class="column">
+        <div class="column" id="b2">
         <div id="text1"></div>
         <div id="icon1">
             <img src="icons/44.png" class="icon">
@@ -40,9 +41,9 @@
         <p id="lo1" class="lo">Low: --º</p>
         <p id="p1">Precipitation Chance: -- %</p>
         <p id="qpf1">Amount of Precipitation: -.-- in</p>
-        <p id="condition1">--</p>
+        <p id="condition1">--</p><br><br><br>
         </div>
-        <div class="column">
+        <div class="column" id="b3">
             <div id="text3"></div>
             <div id="icon3">
                 <img src="icons/44.png" class="icon">
@@ -56,7 +57,7 @@
             <p id="qpf3">Amount of Precipitation: -.-- in</p>
             <p id="condition3">--</p>
         </div>
-        <div class="column">
+        <div class="column" id="b4">
             <div id="text5"></div>
             <div id="icon5">
                 <img src="icons/44.png" class="icon">
@@ -70,7 +71,7 @@
             <p id="qpf5">Amount of Precipitation: -.-- in</p>
             <p id="condition5">--</p>
         </div>
-        <div class="column">
+        <div class="column" id="b5">
             <div id="text7"></div>
             <div id="icon7">
                 <img src="icons/44.png" class="icon">
@@ -84,7 +85,7 @@
             <p id="qpf7">Amount of Precipitation: -.-- in</p>
             <p id="condition7">--</p>
         </div>
-        <div class="column">
+        <div class="column" id="b6">
             <div id="text9"></div>
             <div id="icon9">
                 <img src="icons/44.png" class="icon">
@@ -98,7 +99,7 @@
             <p id="qpf9">Amount of Precipitation: -.-- in</p>
             <p id="condition9">--</p>
         </div>
-        <div class="column">
+        <div class="column" id="b7">
             <div id="text11"></div>
             <div id="icon11">
                 <img src="icons/44.png" class="icon">
@@ -182,6 +183,12 @@
                 document.getElementById("p7").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[7]+"%";
                 document.getElementById("p9").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[9]+"%";
                 document.getElementById("p11").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
+                document.getElementById("b2").style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b4").style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b5").style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b6").style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b7").style.backgroundImage = "url('backgrounds/sunny.png')";
                 if (parseFloat(f.qpf[0])>= parseFloat(f.qpfSnow[0])){
                     document.getElementById("qpf1").innerHTML = "Rain Amount: "+ f.qpf[0]+"in";
                 } else {
@@ -308,11 +315,13 @@
                         iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/26.png">'; 
                         today.innerHTML = "<p>Cloudy</p>";
+                        document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
                         condition = 26;
                     } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
                         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/27.png">';
                         today.innerHTML = "<p>Partly Cloudy</p>";
+                        document.getElementById("b1").style.backgroundImage= "url('backgrounds/partly_cloudy.png')"
                         condition = 27;
                     }
                 }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
@@ -324,6 +333,7 @@
                         condition = 27;
                     }
                     today.innerHTML = "<p>Partly Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage= "url('backgrounds/partly_cloudy.png')"
                 }else if(l1 > 400){
                     if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
@@ -333,6 +343,7 @@
                         condition = 31;
                     }
                     today.innerHTML = "<p>Clear</p>";
+                    document.getElementById("b1").style.backgroundImage= "url('backgrounds/sunny.png')"
                 }
             }
         </script>
