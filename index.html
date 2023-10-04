@@ -117,8 +117,7 @@
         <script>
             var abspressEl = document.getElementById("abspress");
             const inHGav = 29.97;
-            const bendID = "KORBEND727";
-            const ICAO = "KRDM";
+            const bendID = "KORBEND727"; const ICAO = "KRDM";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
@@ -149,7 +148,6 @@
             } else if(month === 12 && day >= 21 || month === 3 && day < 19 || month > 0 && month < 3){
                 season = "Winter";
             }
-            console.log(season)
             if(season === "Autumn"){
                 document.body.style.backgroundColor = "orange";
             } else if(season==="Summer"){
@@ -159,7 +157,6 @@
             } else if(season === "Spring"){
                 document.body.style.backgroundColor= "green";
             }
-            //var favEl = document.getElementById("favicon");
             forecast = function( f ){
                 console.log(f);
                 document.getElementById("hi1").innerHTML = "High: "+f.calendarDayTemperatureMax[0]+"º";
@@ -236,6 +233,7 @@
                 } else if (f.daypart[0].wxPhraseShort[6]==="Cloudy"){
                     document.getElementById("b5").style.backgroundImage = "url('backgrounds/cloudy.png')";
                 }
+                console.log(season)
                 if(f.daypart[0].wxPhraseShort[8]==="P Cloudy" || f.daypart[0].wxPhraseShort[8]==="M Sunny"){
                     document.getElementById("b6").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
                 } else if (f.daypart[0].wxPhraseShort[8]==="Sunny"|| f.daypart[0].wxPhraseShort[8]==="Clear"){
