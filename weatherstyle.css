@@ -3,7 +3,7 @@
 }
 .column{
     float: left;
-    width: 14%;
+    width: 13%;
     height: 540px;
     border-style: solid;
 }
@@ -12,7 +12,4 @@
 }
 .hi{
     color:red;
-}
-body{
-    background-image: url(backgrounds/sunny.png);
 }
