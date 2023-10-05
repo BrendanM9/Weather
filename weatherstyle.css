@@ -13,21 +13,6 @@
 .hi{
     color:red;
 }
-* {
-    margin: 0;
-    padding: 0;
-  }
-  /*body {
-    /*background-image: linear-gradient(to bottom, #030420, #000000 70%);*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*width: 100vw;
-    height: 100vh;*/
-    /*overflow: hidden;
-
-  }
-*/
 hr{
     width: 50px;
     border-color: transparent;
