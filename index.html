@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="weatherstyle.css">
         <!--<div id="favicon"></div>-->
         <link rel="icon" type="image/x-icon" href="icons/4.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-
         <h1>Live local forecast:</h1>
         <div class="column" id="b1">
             Current Conditions:
@@ -293,7 +294,7 @@
                 chill = d.observations[0].imperial.windChill; 
                 temp1 = d.observations[0].imperial.temp;
                 light = d.observations[0].solarRadiation;
-                rain = d.observations[0].imperial.precipRate*100;
+                rain = d.observations[0].imperial.precipRate;
                 time = d.observations[0].obsTimeLocal;
                 amtemp = d.observations[0].imperial.temp;
                 wind = d.observations[0].imperial.windSpeed;
@@ -304,7 +305,7 @@
                 document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
                 document.getElementById("windgusts").innerHTML = "Wind Gust: "+d.observations[0].imperial.windGust+" MPH";
                 document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
-                if(parseInt(d.observations[0].imperial.pressure)===29.8){
+                if(parseFloat(d.observations[0].imperial.pressure)===29.8){
                     document.getElementById("pressure").innerHTML = "Pressure: 29.80inHG"
                 } else {
                     document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
@@ -342,7 +343,7 @@
             }
             var currentConditions = function(l, r, t, a, w){
                 var l1 = parseInt(l);
-                var r1 = parseInt(r);
+                var r1 = parseFloat(r);
                 var a1 = parseInt(a);
                 var w1 = parseInt(w);
                 var currentDate = new Date();
@@ -404,6 +405,17 @@
                     today.innerHTML = "<p>Clear</p>";
                     document.getElementById("b1").style.backgroundImage= "url('backgrounds/sunny.png')"
                 }
+            }
+            if(rain>0){
+            let hrElement;
+            let counter = 100;
+            for (let i = 0; i < counter; i++) {
+                hrElement = document.createElement("HR");
+                hrElement.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+                hrElement.style.animationDuration = 0.2 + Math.random() * 0.3 + "s";
+                hrElement.style.animationDelay = Math.random() * 5 + "s";
+                document.body.appendChild(hrElement);
+            }
             }
         </script>
     </body>
