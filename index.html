@@ -206,6 +206,7 @@
                 document.getElementById("p7").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[7]+"%";
                 document.getElementById("p9").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[9]+"%";
                 document.getElementById("p11").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
+                /*
                 if(f.daypart[0].wxPhraseShort[1]==="P Cloudy" || f.daypart[0].wxPhraseShort[1]==="M Sunny" || f.daypart[0].wxPhraseShort[1]==="M Clear" || f.daypart[0].wxPhraseShort[1]==="M Cloudy"){
                     document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
                 } else if (f.daypart[0].wxPhraseShort[1]==="Sunny"|| f.daypart[0].wxPhraseShort[1]==="Clear"){
@@ -236,7 +237,7 @@
                 } else if (f.daypart[0].wxPhraseShort[6]==="Cloudy"){
                     document.getElementById("b5").style.backgroundImage = "url('backgrounds/cloudy.png')";
                 }
-                console.log(season)
+                
                 if(f.daypart[0].wxPhraseShort[8]==="P Cloudy" || f.daypart[0].wxPhraseShort[8]==="M Sunny" || f.daypart[0].wxPhraseShort[8]==="M Clear" || f.daypart[0].wxPhraseShort[8]==="M Cloudy"){
                     document.getElementById("b6").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
                 } else if (f.daypart[0].wxPhraseShort[8]==="Sunny"|| f.daypart[0].wxPhraseShort[8]==="Clear"){
@@ -251,6 +252,8 @@
                 } else if (f.daypart[0].wxPhraseShort[10]==="Cloudy"){
                     document.getElementById("b7").style.backgroundImage = "url('backgrounds/cloudy.png')";
                 }
+                */
+               console.log(season)
                 if (parseFloat(f.qpf[0])>= parseFloat(f.qpfSnow[0])){
                     document.getElementById("qpf1").innerHTML = "Rain Amount: "+ f.qpf[0]+"in";
                 } else {
@@ -279,6 +282,34 @@
                     document.getElementById("qpf11").innerHTML = "Rain Amount: "+ f.qpf[5]+"in";
                 } else {
                     document.getElementById("qpf11").innerHTML = "Snow Amount: "+ f.qpfSnow[5]+"in";
+                }
+                var cloudCoverAvg;
+                for(var a = 0; a < 6; a++){
+                        /*var av = a + a + 1;
+                        var av1 = a + a + 1;
+                        av1 -= 1;
+                        console.log(f.daypart[0].cloudCover[av])
+                        if(a = 0){
+                            cloudCoverAvg = parseFloat(f.daypart[0].cloudcover[av])
+                        } else{
+                        cloudCoverAvg = parseFloat(f.daypart[0].cloudCover[av]);
+                        cloudCoverAvg += parseFloat(f.daypart[0].cloudCover[av1]);
+                        console.log(cloudCoverAvg)
+                        cloudCoverAvg = parseFloat(cloudCoverAvg)/2;
+                        console.log(cloudCoverAvg)
+                        }*/
+                    var a1e = a+2
+                    if(parseFloat(f.qpf[a]) > 0 || parseFloat(f.qpfSnow[a] > 0)){
+                        
+                        document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/rain.png')";
+                        console.log("Yes", a)
+                    }
+                    /*
+                    else if(parseFloat(cloudCoverAvg > 20)){
+                        
+                        document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/sunny.png')";
+                    }
+                    */
                 }
             }
             var currentpressure;
