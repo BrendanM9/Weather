@@ -289,13 +289,28 @@
                 var cloudCoverAvg4;
                 var cloudCoverAvg5;
                 var cloudCoverAvg6;
+                if(f.daypart[0].cloudCover[0] === null){
+                    cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[1])/2;
+                } else {
+                    cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
+                    cloudCoverAvg1 = cloudCoverAvg1/2;
+                }
+                if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 33){
+                    document.getElementById("b2").style.backgroundImage = "url('backgrounds/sunny.png')";
+                } else if (cloudCoverAvg1 > 33 && cloudCoverAvg1 <= 66){
+                    document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                } else{
+                    document.getElementById("b2").style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                } 
                 cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
                 cloudCoverAvg2 = cloudCoverAvg2/2;
                 if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
                     document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg2 > 33 && cloudCoverAvg2 <= 66){
                     document.getElementById("b3").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-                }    
+                } else{
+                    document.getElementById("b3").style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                }
                 cloudCoverAvg3 = parseFloat(f.daypart[0].cloudCover[4])+parseFloat(f.daypart[0].cloudCover[5])
                 cloudCoverAvg3 = cloudCoverAvg3/2;
                 if(cloudCoverAvg3 > 0 && cloudCoverAvg3 <= 33){
