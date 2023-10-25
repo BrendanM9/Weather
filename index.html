@@ -291,6 +291,9 @@
                 var cloudCoverAvg6;
                 cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
                 cloudCoverAvg2 = cloudCoverAvg2/2;
+                if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
+                    document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
+                } 
                 console.log(cloudCoverAvg2);
                 /*for(var a = 0; a < 6; a++){
                         /*var av = a + a + 1;
