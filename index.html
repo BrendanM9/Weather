@@ -283,7 +283,14 @@
                 } else {
                     document.getElementById("qpf11").innerHTML = "Snow Amount: "+ f.qpfSnow[5]+"in";
                 }
-                var cloudCoverAvg;
+                var cloudCoverAvg1;
+                var cloudCoverAvg2;
+                var cloudCoverAvg3;
+                var cloudCoverAvg4;
+                var cloudCoverAvg5;
+                var cloudCoverAvg6;
+                cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
+                cloudCoverAvg2 = cloudCoverAvg2/2;
                 /*for(var a = 0; a < 6; a++){
                         /*var av = a + a + 1;
                         var av1 = a + a + 1;
