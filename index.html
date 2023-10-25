@@ -293,7 +293,9 @@
                 cloudCoverAvg2 = cloudCoverAvg2/2;
                 if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
                     document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
-                } 
+                } else if (cloudCoverAvg2 > 33 && cloudCoverAvg2 <= 66){
+                    document.getElementById("b3").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                }    
                 console.log(cloudCoverAvg2);
                 /*for(var a = 0; a < 6; a++){
                         /*var av = a + a + 1;
