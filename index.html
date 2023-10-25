@@ -323,6 +323,15 @@
                 } else{
                     document.getElementById("b6").style.backgroundImage =  "url('backgrounds/cloudy.png')";
                 }
+                cloudCoverAvg6 = parseFloat(f.daypart[0].cloudCover[10])+parseFloat(f.daypart[0].cloudCover[11])
+                cloudCoverAvg6 = cloudCoverAvg6/2;
+                if(cloudCoverAvg6 > 0 && cloudCoverAvg6 <= 33){
+                    document.getElementById("b7").style.backgroundImage = "url('backgrounds/sunny.png')";
+                } else if (cloudCoverAvg6 > 33 && cloudCoverAvg6 <= 66){
+                    document.getElementById("b7").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                } else{
+                    document.getElementById("b7").style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                }
                 console.log(cloudCoverAvg2);
                 /*for(var a = 0; a < 6; a++){
                         /*var av = a + a + 1;
