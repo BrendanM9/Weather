@@ -348,7 +348,7 @@
                     document.getElementById("b7").style.backgroundImage =  "url('backgrounds/cloudy.png')";
                 }
                 console.log(cloudCoverAvg2);
-                /*for(var a = 0; a < 6; a++){
+                for(var a = 0; a < 6; a++){
                         /*var av = a + a + 1;
                         var av1 = a + a + 1;
                         av1 -= 1;
@@ -361,20 +361,20 @@
                         console.log(cloudCoverAvg)
                         cloudCoverAvg = parseFloat(cloudCoverAvg)/2;
                         console.log(cloudCoverAvg)
-                        }*//*
+                        }*/
                     var a1e = a+2
                     if(parseFloat(f.qpf[a]) > 0 || parseFloat(f.qpfSnow[a] > 0)){
                         
                         document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/rain.png')";
                         console.log("Yes", a)
-                    }*/
+                    }
                     /*
                     else if(parseFloat(cloudCoverAvg > 20)){
                         
                         document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/sunny.png')";
                     }
                     */
-                
+                }
             }
             var currentpressure;
             var hindex;
