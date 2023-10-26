@@ -290,7 +290,7 @@
                 var cloudCoverAvg5;
                 var cloudCoverAvg6;
                 if(f.daypart[0].cloudCover[0] === null){
-                    cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[1])/2;
+                    cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[1]);
                 } else {
                     cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
                     cloudCoverAvg1 = cloudCoverAvg1/2;
