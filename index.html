@@ -295,7 +295,7 @@
                     cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
                     cloudCoverAvg1 = cloudCoverAvg1/2;
                 }
-                if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 33){
+                if(cloudCoverAvg1 >= 0 && cloudCoverAvg1 <= 33){
                     document.getElementById("b2").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg1 > 33 && cloudCoverAvg1 <= 66){
                     document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -304,7 +304,7 @@
                 } 
                 cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
                 cloudCoverAvg2 = cloudCoverAvg2/2;
-                if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
+                if(cloudCoverAvg2 >= 0 && cloudCoverAvg2 <= 33){
                     document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg2 > 33 && cloudCoverAvg2 <= 66){
                     document.getElementById("b3").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -313,7 +313,7 @@
                 }
                 cloudCoverAvg3 = parseFloat(f.daypart[0].cloudCover[4])+parseFloat(f.daypart[0].cloudCover[5])
                 cloudCoverAvg3 = cloudCoverAvg3/2;
-                if(cloudCoverAvg3 > 0 && cloudCoverAvg3 <= 33){
+                if(cloudCoverAvg3 >= 0 && cloudCoverAvg3 <= 33){
                     document.getElementById("b4").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg3 > 33 && cloudCoverAvg3 <= 66){
                     document.getElementById("b4").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -322,7 +322,7 @@
                 }
                 cloudCoverAvg4 = parseFloat(f.daypart[0].cloudCover[6])+parseFloat(f.daypart[0].cloudCover[7])
                 cloudCoverAvg4 = cloudCoverAvg4/2;
-                if(cloudCoverAvg4 > 0 && cloudCoverAvg4 <= 33){
+                if(cloudCoverAvg4 >= 0 && cloudCoverAvg4 <= 33){
                     document.getElementById("b5").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg4 > 33 && cloudCoverAvg4 <= 66){
                     document.getElementById("b5").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -331,7 +331,7 @@
                 }
                 cloudCoverAvg5 = parseFloat(f.daypart[0].cloudCover[8])+parseFloat(f.daypart[0].cloudCover[9])
                 cloudCoverAvg5 = cloudCoverAvg5/2;
-                if(cloudCoverAvg5 > 0 && cloudCoverAvg5 <= 33){
+                if(cloudCoverAvg5 >= 0 && cloudCoverAvg5 <= 33){
                     document.getElementById("b6").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg5 > 33 && cloudCoverAvg5 <= 66){
                     document.getElementById("b6").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -340,7 +340,7 @@
                 }
                 cloudCoverAvg6 = parseFloat(f.daypart[0].cloudCover[10])+parseFloat(f.daypart[0].cloudCover[11])
                 cloudCoverAvg6 = cloudCoverAvg6/2;
-                if(cloudCoverAvg6 > 0 && cloudCoverAvg6 <= 33){
+                if(cloudCoverAvg6 >= 0 && cloudCoverAvg6 <= 33){
                     document.getElementById("b7").style.backgroundImage = "url('backgrounds/sunny.png')";
                 } else if (cloudCoverAvg6 > 33 && cloudCoverAvg6 <= 66){
                     document.getElementById("b7").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
