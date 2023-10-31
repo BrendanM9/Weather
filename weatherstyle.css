@@ -1,5 +1,6 @@
 .icon{
     width:100px;
+    opacity: 200%;
 }
 .column{
     float: left;
@@ -9,6 +10,9 @@
 }
 .lo{
     color:#addde6;
+}
+.lo15{
+    color: blue;
 }
 .hi{
     color:red;
