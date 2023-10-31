@@ -17,6 +17,10 @@
 .hi{
     color:red;
 }
+.week{
+    position:absolute;
+    top:100%;
+}
 hr{
     width: 50px;
     border-color: transparent;
