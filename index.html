@@ -421,13 +421,13 @@
                     console.log(avprecip1)
                     document.getElementById("avp").innerHTML = "Average Precipitation Chance: "+ parseInt(avprecip1) +"%"
                 } else{
-                    var avprecip1 = 0;
+                    var avprecip2 = 0;
                     for(var e = 0; e < 12; e++){
-                        avprecip1 = avprecip1 + parseFloat(f.daypart[0].precipChance[f]);
+                        avprecip2 = avprecip2 + parseFloat(f.daypart[0].precipChance[e]);
                     }
-                    avprecip1 = avprecip1/12
-                    console.log(avprecip1)
-                    document.getElementById("avp").innerHTML = "Average Precipitation Chance: "+ parseInt(avprecip1) +"%"
+                    avprecip2 = avprecip2/12
+                    console.log(avprecip2)
+                    document.getElementById("avp").innerHTML = "Average Precipitation Chance: "+ parseInt(avprecip2) +"%"
                 }
                 //inches of precipitation
                 totalRain = 0
