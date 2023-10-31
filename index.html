@@ -435,6 +435,9 @@
                     totalRain = totalRain + f.qpf[g]
                     totalRain = totalRain + f.qpfSnow[g]
                 }
+                totalRain = totalRain*100;
+                totalRain = parseInt(totalRain);
+                totalRain = totalRain/100;
                 document.getElementById("avqpf").innerHTML = "Total Amount of Precipitation: "+ parseFloat(totalRain) +"in"
                 //Cloud Cover
                 if(f.daypart[0].cloudCover[0] === null){
