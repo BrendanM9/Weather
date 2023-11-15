@@ -135,35 +135,37 @@
             var abspressEl = document.getElementById("abspress");
             const inHGav = 29.97;
             var cityName = ""
+            var bendID;
+            var ICAO;
             if(cityNo="bend"){
-                const bendID = "KORBEND727"; const ICAO = "KBDN";
+                bendID = "KORBEND727"; ICAO = "KBDN";
                 cityName = "Bend"
             } else if (cityNo="sisters"){
-                const bendID = "KORSISTE72"; const ICAO = "KBDN";
+                bendID = "KORSISTE72"; ICAO = "KBDN";
                 cityName = "Sisters"
             } else if (cityNo="redmond"){
-                const bendID = "KRDM"; const ICAO = "KRDM";
+                bendID = "KRDM"; ICAO = "KRDM";
                 cityName = "Redmond"
             } else if (cityNo="sunriver"){
-                const bendID = "KS21"; const ICAO = "KS21";
+                bendID = "KS21"; ICAO = "KS21";
                 cityName = "Sunriver"
             } else if (cityNo="lapine"){
-                const bendID = "KORLAPIN72"; const ICAO = "KS21";
+                bendID = "KORLAPIN72"; ICAO = "KS21";
                 cityName = "La Pine"
             } else if (cityNo="portland"){
-                const bendID = "KPDX"; const ICAO = "KPDX";
+                bendID = "KPDX"; ICAO = "KPDX";
                 cityName = "Portland"
             } else if (cityNo="eugene"){
-                const bendID = "KEUG"; const ICAO = "KEUG";
+                bendID = "KEUG"; ICAO = "KEUG";
                 cityName = "Eugene"
             } else if (cityNo="salem"){
-                const bendID = "KSLE"; const ICAO = "KSLE";
+                bendID = "KSLE"; ICAO = "KSLE";
                 cityName = "Salem"
             } else if (cityNo="prineville"){
-                const bendID = "KS39"; const ICAO = "KS39";
+                bendID = "KS39"; ICAO = "KS39";
                 cityName = "Prineville"
             } else if (cityNo="madras"){
-                const bendID = "KS33"; const ICAO = "KS33";
+                bendID = "KS33"; ICAO = "KS33";
                 cityName = "Madras"
             }
             const apiKey = "be3a60645b954897ba60645b95f89776";
