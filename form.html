@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Weather</title>
+        
+    </head>
+    
+    <body>
+        <style>
+            body {
+                background-image: url("backgrounds/mountain.png");
+                background-size:cover;
+            }
+        </style>
+        <h1>Welcome to Central Oregon Weather!</h1>
+        <h3>Please select a location to continue.</h3>
+        <form action="index.html">
+            <select id="City" name="city" required>
+                <optgroup label="Deschutes County">
+                    <option></option>
+                    <option value="bend" id="Bend">Bend</option>
+                    <option value="sisters" id="Sisters">Sisters</option>
+                    <option value="redmond" id="Redmond">Redmond</option>
+                    <option value="sunriver" id="Sunriver">Sunriver</option>
+                    <option value="lapine" id="La_Pine">La Pine</option>
+                </optgroup>
+            </select>
+            <input type="submit" id="submit">View My Forecast
+            <!--<button id="view">View My Forecast</button>-->
+        </form>
+        <script>
+            //cityEl = document.getElementsByName("city")
+            //cityV = document.getElementById("City").value
+            //submitB = document.getElementById("submit")
+            //var load=function(){
+                //console.log(cityV)
+            //}
+            //submitB.addEventListener("click", load())
+        </script>
+    </body>
+</html>
