@@ -127,7 +127,7 @@
         </div>
         <script>
             console.log("URL:" + window.location.href)
-            var url = window.location.href;
+            var url = String(window.location.href);
             url = url.split("https://brendanm9.github.io/Weather/index.html?city=","")
             console.log(url)
             var abspressEl = document.getElementById("abspress");
