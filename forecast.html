@@ -573,7 +573,7 @@
                 //forecast(currentpressure);
                 //feelslike(hindex, wchill);
             }
-            function weatherBalloon(cityID){
+            function weatherBalloon(cityID, code){
                 var key=apiKey;
                 fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
                 .then(function(resp) {return resp.json() })
@@ -583,7 +583,7 @@
                 .catch(function(){
 
                 });  
-                fetch('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode='+ICAO+'&units=e&language=en-US&format=json&apiKey='+key)
+                fetch('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode='+code+'&units=e&language=en-US&format=json&apiKey='+key)
                 .then(function(resp) {return resp.json()})
                 .then (function(data) {
                     forecast(data);
@@ -593,7 +593,7 @@
                 });
             }
             window.onload = function(){
-                weatherBalloon(bendID);
+                weatherBalloon(bendID, ICAO);
                 //forecast(currentpressure);
             }
             var currentConditions = function(l, r, t, a, w){
