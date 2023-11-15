@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-        <h1>Live local forecast:</h1>
+        <h1 id="title1">Live local forecast:</h1>
         <div class="column" id="b1">
             Current Conditions:
         <div id="currentc">
@@ -134,8 +134,40 @@
             console.log(url)
             var abspressEl = document.getElementById("abspress");
             const inHGav = 29.97;
-            const bendID = "KORBEND727"; const ICAO = "KBDN";
+            var cityName = ""
+            if(cityNo="bend"){
+                const bendID = "KORBEND727"; const ICAO = "KBDN";
+                cityName = "Bend"
+            } else if (cityNo="sisters"){
+                const bendID = "KORSISTE72"; const ICAO = "KBDN";
+                cityName = "Sisters"
+            } else if (cityNo="redmond"){
+                const bendID = "KRDM"; const ICAO = "KRDM";
+                cityName = "Redmond"
+            } else if (cityNo="sunriver"){
+                const bendID = "KS21"; const ICAO = "KS21";
+                cityName = "Sunriver"
+            } else if (cityNo="lapine"){
+                const bendID = "KORLAPIN72"; const ICAO = "KS21";
+                cityName = "La Pine"
+            } else if (cityNo="portland"){
+                const bendID = "KPDX"; const ICAO = "KPDX";
+                cityName = "Portland"
+            } else if (cityNo="eugene"){
+                const bendID = "KEUG"; const ICAO = "KEUG";
+                cityName = "Eugene"
+            } else if (cityNo="salem"){
+                const bendID = "KSLE"; const ICAO = "KSLE";
+                cityName = "Salem"
+            } else if (cityNo="prineville"){
+                const bendID = "KS39"; const ICAO = "KS39";
+                cityName = "Prineville"
+            } else if (cityNo="madras"){
+                const bendID = "KS33"; const ICAO = "KS33";
+                cityName = "Madras"
+            }
             const apiKey = "be3a60645b954897ba60645b95f89776";
+            document.getElementById("title1").innerHTML = "Live local forecast for "+cityName;
             var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
             var today = document.getElementById("condition");

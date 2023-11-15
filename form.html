@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Weather</title>
-        
+        <link rel="icon" type="image/x-icon" href="icons/28.png">
     </head>
     
     <body>
@@ -17,13 +17,28 @@
         <h3>Please select a location to continue.</h3>
         <form action="index.html">
             <select id="City" name="city" required>
+                <option></option>
+                <optgroup label="Crook County">
+                    <option value="prineville" id="Prineville">Prineville</option>
+                </optgroup>
                 <optgroup label="Deschutes County">
-                    <option></option>
                     <option value="bend" id="Bend">Bend</option>
                     <option value="sisters" id="Sisters">Sisters</option>
                     <option value="redmond" id="Redmond">Redmond</option>
                     <option value="sunriver" id="Sunriver">Sunriver</option>
                     <option value="lapine" id="La_Pine">La Pine</option>
+                </optgroup>
+                <optgroup label="Jefferson County">
+                    <option value="madras" id="Madras">Madras</option>
+                </optgroup>
+                <optgroup label="Lane County">
+                    <option value="eugene" id="Eugene">Eugene</option>
+                </optgroup>
+                <optgroup label="Marion County">
+                    <option value="salem" id="Salem">Salem</option>
+                </optgroup>
+                <optgroup label="Multnomah County">
+                    <option value="portland" id="Portland">Portland</option>
                 </optgroup>
             </select>
             <input type="submit" id="submit">View My Forecast
