@@ -606,11 +606,13 @@
                 weatherBalloon(bendID, ICAO);
                 //forecast(currentpressure);
             }
-            var currentConditions = function(l, r, t, a, w){
+            var currentConditions = function(l, r, t, a, w, d){
                 var l1 = parseInt(l);
                 var r1 = parseFloat(r);
+                var t1 = parseInt(t);
                 var a1 = parseInt(a);
                 var w1 = parseInt(w);
+                var d1 = parseInt(d);
                 var currentDate = new Date();
                 var time = currentDate.getHours();
                 console.log("Time: \n", time);
@@ -636,7 +638,13 @@
                     today.innerHTML = "<p>Snow Showers</p>";
                     condition = 14;
                 }else if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
-                    if(time >= 7 && time < 19){
+                    if(t <= d1 + 1){
+                        iconEl.innerHTML = "<img src='icons/20.png' class='icon'>";
+                        //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/20.png">'; 
+                        today.innerHTML = "<p>Fogy</p>";
+                        document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
+                        condition = 20;
+                    } else if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/26.png">'; 
                         today.innerHTML = "<p>Cloudy</p>";
