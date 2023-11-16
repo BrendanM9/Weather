@@ -560,6 +560,7 @@
                 temp1 = d.observations[0].imperial.temp;
                 light = d.observations[0].solarRadiation;
                 rain = d.observations[0].imperial.precipRate;
+                dewpoint = d.observations[0].imperial.dewpt;
                 time = d.observations[0].obsTimeLocal;
                 amtemp = d.observations[0].imperial.temp;
                 wind = d.observations[0].imperial.windSpeed;
@@ -577,7 +578,7 @@
                 }
                 document.getElementById("uv").innerHTML = "UV Index: "+d.observations[0].uv;
                 document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.heatIndex+"º";
-                currentConditions(light, rain, time, amtemp, wind);
+                currentConditions(light, rain, time, amtemp, wind, dewpoint);
                 currentpressure = d.observations[0].imperial.pressure;
                 abspressEl.innerHTML = currentpressure;
                 //forecast(currentpressure);
