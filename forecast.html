@@ -267,6 +267,7 @@
             var icon5El = document.getElementById("icon5");
             var condition = 44;
             var season = "string";
+            var rainToday = 0;
             var date = new Date();
             month = date.getMonth() + 1;
             day = date.getDate();
@@ -347,7 +348,22 @@
                 document.getElementById("p9").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[9]+"%";
                 document.getElementById("p10").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
                 document.getElementById("p11").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
-                /*
+                if(f.daypart[0].qpf[0] !== null){
+                    if(parseFloat(f.daypart[0].qpf[0]) > parseFloat(f.daypart[0].qpfSnow[0])){
+                        document.getElementById("qpf0").innerHTML = "|"+ f.daypart[0].qpf[0]+"in";
+                    } else {
+                        document.getElementById("qpf0").innerHTML = "|"+ f.daypart[0].qpfSnow[0]+"in";
+                    }
+                } else {
+                        document.getElementById("qpf0").innerHTML = "|"+ rainToday;
+                    }
+                for(var q = 1; q < 12; q++){
+                    if(parseFloat(f.daypart[0].qpf[q]) > parseFloat(f.daypart[0].qpfSnow[q])){
+                        document.getElementById("qpf"+q).innerHTML = "|"+ f.daypart[0].qpf[q]+"in";
+                    } else {
+                        document.getElementById("qpf"+q).innerHTML = "|"+ f.daypart[0].qpfSnow[q]+"in";
+                    }
+                    /*
                 if(f.daypart[0].wxPhraseShort[1]==="P Cloudy" || f.daypart[0].wxPhraseShort[1]==="M Sunny" || f.daypart[0].wxPhraseShort[1]==="M Clear" || f.daypart[0].wxPhraseShort[1]==="M Cloudy"){
                     document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
                 } else if (f.daypart[0].wxPhraseShort[1]==="Sunny"|| f.daypart[0].wxPhraseShort[1]==="Clear"){
@@ -642,6 +658,7 @@
                 document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
                 document.getElementById("windgusts").innerHTML = "Wind Gust: "+d.observations[0].imperial.windGust+" MPH";
                 document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+                rainToday = d.observations[0].imperial.precipTotal;
                 if(parseFloat(d.observations[0].imperial.pressure)===29.8){
                     document.getElementById("pressure").innerHTML = "Pressure: 29.80inHG"
                 } else {
