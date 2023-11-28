@@ -36,19 +36,19 @@
         <div id="icon1">
             <img src="icons/44.png" class="icon">
         </div>
-        <div id="precip1">
-            <div id="p1">
+        <div id="precip0">
+            <div id="p0">
             </div>
-            <div id="qpf1">
+            <div id="qpf0">
             </div>
         </div>
         <div id="icon2a">
             <img src="icons/44.png" class="icon">
         </div>
-        <div id="precip2">
-            <div id="p2">
+        <div id="precip1">
+            <div id="p1">
             </div>
-            <div id="qpf2">
+            <div id="qpf1">
             </div>
         </div>
         <p id="hi1" class="hi">High: --º</p>
@@ -60,19 +60,19 @@
             <div id="icon3">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip3">
-                <div id="p3">
+            <div id="precip2">
+                <div id="p2">
                 </div>
-                <div id="qpf3">
+                <div id="qpf2">
                 </div>
             </div>
             <div id="icon4">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip4">
-                <div id="p4">
+            <div id="precip3">
+                <div id="p3">
                 </div>
-                <div id="qpf4">
+                <div id="qpf3">
                 </div>
             </div>
             <p id="hi3" class="hi">High: --º</p>
@@ -84,20 +84,20 @@
             <div id="icon5">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip5">
-                <div id="p5">
+            <div id="precip4">
+                <div id="p4">
                 </div>
-                <div id="qpf5">
+                <div id="qpf4">
                 </div>
             </div>
             <div id="icon6">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip6">
-                <div id="p6">
+            <div id="precip5">
+                <div id="p5">
                 </div>
                 |
-                <div id="qpf6">
+                <div id="qpf5">
                 </div>
             </div>
             <p id="hi5" class="hi">High: --º</p>
@@ -109,19 +109,19 @@
             <div id="icon7">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip7">
-                <div id="p7">
+            <div id="precip6">
+                <div id="p6">
                 </div>
-                <div id="qpf7">
+                <div id="qpf6">
                 </div>
             </div>
             <div id="icon8">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip8">
-                <div id="p8">
+            <div id="precip7">
+                <div id="p7">
                 </div>
-                <div id="qpf8">
+                <div id="qpf7">
                 </div>
             </div>
             <p id="hi7" class="hi">High: --º</p>
@@ -133,19 +133,19 @@
             <div id="icon9">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip9">
-                <div id="p9">
+            <div id="precip8">
+                <div id="p8">
                 </div>
-                <div id="qpf9">
+                <div id="qpf8">
                 </div>
             </div>
             <div id="icon10">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip10">
-                <div id="p10">
+            <div id="precip9">
+                <div id="p9">
                 </div>
-                <div id="qpf10">
+                <div id="qpf9">
                 </div>
             </div>
             <p id="hi9" class="hi">High: --º</p>
@@ -157,19 +157,19 @@
             <div id="icon11">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip11">
-                <div id="p11">
+            <div id="precip10">
+                <div id="p10">
                 </div>
-                <div id="qpf11">
+                <div id="qpf10">
                 </div>
             </div>
             <div id="icon12">
                 <img src="icons/44.png" class="icon">
             </div>
-            <div id="precip12">
-                <div id="p12">
+            <div id="precip11">
+                <div id="p11">
                 </div>
-                <div id="qpf12">
+                <div id="qpf11">
                 </div>
             </div>
             <p id="hi11" class="hi">High: --º</p>
@@ -331,6 +331,11 @@
                 document.getElementById("icon10").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[9]+".png' class='icon'>";
                 document.getElementById("icon11").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[10]+".png' class='icon'>";
                 document.getElementById("icon12").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[11]+".png' class='icon'>";
+                if(f.daypart[0].precipChance[0] !== null){
+                    document.getElementById("p0").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[0]+"%";
+                } else {
+                    document.getElementById("p0").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[1]+"%";
+                }
                 document.getElementById("p1").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[1]+"%";
                 document.getElementById("p2").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[2]+"%";
                 document.getElementById("p3").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[3]+"%";
