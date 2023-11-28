@@ -268,6 +268,7 @@
             var condition = 44;
             var season = "string";
             var rainToday = 0;
+            var precipType = [];
             var date = new Date();
             month = date.getMonth() + 1;
             day = date.getDate();
@@ -332,36 +333,45 @@
                 document.getElementById("icon10").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[9]+".png' class='icon'>";
                 document.getElementById("icon11").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[10]+".png' class='icon'>";
                 document.getElementById("icon12").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[11]+".png' class='icon'>";
-                if(f.daypart[0].precipChance[0] !== null){
-                    document.getElementById("p0").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[0]+"%";
-                } else {
-                    document.getElementById("p0").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[1]+"%";
+                for(var p = 1; p < 12; p++){
+                    if(f.daypart[0].precipType[p] === "snow"){
+                        precipType[p] = "Snow: "; 
+                    } else if(f.daypart[0].precipType[p] === "rain"){
+                        precipType[p] = "Rain: "; 
+                    } else {
+                        precipType[p] = "Precipitation: ";
+                    }
                 }
-                document.getElementById("p1").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[1]+"%";
-                document.getElementById("p2").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[2]+"%";
-                document.getElementById("p3").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[3]+"%";
-                document.getElementById("p4").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[4]+"%";
-                document.getElementById("p5").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[5]+"%";
-                document.getElementById("p6").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[6]+"%";
-                document.getElementById("p7").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[7]+"%";
-                document.getElementById("p8").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[8]+"%";
-                document.getElementById("p9").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[9]+"%";
-                document.getElementById("p10").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
-                document.getElementById("p11").innerHTML = "Preciptiation Chance: "+ f.daypart[0].precipChance[11]+"%";
+                if(f.daypart[0].precipChance[0] !== null){
+                    document.getElementById("p0").innerHTML = "Precipitation: "+ f.daypart[0].precipChance[0]+"%";
+                } else {
+                    document.getElementById("p0").innerHTML = "Precipitation: "+ f.daypart[0].precipChance[1]+"%";
+                }
+                document.getElementById("p1").innerHTML = precipType[1]+ f.daypart[0].precipChance[1]+"%";
+                document.getElementById("p2").innerHTML = precipType[2]+ f.daypart[0].precipChance[2]+"%";
+                document.getElementById("p3").innerHTML = precipType[3]+ f.daypart[0].precipChance[3]+"%";
+                document.getElementById("p4").innerHTML = precipType[4]+ f.daypart[0].precipChance[4]+"%";
+                document.getElementById("p5").innerHTML = precipType[5]+ f.daypart[0].precipChance[5]+"%";
+                document.getElementById("p6").innerHTML = precipType[6]+ f.daypart[0].precipChance[6]+"%";
+                document.getElementById("p7").innerHTML = precipType[7]+ f.daypart[0].precipChance[7]+"%";
+                document.getElementById("p8").innerHTML = precipType[8]+ f.daypart[0].precipChance[8]+"%";
+                document.getElementById("p9").innerHTML = precipType[9]+ f.daypart[0].precipChance[9]+"%";
+                document.getElementById("p10").innerHTML = precipType[10]+ f.daypart[0].precipChance[11]+"%";
+                document.getElementById("p11").innerHTML = precipType[11]+ f.daypart[0].precipChance[11]+"%";
                 if(f.daypart[0].qpf[0] !== null){
                     if(parseFloat(f.daypart[0].qpf[0]) > parseFloat(f.daypart[0].qpfSnow[0])){
-                        document.getElementById("qpf0").innerHTML = "|"+ f.daypart[0].qpf[0]+"in";
+                        document.getElementById("qpf0").innerHTML = " | "+ f.daypart[0].qpf[0]+"in";
                     } else {
-                        document.getElementById("qpf0").innerHTML = "|"+ f.daypart[0].qpfSnow[0]+"in";
+                        document.getElementById("qpf0").innerHTML = " | "+ f.daypart[0].qpfSnow[0]+"in";
                     }
                 } else {
-                        document.getElementById("qpf0").innerHTML = "|"+ rainToday+"in";
+                        document.getElementById("qpf0").innerHTML = " | "+ rainToday+"in";
                     }
                 for(var q = 1; q < 12; q++){
                     if(parseFloat(f.daypart[0].qpf[q]) > parseFloat(f.daypart[0].qpfSnow[q])){
-                        document.getElementById("qpf"+q).innerHTML = "|"+ f.daypart[0].qpf[q]+"in";
+                        document.getElementById("qpf"+q).innerHTML = " | "+ f.daypart[0].qpf[q]+"in";
                     } else {
-                        document.getElementById("qpf"+q).innerHTML = "|"+ f.daypart[0].qpfSnow[q]+"in";
+                        document.getElementById("qpf"+q).innerHTML = " | "+ f.daypart[0].qpfSnow[q]+"in";
                     }
                 }
                     /*
