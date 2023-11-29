@@ -4,7 +4,7 @@
 }
 .column{
     float: left;
-    width: 12%;
+    width: 13%;
     height: 540px;
     border-style: solid;
 }
@@ -16,10 +16,6 @@
 }
 .hi{
     color:red;
-}
-.week{
-    position:absolute;
-    top:100%;
 }
 hr{
     width: 50px;
@@ -42,3 +38,6 @@ hr{
      transform: rotate(105deg) translateX(calc(100vh + 20px));
     }
    }
+.precip {
+    white-space: nowrap;
+}
