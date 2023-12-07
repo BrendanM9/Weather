@@ -721,15 +721,15 @@
                 var time = currentDate.getHours();
                 console.log("Time: \n", time);
                 console.log(r1);
-                if(r1 === .01 && a1 > 32){
+                if(r1 === .01 && a1 > 35){
                     iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
                     today.innerHTML = "<p>Drizzle</p>";
                     condition = 9;
-                }else if(r1 > .01 && a1 > 32){
+                }else if(r1 > .01 && a1 > 35){
                     iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
                     today.innerHTML = "<p>Rain Showers</p>"
                     condition = 12;
-                }else if(r1 > 0 && a1 === 32){
+                }else if(r1 > 0 && a1 <= 35 && a1 >= 32){
                     iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
                     today.innerHTML = "<p>Wintery Mix</p>";
                     condition = 7;
