@@ -194,7 +194,7 @@
             <p id="rain-amount">Precipitation since midnight: -- in</p>
         </div>
         <script>
-        function load(){
+        //function load(){
             const favicon = document.getElementById("favicon")
             console.log("URL:" + window.location.href)
             var url = String(window.location.href);
@@ -300,7 +300,7 @@
             } else if(season === "Spring"){
                 document.body.style.backgroundColor= "green";
             }
-        }
+        //}
         forecast = function( f ){
             console.log(f);
             document.getElementById("hi1").innerHTML = "High: "+f.calendarDayTemperatureMax[0]+"º";
@@ -718,7 +718,7 @@
             });
         }
         window.onload = function(){
-            load();
+            //load();
             weatherBalloon(bendID, ICAO);
             //forecast(currentpressure);
         }
