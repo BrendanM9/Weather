@@ -41,3 +41,8 @@ hr{
 .precip {
     white-space: nowrap;
 }
+#details{
+    position: absolute;
+    left:5%;
+    top:95%;
+}
