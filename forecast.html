@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="weatherstyle.css">
         <!--<div id="favicon"></div>-->
-        <link rel="icon" type="image/x-icon" href="icons/4.png">
+        <link rel="icon" type="image/x-icon" href="icons/4.png" id="favicon">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
@@ -186,6 +186,7 @@
             <p id="avwind">Average Wind Speed: -- MPH</p>
         </div>
         <script>
+            const favicon = document.getElementById("favicon")
             console.log("URL:" + window.location.href)
             var url = String(window.location.href);
             //url = url.split("https://brendanm9.github.io/Weather/index.html?city=","")
@@ -725,22 +726,27 @@
                     iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
                     today.innerHTML = "<p>Drizzle</p>";
                     condition = 9;
+                    favicon.setAttribute("href", "icons/9.png");
                 }else if(r1 > .01 && a1 > 35){
                     iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
                     today.innerHTML = "<p>Rain Showers</p>"
                     condition = 12;
+                    favicon.setAttribute("href", "icons/12.png");
                 }else if(r1 > 0 && a1 <= 35 && a1 >= 32){
                     iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
                     today.innerHTML = "<p>Wintery Mix</p>";
                     condition = 7;
+                    favicon.setAttribute("href", "icons/7.png");
                 }else if(r1 === .01 && a1 < 32){
                     iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
                     today.innerHTML = "<p>Flurries</p>";
+                    favicon.setAttribute("href", "icons/13.png");
                     condition = 13;
                 }else if(r1 > .01 && a1 < 32){
                     iconEl.innerHTML = "<img src='icons/14.png' class='icon'>";
                     today.innerHTML = "<p>Snow Showers</p>";
                     condition = 14;
+                    favicon.setAttribute("href", "icons/14.png");
                 }else if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
                     if(t <= d1 + 1){
                         iconEl.innerHTML = "<img src='icons/20.png' class='icon'>";
@@ -748,26 +754,31 @@
                         today.innerHTML = "<p>Fogy</p>";
                         document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
                         condition = 20;
+                        favicon.setAttribute("href", "icons/20.png");
                     } else if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/26.png">'; 
                         today.innerHTML = "<p>Cloudy</p>";
                         document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
                         condition = 26;
+                        favicon.setAttribute("href", "icons/26.png");
                     } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
                         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/27.png">';
                         today.innerHTML = "<p>Partly Cloudy</p>";
                         document.getElementById("b1").style.backgroundImage= "url('backgrounds/partly_cloudy.png')"
                         condition = 27;
+                        favicon.setAttribute("href", "icons/27.png");
                     }
                 }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
                     if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
                         condition = 28;
+                        favicon.setAttribute("href", "icons/28.png");
                     } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
                         condition = 27;
+                        favicon.setAttribute("href", "icons/27.png");
                     }
                     today.innerHTML = "<p>Partly Cloudy</p>";
                     document.getElementById("b1").style.backgroundImage= "url('backgrounds/partly_cloudy.png')"
@@ -775,9 +786,11 @@
                     if(time >= 7 && time < 19){
                         iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
                         condition = 32;
+                        favicon.setAttribute("href", "icons/32.png");
                     } else if(time < 7 || time >= 19){
                         iconEl.innerHTML = "<img src='icons/31.png' class='icon'>";
                         condition = 31;
+                        favicon.setAttribute("href", "icons/31.png");
                     }
                     today.innerHTML = "<p>Clear</p>";
                     document.getElementById("b1").style.backgroundImage= "url('backgrounds/sunny.png')"
