@@ -1,107 +1,109 @@
-const favicon = document.getElementById("favicon")
-console.log("URL:" + window.location.href)
-var url = String(window.location.href);
-//url = url.split("https://brendanm9.github.io/Weather/index.html?city=","")
-var cityNo = url.substr(55)
-console.log(cityNo)
-console.log(url)
-var abspressEl = document.getElementById("abspress");
-const inHGav = 29.97;
-var cityName = ""
-var bendID;
-var ICAO;
-if(cityNo==="bend"){
-    bendID = "KORBEND727"; 
-    ICAO = "KBDN";
-    cityName = "Bend"
-    console.log(cityName)
-} else if (cityNo==="sisters"){
-    bendID = "KORSISTE72"; 
-    ICAO = "KBDN";
-    cityName = "Sisters"
-    console.log(cityName)
-} else if (cityNo==="redmond"){
-    bendID = "KORREDMO8"; 
-    ICAO = "KRDM";
-    cityName = "Redmond"
-    console.log(cityName)
-} else if (cityNo==="sunriver"){
-    bendID = "KS21"; 
-    ICAO = "KS21";
-    cityName = "Sunriver"
-    console.log(cityName)
-} else if (cityNo==="lapine"){
-    bendID = "KORLAPIN72"; 
-    ICAO = "KS21";
-    cityName = "La Pine"
-    console.log(cityName)
-} else if (cityNo==="portland"){
-    bendID = "KORPORTL2053"; 
-    ICAO = "KPDX";
-    cityName = "Portland"
-    console.log(cityName)
-} else if (cityNo==="eugene"){
-    bendID = "KOREUGEN267"; 
-    ICAO = "KEUG";
-    cityName = "Eugene"
-    console.log(cityName)
-} else if (cityNo==="salem"){
-    bendID = "KORSALEM449"; 
-    ICAO = "KSLE";
-    cityName = "Salem"
-    console.log(cityName)
-} else if (cityNo==="prineville"){
-    bendID = "KS39"; 
-    ICAO = "KS39";
-    cityName = "Prineville"
-    console.log(cityName)
-} else if (cityNo==="madras"){
-    bendID = "KS33"; 
-    ICAO = "KS33";
-    cityName = "Madras"
-    console.log(cityName)
-}
-const apiKey = "be3a60645b954897ba60645b95f89776";
-document.getElementById("title1").innerHTML = "Live local forecast for "+cityName;
-var hi1El = document.getElementById("hi1");
-var lo1El = document.getElementById("lo1");
-var today = document.getElementById("condition");
-var future = document.getElementById("condition1");
-var tomorrow = document.getElementById("condition2");
-var day2 = document.getElementById("condition3");
-var day3 = document.getElementById("condition4");
-var day4 = document.getElementById("condition5");
-var iconEl = document.getElementById("icon");
-var icon1El =document.getElementById("icon1");
-var icon2El = document.getElementById("icon2a");
-var icon3El = document.getElementById("icon3");
-var icon4El = document.getElementById("icon4");
-var icon5El = document.getElementById("icon5");
-var condition = 44;
-var season = "string";
-var rainToday = 0;
-var precipType = [];
-var date = new Date();
-month = date.getMonth() + 1;
-day = date.getDate();
-console.log(month, day);
-if(month === 9 && day >= 23 || month === 12 && day < 21 || month > 9 && month < 12){
-    season = "Autumn"
-} else if(month === 6 && day >= 20 || month === 9 && day < 23 || month > 6 && month < 9){
-    season = "Summer";
-} else if(month === 3 && day >= 19 || month === 6 && day < 20 || month > 3 && month < 6){
-    season = "Spring";
-} else if(month === 12 && day >= 21 || month === 3 && day < 19 || month > 0 && month < 3){
-    season = "Winter";
-}
-if(season === "Autumn"){
-    document.body.style.backgroundColor = "orange";
-} else if(season==="Summer"){
-    document.body.style.backgroundImage = "url('backgrounds/sunny.png')"
-} else if(season==="Winter"){
-    document.body.style.backgroundImage = "url('backgrounds/Winter.png')"
-} else if(season === "Spring"){
-    document.body.style.backgroundColor= "green";
+function load(){
+    const favicon = document.getElementById("favicon")
+    console.log("URL:" + window.location.href)
+    var url = String(window.location.href);
+    //url = url.split("https://brendanm9.github.io/Weather/index.html?city=","")
+    var cityNo = url.substr(55)
+    console.log(cityNo)
+    console.log(url)
+    var abspressEl = document.getElementById("abspress");
+    const inHGav = 29.97;
+    var cityName = ""
+    var bendID;
+    var ICAO;
+    if(cityNo==="bend"){
+        bendID = "KORBEND727"; 
+        ICAO = "KBDN";
+        cityName = "Bend"
+        console.log(cityName)
+    } else if (cityNo==="sisters"){
+        bendID = "KORSISTE72"; 
+        ICAO = "KBDN";
+        cityName = "Sisters"
+        console.log(cityName)
+    } else if (cityNo==="redmond"){
+        bendID = "KORREDMO8"; 
+        ICAO = "KRDM";
+        cityName = "Redmond"
+        console.log(cityName)
+    } else if (cityNo==="sunriver"){
+        bendID = "KS21"; 
+        ICAO = "KS21";
+        cityName = "Sunriver"
+        console.log(cityName)
+    } else if (cityNo==="lapine"){
+        bendID = "KORLAPIN72"; 
+        ICAO = "KS21";
+        cityName = "La Pine"
+        console.log(cityName)
+    } else if (cityNo==="portland"){
+        bendID = "KORPORTL2053"; 
+        ICAO = "KPDX";
+        cityName = "Portland"
+        console.log(cityName)
+    } else if (cityNo==="eugene"){
+        bendID = "KOREUGEN267"; 
+        ICAO = "KEUG";
+        cityName = "Eugene"
+        console.log(cityName)
+    } else if (cityNo==="salem"){
+        bendID = "KORSALEM449"; 
+        ICAO = "KSLE";
+        cityName = "Salem"
+        console.log(cityName)
+    } else if (cityNo==="prineville"){
+        bendID = "KS39"; 
+        ICAO = "KS39";
+        cityName = "Prineville"
+        console.log(cityName)
+    } else if (cityNo==="madras"){
+        bendID = "KS33"; 
+        ICAO = "KS33";
+        cityName = "Madras"
+        console.log(cityName)
+    }
+    const apiKey = "be3a60645b954897ba60645b95f89776";
+    document.getElementById("title1").innerHTML = "Live local forecast for "+cityName;
+    var hi1El = document.getElementById("hi1");
+    var lo1El = document.getElementById("lo1");
+    var today = document.getElementById("condition");
+    var future = document.getElementById("condition1");
+    var tomorrow = document.getElementById("condition2");
+    var day2 = document.getElementById("condition3");
+    var day3 = document.getElementById("condition4");
+    var day4 = document.getElementById("condition5");
+    var iconEl = document.getElementById("icon");
+    var icon1El =document.getElementById("icon1");
+    var icon2El = document.getElementById("icon2a");
+    var icon3El = document.getElementById("icon3");
+    var icon4El = document.getElementById("icon4");
+    var icon5El = document.getElementById("icon5");
+    var condition = 44;
+    var season = "string";
+    var rainToday = 0;
+    var precipType = [];
+    var date = new Date();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    console.log(month, day);
+    if(month === 9 && day >= 23 || month === 12 && day < 21 || month > 9 && month < 12){
+        season = "Autumn"
+    } else if(month === 6 && day >= 20 || month === 9 && day < 23 || month > 6 && month < 9){
+        season = "Summer";
+    } else if(month === 3 && day >= 19 || month === 6 && day < 20 || month > 3 && month < 6){
+        season = "Spring";
+    } else if(month === 12 && day >= 21 || month === 3 && day < 19 || month > 0 && month < 3){
+        season = "Winter";
+    }
+    if(season === "Autumn"){
+        document.body.style.backgroundColor = "orange";
+    } else if(season==="Summer"){
+        document.body.style.backgroundImage = "url('backgrounds/sunny.png')"
+    } else if(season==="Winter"){
+        document.body.style.backgroundImage = "url('backgrounds/Winter.png')"
+    } else if(season === "Spring"){
+        document.body.style.backgroundColor= "green";
+    }
 }
 forecast = function( f ){
     console.log(f);
@@ -520,6 +522,7 @@ function weatherBalloon(cityID, code){
     });
 }
 window.onload = function(){
+    load();
     weatherBalloon(bendID, ICAO);
     //forecast(currentpressure);
 }
