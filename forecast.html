@@ -727,7 +727,7 @@
             } else {
                 document.getElementById("feellike").innerHTML = "Feels Like: "+temp1+"º";
             }
-            document.getElementById("dewpt").innerHTML = "Dew Point: "+d.observations[0].imperial.dewpt;
+            document.getElementById("dewpt").innerHTML = "Dew Point: "+d.observations[0].imperial.dewpt+"º";
             currentConditions(light, rain, time, amtemp, wind, dewpoint, rainM);
             currentpressure = d.observations[0].imperial.pressure;
             abspressEl.innerHTML = currentpressure;
