@@ -132,8 +132,8 @@ hr{
 #precip-group{
     height:10%
 }
-#home a{
-    position: absolute; /* Position them relative to the browser window */
+#home{
+    /*position: absolute; /* Position them relative to the browser window */
     /*left: -80; /* Position them outside of the screen */
     /*transition: 0.3s; /* Add transition on hover */
     /*padding: 15px; /* 15px padding */
