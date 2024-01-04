@@ -719,7 +719,14 @@
                 document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
             }
             document.getElementById("uv").innerHTML = "UV Index: "+d.observations[0].uv;
-            document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.heatIndex+"º";
+            if(parseFloat(d.observations[0].imperial.heatIndex !== temp1){
+                document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.heatIndex+"º";
+            } else if(parseFloat(d.observations[0].imperial.windChill !== temp1){
+                document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.windChill+"º";
+            } else {
+                document.getElementById("feellike").innerHTML = "Feels Like: "+temp1+"º";
+            }
+            document.getElementById("dewpt").innerHTML = "Dew Point: "+d.observations[0].imperial.dewpt;
             currentConditions(light, rain, time, amtemp, wind, dewpoint, rainM);
             currentpressure = d.observations[0].imperial.pressure;
             abspressEl.innerHTML = currentpressure;
