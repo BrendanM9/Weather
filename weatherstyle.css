@@ -145,6 +145,6 @@ hr{
     border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 }
 #expand{
-    width: 14%;
-    color: blue;
+    width: 100%;
+    background-color: blue;
 }
