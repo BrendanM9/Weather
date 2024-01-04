@@ -68,7 +68,7 @@ hr{
   position: fixed;
   bottom: 0;
   background-color: #fefefe;
-  width: 100%;
+  width: 14%;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
   animation-name: slideIn;
@@ -111,7 +111,7 @@ hr{
 }
 
 @keyframes slideIn {
-  from {bottom: -300px; opacity: 0}
+  /*from {bottom: -300px; opacity: 0}*/
   to {bottom: 0; opacity: 1}
 }
 
