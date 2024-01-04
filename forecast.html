@@ -20,17 +20,38 @@
             </div> 
             <p id="condition"></p>
             <p id="temp">Temperature: --ºF</p>
-            <p id="humidity">Humidity: --%</p>
+            <!--<p id="humidity">Humidity: --%</p>
             <p id="winddir">Wind Direction: --º</p>
             <p id="windspeed">Wind Speed: -- MPH</p>
             <p id="windgusts">Wind Gust: -- MPH</p>
             <p id="precip">Precipitation: -- in</p>
             <p id="pressure">Absolute Pressure: -- inHG</p>
             <p id="uv">UV Index: --</p>
-            <p id="feellike">Feels Like: --</p>
+            <p id="feellike">Feels Like: --</p>-->
             <br><br>
-            <!--<button id="expand" onclick="expandToday()">Weather Details</button><br>-->
+            <button id="expand">Weather Details</button><br>
         </div>
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Weather Details</h2>
+                </div>
+                <div class="modal-body">
+                    <p id="humidity">Humidity: --%</p>
+                    <p id="winddir">Wind Direction: --º</p>
+                    <p id="windspeed">Wind Speed: -- MPH</p>
+                    <p id="windgusts">Wind Gust: -- MPH</p>
+                    <p id="precip">Precipitation: -- in</p>
+                    <p id="pressure">Absolute Pressure: -- inHG</p>
+                    <p id="uv">UV Index: --</p>
+                    <p id="feellike">Feels Like: --</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 id="temp-1">--ºF</h3>
+                </div>
+            </div>
         </div>
         <p id="abspress" hidden></p>
         <div class="column" id="b2">
@@ -679,6 +700,7 @@
             wind = d.observations[0].imperial.windSpeed;
             document.getElementById("condition").innerHTML = d.observations[0]
             document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
+            document.getElementById("temp-1").innerHTML = temp1+"ºF";
             document.getElementById("humidity").innerHTML = "Humidity: "+ d.observations[0].humidity +"%";
             document.getElementById("winddir").innerHTML = "Wind Direction: "+d.observations[0].winddir+"º";
             document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
