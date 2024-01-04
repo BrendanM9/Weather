@@ -5,7 +5,7 @@
 .column{
     float: left;
     width: 12%;
-    height: 200px;
+    height: 430px;
     border-style: solid;
 }
 .lo{
@@ -53,7 +53,7 @@ hr{
   left: 0;
   top: 0;
   width: 12%; /* Full width */
-  height: 0%; /* Full height */
+  height: 75%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -68,7 +68,6 @@ hr{
 .modal-content {
   position: fixed;
   bottom: 0;
-    height:75%
   background-color: #fefefe;
   width: 12%;
   -webkit-animation-name: slideIn;
