@@ -142,9 +142,10 @@ hr{
     text-decoration: none; /* Remove underline */
     font-size: 20px; /* Increase font size */
     color: white; /* White text color */
+    background-color:#383E99;
     border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 }
 #expand{
     width: 100%;
-    background-color: blue;
+    background-color: lightblue;
 }
