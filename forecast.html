@@ -719,9 +719,9 @@
                 document.getElementById("pressure").innerHTML = "Pressure: "+d.observations[0].imperial.pressure+"inHG";
             }
             document.getElementById("uv").innerHTML = "UV Index: "+d.observations[0].uv;
-            if(parseFloat(d.observations[0].imperial.heatIndex !== temp1){
+            if(parseFloat(d.observations[0].imperial.heatIndex !== temp1)){
                 document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.heatIndex+"º";
-            } else if(parseFloat(d.observations[0].imperial.windChill !== temp1){
+            } else if(parseFloat(d.observations[0].imperial.windChill !== temp1)){
                 document.getElementById("feellike").innerHTML = "Feels Like: "+d.observations[0].imperial.windChill+"º";
             } else {
                 document.getElementById("feellike").innerHTML = "Feels Like: "+temp1+"º";
