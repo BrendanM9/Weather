@@ -132,3 +132,19 @@ hr{
 #precip-group{
     height:10%
 }
+#home a{
+    position: absolute; /* Position them relative to the browser window */
+    /*left: -80; /* Position them outside of the screen */
+    /*transition: 0.3s; /* Add transition on hover */
+    /*padding: 15px; /* 15px padding */
+    width: 10%; /* Set a specific width */
+    height:10%;
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+#expand{
+    width: 14%;
+    color: blue;
+}
