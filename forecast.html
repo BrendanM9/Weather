@@ -684,12 +684,12 @@
                 document.getElementById("avwind").innerHTML = "Average Wind Speed: "+ parseInt(avwind1) +" MPH"
             }
             for (var z = 0; z <= 6; z ++){
-                var column = document.getElementById("b"+z);
+                //var column = document.getElementById("b"+z);
                 var button9 = document.createElement("a");
                 button9.id= "a"+z;
-                button9.class = "notification";
-                button9.innerHTML = "Forecast Details";
-                document.column.appendChild(button9);
+                //button9.class = "notification";
+                button9.innerHTML = "<h1>Forecast Details</h>";
+                document.getElementById("b"+z).appendChild(button9);
             }
         }
                 
