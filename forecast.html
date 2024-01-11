@@ -685,11 +685,12 @@
             }
             for (var z = 1; z <= 7; z ++){
                 //var column = document.getElementById("b"+z);
-                var button9 = document.createElement("a");
+                var button9 = document.createElement("button");
                 button9.id= "a"+z;
+                button9.class = "alert"
                 console.log("a"+z)
                 //button9.class = "notification";
-                button9.innerHTML = "<h1>Forecast Details</h>";
+                button9.innerHTML = "1";
                 document.getElementById("b"+z).appendChild(button9);
                 console.log("b"+z)
             }
