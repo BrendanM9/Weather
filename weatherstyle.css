@@ -152,4 +152,13 @@ hr{
     background-color: red;
     color:white;
     border-radius:50%;
+    position:absolute;
+    top:50px;
+}
+.alert1{
+    background-color: red;
+    color:white;
+    border-radius:50%;
+    position:absolute;
+    top:250px;
 }
