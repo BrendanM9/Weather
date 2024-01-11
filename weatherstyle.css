@@ -148,3 +148,8 @@ hr{
     width: 100%;
     background-color: lightblue;
 }
+.alert{
+    background-color: red;
+    color:white;
+    border-radius:50%;
+}
