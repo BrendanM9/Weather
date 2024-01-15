@@ -688,7 +688,9 @@
                 var button9 = document.createElement("button");
                 button9.id= "a"+z;
                 button9.classList.add("alert")
-                button9.addEventListener("click", alerts(z));
+                button9.addEventListener("click", function() {
+                    alerts(z)
+                });
                 console.log("a"+z)
                 //button9.class = "notification";
                 button9.innerHTML = "1";
@@ -696,7 +698,9 @@
                 var button10 = document.createElement("button");
                 button10.id= "a"+z2;
                 button10.classList.add("alert1")
-                button9.addEventListener("click", alerts(z2));
+                button9.addEventListener("click", function() {
+                    alerts(z2)
+                });
                 console.log("a"+z2)
                 button10.innerHTML = "1";
                 z1 = z/2;
