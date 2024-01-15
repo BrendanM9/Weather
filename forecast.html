@@ -703,8 +703,9 @@
                 console.log("b"+z1)
                 
             }
-            function alerts(y){
-                console.log(y)
+            function alerts(b){
+                console.log(b)
+                alert("Weather Alert: \n"+ f.daypart[0].qualifierPhrase[b-4]);
             }
             for (var y = 4; y <= 15; y ++){
                 if(f.daypart[0].qualifierPhrase[y-4] !== null){
