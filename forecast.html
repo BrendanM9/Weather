@@ -703,9 +703,13 @@
                 console.log("b"+z1)
                 
             }
+            function alerts(y){
+                console.log(y)
+            }
             for (var y = 4; y <= 15; y ++){
                 if(f.daypart[0].qualifierPhrase[y-4] !== null){
                     document.getElementById("a"+y).style.display = "block";
+                    document.getElementById("a"+y).addEventListener("click", alerts(y));
                 }else{
                     document.getElementById("a"+y).style.display = "none";
                 }
