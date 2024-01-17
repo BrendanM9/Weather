@@ -837,26 +837,31 @@
                 iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
                 today.innerHTML = "<p>Drizzle</p>";
                 condition = 9;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
                 favicon.setAttribute("href", "icons/9.png");
             }else if(r1 > .01 && a1 > 35){
                 iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
                 today.innerHTML = "<p>Rain Showers</p>"
                 condition = 12;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
                 favicon.setAttribute("href", "icons/12.png");
             }else if(r1 > 0 && a1 <= 35 && a1 >= 32){
                 iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
                 today.innerHTML = "<p>Wintery Mix</p>";
                 condition = 7;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
                 favicon.setAttribute("href", "icons/7.png");
             }else if(r1 === .01 && a1 < 32){
                 iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
                 today.innerHTML = "<p>Flurries</p>";
                 favicon.setAttribute("href", "icons/13.png");
                 condition = 13;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
             }else if(r1 > .01 && a1 < 32){
                 iconEl.innerHTML = "<img src='icons/14.png' class='icon'>";
                 today.innerHTML = "<p>Snow Showers</p>";
                 condition = 14;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
                 favicon.setAttribute("href", "icons/14.png");
             }else if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
                 if(t <= d1 + 1){
