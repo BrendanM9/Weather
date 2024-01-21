@@ -9,8 +9,10 @@
     <p>You tried to search for the city <span id="name">--</span>. This city isn't listed in our directory.</p>
     <a href="index.html">Try another city.</a>
     <script>
-      var url = window.location.href
+      var url = String(window.location.href)
       console.log(url)
+      var cityNo = url.substr(47)
+      document.getElementById("name").innerHTML = cityNo;
     </script>
   </body>
 </html>
