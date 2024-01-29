@@ -732,6 +732,13 @@
                     document.getElementById("a"+y).style.display = "none";
                 }
             }*/
+            for (var m = 0; m <= 5; m ++){
+                var moon = f.moonPhase[m];
+                var phase = document.createElement("p")
+                phase.innerHTML = "Moon Phase: "+ moon;
+                m1 = m + 1;
+                document.getElementById("b"+m1).appendChild(phase);
+            }
         }
                 
         var currentpressure;
