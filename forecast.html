@@ -225,6 +225,11 @@
             const clientWidth = window.innerWidth
             const clientHeight = window.innerHeight
             console.log(clientWidth, clientHeight)
+            if (clientWidth <= 630){
+                var mobile = true
+            } else{
+                var mobile = false
+            }
             const favicon = document.getElementById("favicon")
             console.log("URL:" + window.location.href)
             var url = String(window.location.href);
@@ -972,6 +977,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+            if(mobile === true){
+                document.getElementsByClassName("icon").style = "width: 250px; height: 250px;";
+            }
         </script>
     </body>
 </html>
