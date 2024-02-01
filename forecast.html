@@ -8,7 +8,7 @@
         <link rel="icon" type="image/x-icon" href="icons/4.png" id="favicon">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="refresh" content="60">
+        <!--<meta http-equiv="refresh" content="60">-->
         <!--<script src="weatherscript.js"></script>-->
     </head>
     <body>
@@ -978,10 +978,20 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-            function autoRefresh(){
-                window.location = window.location.href
+            var second = 0
+            var minute = 0
+            function secondCounter(){
+                second+= 1
+                if(second >= 60){
+                    minute += 1
+                    second = 0
+                }
+                console.log(minute, second);
+                if(minute >= 2){
+                    window.location = window.location.href
+                }
             }
-            setInterval(autoRefresh(), 300000);
+            setInterval(secondCounter(), 1000);
             if(mobile === true){
                 document.body.style.backgroundImage.height = "100%"
                 //window.location.href = "forecastmobile.html"
