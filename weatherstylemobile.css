@@ -1,0 +1,164 @@
+.icon{
+    width:100px;
+    opacity: 200%;
+}
+.column{
+    float: left;
+    width: 12%;
+    height: 550px;
+    border-style: solid;
+}
+.lo{
+    color:#addde6;
+}
+.lo15{
+    color: blue;
+}
+.hi{
+    color:red;
+}
+hr{
+    width: 50px;
+    border-color: transparent;
+    border-right-color: rgba(255, 255, 255, 0.7);
+    border-right-width: 50px;
+    position: absolute;
+    bottom: 100%;
+    transform-origin: 100% 50%;
+    animation-name: rain;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes rain {
+    from {
+     transform: rotate(105deg) translateX(0);
+    }
+    to {
+     transform: rotate(105deg) translateX(calc(100vh + 20px));
+    }
+   }
+.precip {
+    white-space: nowrap;
+}
+#details{
+    position: absolute;
+    left:5%;
+    top:95%;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 12%; /* Full width */
+  height: 75%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  padding-left:.625%;
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 12%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: lightblue;
+  color: white;
+}
+
+.modal-body {padding: 2px 26px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: lightblue;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  /*from {bottom: -300px; opacity: 0}*/
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+.detail{
+    font-size:70%;
+}
+#precip-group{
+    height:10%
+}
+#home{
+    /*position: absolute; /* Position them relative to the browser window */
+    /*left: -80; /* Position them outside of the screen */
+    /*transition: 0.3s; /* Add transition on hover */
+    /*padding: 15px; /* 15px padding */
+    width: 10%; /* Set a specific width */
+    height:10%;
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    background-color:#383E99;
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+#expand{
+    width: 100%;
+    background-color: lightblue;
+}
+.alert{
+    background-color: red;
+    color:white;
+    border-radius:50%;
+    position:absolute;
+    top:125px;
+}
+.alert1{
+    background-color: red;
+    color:white;
+    border-radius:50%;
+    position:absolute;
+    top:275px;
+}
