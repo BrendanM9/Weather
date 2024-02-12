@@ -246,10 +246,14 @@
             var cityName = ""
             var bendID;
             var ICAO;
+            var Lat;
+            var Long;
             if(cityNo==="bend"){
                 bendID = "KORBEND727"; 
                 ICAO = "KBDN";
                 cityName = "Bend"
+                Lat = null;
+                Long = null;
                 console.log(cityName)
             } else if (cityNo==="sisters"){
                 bendID = "KORSISTE72"; 
@@ -804,7 +808,7 @@
             //forecast(currentpressure);
             //feelslike(hindex, wchill);
         }
-        function weatherBalloon(cityID, code){
+        function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
             .then(function(resp) {return resp.json() })
@@ -815,6 +819,7 @@
         
             });  
             fetch('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode='+code+'&units=e&language=en-US&format=json&apiKey='+key)
+            //fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat1+','+Long1+'&format=json&units=e&language=en-US&apiKey='+key)
             .then(function(resp) {return resp.json()})
             .then (function(data) {
                 forecast(data);
@@ -825,7 +830,7 @@
         }
         window.onload = function(){
             //load();
-            weatherBalloon(bendID, ICAO);
+            weatherBalloon(bendID, ICAO, Lat, Long);
             //forecast(currentpressure);
         }
         var currentConditions = function(l, r, t, a, w, d, m){
