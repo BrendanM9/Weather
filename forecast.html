@@ -305,7 +305,14 @@
                 ICAO = "KCVO";
                 cityName = "Corvallis";
                 console.log(cityName)
-            } else {
+            }  else if (cityNo==="govtcamp") {
+                bendID = "KORRHODO38";
+                ICAO = "KPDX";
+                Lat = null;
+                Long = null;
+                cityName = "Government Camp";
+                console.log(cityName)
+            }else {
                 window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
             document.title = cityName + ", OR Forecast";
