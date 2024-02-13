@@ -217,6 +217,7 @@
             <p id="avqpf">Total Amount of Precipitation: -.-- in</p>
             <p id="avcloud">Average Cloud Cover: --%</p>
             <p id="avwind">Average Wind Speed: -- MPH</p>
+            <p id="update">Last updated: ---------- --:--:--</p>
         </div>
         <!--<div id="details">
             <div id="rain-icon">
@@ -790,8 +791,10 @@
         var rain;
         var time;
         var amtemp;
+        var updateTime;
         function drawWeather (d){
             console.log("Weather data \n", d);
+            updateTime = d.observations[0].obsTimeLocal;
             hindex = d.observations[0].imperial.heatIndex;
             chill = d.observations[0].imperial.windChill; 
             temp1 = d.observations[0].imperial.temp;
@@ -810,6 +813,7 @@
             document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
             document.getElementById("windgusts").innerHTML = "Wind Gust: "+d.observations[0].imperial.windGust+" MPH";
             document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+            document.getElementById("update").innerHTML = "Last updated: "+updateTime;
             rainToday = d.observations[0].imperial.precipTotal;
             if(parseFloat(d.observations[0].imperial.pressure)===29.8){
                 document.getElementById("pressure").innerHTML = "Pressure: 29.80inHG"
