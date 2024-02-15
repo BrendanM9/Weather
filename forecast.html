@@ -380,6 +380,13 @@
                 document.body.style.backgroundColor= "green";
             }
         //}
+        nwsAlerts = function( g ){
+            
+            /*<div class="alert info">
+  <span class="closebtn">&times;</span>  
+  <strong>Info!</strong> Indicates a neutral informative change or action.
+</div>*/
+        }
         forecast = function( f ){
             console.log(f);
             document.getElementById("hi1").innerHTML = "High: "+f.calendarDayTemperatureMax[0]+"º";
@@ -858,6 +865,14 @@
             .catch(function(){
         
             });
+            fetch('https://api.weather.gov/alerts/active?point='+Lat+'%2C'+Long+'&limit=500')
+            .then(function(resp) {return resp.json()})
+            .then (function(data) {
+                nwsAlerts(data);
+            })
+            .catch(function(){
+
+            })
         }
         window.onload = function(){
             //load();
