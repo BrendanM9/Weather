@@ -395,9 +395,9 @@
                 title.innerHTML = g.features[nos].properties.event
                 var text = document.createElement("p")
                 text.innerHTML = g.features[nos].properties.headline+g.features[nos].properties.description;
-                alertDiv.appendChild(text)
-                alertDiv.appendChild(title)
                 alertDiv.appendChild(closeObj)
+                alertDiv.appendChild(title)
+                alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
             }
             /*<div class="alert info">
