@@ -385,7 +385,7 @@
         nwsAlerts = function( g ){
             console.log(g)
             console.log("LEN"+g.features.length)
-            console.log("EVENT"+ g.features[nos].properties.event)
+            console.log("EVENT"+ g.features[0].properties.event)
             for(var nos = 0; nos <= g.features.length; nos++){
                 var alertDiv = document.createElement("div")
                 alertDiv.class="alert info"
