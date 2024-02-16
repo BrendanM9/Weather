@@ -148,17 +148,25 @@ hr{
     width: 100%;
     background-color: lightblue;
 }
-.alert{
+/*.alert{
     background-color: red;
     color:white;
     border-radius:50%;
     position:absolute;
     top:125px;
-}
+}*/
 .alert1{
     background-color: red;
     color:white;
     border-radius:50%;
     position:absolute;
     top:275px;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
 }
