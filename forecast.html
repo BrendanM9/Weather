@@ -398,7 +398,16 @@
                 alertDiv.appendChild(title)
                 alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
-            
+                        var close = document.getElementsByClassName("closebtn");
+var closeB;
+
+for (closeB = 0; closeB < close.length; closeB++) {
+  close[closeB].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
             /*<div class="alert info">
   <span class="closebtn">&times;</span>  
   <strong>Info!</strong> Indicates a neutral informative change or action.
@@ -1067,16 +1076,6 @@ window.onclick = function(event) {
             } else {
                 document.body.style.backgroundImage.width = "100%"
             }
-            var close = document.getElementsByClassName("closebtn");
-var closeB;
-
-for (closeB = 0; closeB < close.length; closeB++) {
-  close[closeB].onclick = function(){
-    var div = this.parentElement;
-    div.style.opacity = "0";
-    setTimeout(function(){ div.style.display = "none"; }, 600);
-  }
-}
 
         </script>
     </body>
