@@ -394,7 +394,9 @@
                 title.innerHTML = g.features[0].properties.event
                 var text = document.createElement("p")
                 var more = document.createElement("a")
-                more.onclick = alert(g.features[0].properties.description)
+                more.onclick = function(){
+                    alert(g.features[0].properties.description)
+                }
                 more.innerHTML = "More Info"
                 text.innerHTML = g.features[0].properties.headline+more;
                 
