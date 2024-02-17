@@ -170,3 +170,4 @@ hr{
   transition: opacity 0.6s;
   margin-bottom: 15px;
 }
+.alert.warning {background-color: #ff9800;}
