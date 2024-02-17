@@ -385,15 +385,20 @@
         nwsAlerts = function( g ){
             console.log(g)
             console.log("LEN"+g.features.length)
-            
+                console.log(1)
                 var alertDiv = document.createElement("div")
+            console.log(2)
                 alertDiv.classList.add("alert warning")
                 //var closeObj = document.createElement("span")
                 //closeObj.classList.add("closebtn")
                 //closeObj.innerHTML = "&times"
+            console.log(3)
                 var title = document.createElement("strong")
+            console.log(4)
                 title.innerHTML = g.features[0].properties.event
+            console.log(5)
                 var text = document.createElement("p")
+            console.log(6)
                 text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
                 //console.log(closeObj)
                 console.log(title)
