@@ -393,11 +393,12 @@
                 var title = document.createElement("strong")
                 title.innerHTML = g.features[0].properties.event
                 var text = document.createElement("p")
-                var more = document.createElement("a")
+                var more = document.createElement("p")
+            more.innerHTML = "<a>More Info</a>"
                 more.onclick = function(){
                     alert(g.features[0].properties.description)
                 }
-                more.innerHTML = "More Info"
+                
                 text.innerHTML = g.features[0].properties.headline+more;
                 
                 alertDiv.appendChild(closeObj)
