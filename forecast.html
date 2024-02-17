@@ -387,17 +387,17 @@
             console.log("LEN"+g.features.length)
             for(var nos = 0; nos <= g.features.length; nos++){
                 var alertDiv = document.createElement("div")
-                alertDiv.classList.add="alert info"
+                alertDiv.classList.add("alert info")
                 var closeObj = document.createElement("span")
-                closeObj.classList.add = "closebtn"
+                closeObj.classList.add("closebtn")
                 closeObj.innerHTML = "&times"
                 var title = document.createElement("strong")
                 title.innerHTML = g.features[nos].properties.event
                 var text = document.createElement("p")
                 text.innerHTML = g.features[nos].properties.headline+g.features[nos].properties.description;
                 alertDiv.appendChild(closeObj)
-                alertDiv.appendChild(title, text)
-                //alertDiv.appendChild(text)
+                alertDiv.appendChild(title)
+                alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
             }
             /*<div class="alert info">
