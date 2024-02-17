@@ -388,17 +388,17 @@
             
                 var alertDiv = document.createElement("div")
                 alertDiv.classList.add("alert warning")
-                var closeObj = document.createElement("span")
-                closeObj.classList.add("closebtn")
-                closeObj.innerHTML = "&times"
+                //var closeObj = document.createElement("span")
+                //closeObj.classList.add("closebtn")
+                //closeObj.innerHTML = "&times"
                 var title = document.createElement("strong")
                 title.innerHTML = g.features[0].properties.event
                 var text = document.createElement("p")
                 text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
-                console.log(closeObj)
+                //console.log(closeObj)
                 console.log(title)
                 console.log(text)
-                alertDiv.appendChild(closeObj)
+                //alertDiv.appendChild(closeObj)
                 alertDiv.appendChild(title)
                 alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
