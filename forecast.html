@@ -1068,10 +1068,10 @@ window.onclick = function(event) {
                 document.body.style.backgroundImage.width = "100%"
             }
             var close = document.getElementsByClassName("closebtn");
-var i;
+var closeB;
 
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function(){
+for (closeB = 0; closeB < close.length; closeB++) {
+  close[closeB].onclick = function(){
     var div = this.parentElement;
     div.style.opacity = "0";
     setTimeout(function(){ div.style.display = "none"; }, 600);
