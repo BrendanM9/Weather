@@ -393,10 +393,14 @@
                 var title = document.createElement("strong")
                 title.innerHTML = g.features[0].properties.event
                 var text = document.createElement("p")
-                text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
+                var more = document.createElement("a")
+                more.onclick = alert(g.features[0].properties.description)
+                more.innerHTML = "More Info"
+                text.innerHTML = g.features[0].properties.headline+more;
+                
                 alertDiv.appendChild(closeObj)
-                alertDiv.appendChild(title)
-                alertDiv.appendChild(text)
+                alertDiv.appendChild(title, text)
+                //alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
                         var close = document.getElementsByClassName("closebtn");
 var closeB;
