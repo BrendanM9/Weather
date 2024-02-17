@@ -385,7 +385,7 @@
         nwsAlerts = function( g ){
             console.log(g)
             console.log("LEN"+g.features.length)
-            if(g.features[0].properties.event !== null){
+            
                 var alertDiv = document.createElement("div")
                 alertDiv.classList.add("alert warning")
                 var closeObj = document.createElement("span")
@@ -402,7 +402,7 @@
                 alertDiv.appendChild(title)
                 alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
-            }
+            
             /*<div class="alert info">
   <span class="closebtn">&times;</span>  
   <strong>Info!</strong> Indicates a neutral informative change or action.
