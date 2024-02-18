@@ -905,16 +905,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //feelslike(hindex, wchill);
         }
         function trafficCam(camID){
-            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId=541', {
-                    method: 'GET',
-                    mode: 'no-cors',
-                    // Request headers
-                    headers: {
-                        //'Cache-Control': 'no-cache',
-                        'Ocp-Apim-Subscription-Key': 'a036194717464c84a1d0d623a518ed57',
-                        /**/'Access-Control-Allow-Origin': 'http://brendanm9.github.io/Weather',
-                        'Access-Control-Allow-Credentials': 'true',/**/}
-                })
+            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
+                    
                 .then(response => {
                     console.log(response.status);
                     console.log(response.text());
