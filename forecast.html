@@ -905,13 +905,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //feelslike(hindex, wchill);
         }
         function trafficCam(camID){
-            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
+            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI)
                     
-                .then(response => {
-                    console.log(response.status);
-                    console.log(response.text());
-                })
-                .catch(err => console.error(err));
+            .then(response => {
+            console.log(response.status);
+            console.log(response.text());
+            })
+            .then(function(resp) { return resp.json()})
+            .then(function(data) {
+                liveTripCheckCams(data)
+            })
+            .catch(function(){
+                
+            });
         }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
