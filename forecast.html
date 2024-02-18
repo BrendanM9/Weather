@@ -917,6 +917,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     console.log(response.text());
                 })
                 .catch(err => console.error(err));
+        }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
