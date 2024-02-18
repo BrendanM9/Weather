@@ -906,14 +906,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
         }
         function trafficCam(camID){
             var key = tripCheckAPI;
-            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?RouteId=US97 HTTP/1.1')
-            .then(function(resp) {return resp.json() })
-            .then(function(data) {
+            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?RouteId='+camID, {
+            method: 'GET',
+            // Request headers
+            headers: {
+            'Cache-Control': 'no-cache',
+            'Ocp-Apim-Subscription-Key': '••••••••••••••••••••••••••••••••',}
+            })
+                .then(response => {
+                console.log(response.status);
+                console.log(response.text());
                 liveTripCheckCams(data);
             })
-            .catch(function(){
-
-            });
+            .catch(err => console.error(err));
         }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
