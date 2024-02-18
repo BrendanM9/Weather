@@ -251,12 +251,14 @@
             var ICAO;
             var Lat;
             var Long;
+            var tripCheckDevice;
             if(cityNo==="bend"){
                 bendID = "KORBEND727"; 
                 ICAO = "KBDN";
                 cityName = "Bend"
                 Lat = 44.059221;
                 Long = -121.25976;
+                tripCheckDevice = 674;
                 console.log(cityName)
             } else if (cityNo==="sisters"){
                 bendID = "KORSISTE72"; 
@@ -265,6 +267,7 @@
                 console.log(cityName)
                 Lat = 44.284
                 Long = -121.529
+                tripCheckDevice = 236;
             } else if (cityNo==="redmond"){
                 bendID = "KORREDMO186"; 
                 ICAO = "KRDM";
@@ -272,6 +275,7 @@
                 console.log(cityName)
                 Lat = 44.248
                 Long = -121.217
+                tripCheckDevice = HERE!!!
             } else if (cityNo==="sunriver"){
                 bendID = "KORSUNRI22"; 
                 ICAO = "KS21";
@@ -279,6 +283,7 @@
                 console.log(cityName)
                 Lat = 43.892
                 Long = -121.44
+                tripCheckDevice = 197;
             } else if (cityNo==="lapine"){
                 bendID = "KORLAPIN72"; 
                 ICAO = "KS21";
@@ -286,6 +291,7 @@
                 console.log(cityName)
                 Lat = 43.703
                 Long = -121.497
+                tripCheckDevice = 198;
             } else if (cityNo==="portland"){
                 bendID = "KORPORTL2053"; 
                 ICAO = "KPDX";
@@ -293,6 +299,7 @@
                 console.log(cityName)
                 Lat = 45.563
                 Long = -122.607
+                tripCheckDevice = 246;
             } else if (cityNo==="eugene"){
                 bendID = "KOREUGEN267"; 
                 ICAO = "KEUG";
@@ -300,6 +307,7 @@
                 console.log(cityName)
                 Lat = 44.043999
                 Long = -123.152
+                tripCheckDevice = 541;
             } else if (cityNo==="salem"){
                 bendID = "KORSALEM578"; 
                 ICAO = "KSLE";
@@ -307,6 +315,7 @@
                 console.log(cityName)
                 Lat = 44.931
                 Long = -122.978
+                tripCheckDevice = 792;
             } else if (cityNo==="prineville"){
                 bendID = "KORPRINE54"; 
                 ICAO = "KS39";
@@ -314,6 +323,7 @@
                 console.log(cityName)
                 Lat = 44.288834
                 Long = -120.815483
+                tripCheckDevice = 764;
             } else if (cityNo==="madras"){
                 bendID = "KORMADRA49"; 
                 ICAO = "KS33";
@@ -321,6 +331,7 @@
                 console.log(cityName)
                 Lat = 44.659808
                 Long = -121.167526
+                tripCheckDevice = 760;
             } else if (cityNo==="corvallis"){
                 bendID = "KORCORVA213";
                 ICAO = "KCVO";
@@ -328,18 +339,29 @@
                 console.log(cityName)
                 Lat = 44.581
                 Long = -123.262
+                tripCheckDevice = 861;
             }  else if (cityNo==="govtcamp") {
                 bendID = "KORRHODO39";
                 ICAO = "KPDX";
                 Lat = 45.349;
                 Long = -121.939;
                 cityName = "Government Camp";
+                tripCheckDevice = 203
+                console.log(cityName)
+            } else if (cityNo==="albany"){
+                bendID = null
+                ICAO = null
+                Lat = 44.62998
+                Long = -123.06256
+                cityName = "Albany"
+                tripCheckDevice = 1088
                 console.log(cityName)
             }else {
                 window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
             document.title = cityName + ", OR Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
+            const tripCheckAPI = "a67a3213e4a24583892b7d4c02ff932e";
             document.getElementById("title1").innerHTML = "Live local forecast for "+cityName;
             var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
@@ -382,6 +404,9 @@
                 document.body.style.backgroundColor= "green";
             }
         //}
+        liveTripCheckCams = function( t ){
+            console.log(t);
+        }
         nwsAlerts = function( g ){
             console.log(g)
             console.log("LEN"+g.features.length)
@@ -879,6 +904,18 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //forecast(currentpressure);
             //feelslike(hindex, wchill);
         }
+        function trafficCam(camID){
+            var key = tripCheckAPI;
+            fetch('GET https://api.odot.state.or.us/tripcheck/Cctv/Inventory?RouteId=US97 HTTP/1.1')
+            .then(function(resp) {return resp.json() })
+            .then(function(data) {
+                liveTripCheckCams(data);
+            })
+            .catch(function(){
+
+            });
+
+
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
