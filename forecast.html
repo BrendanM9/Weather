@@ -905,13 +905,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //feelslike(hindex, wchill);
         }
         function trafficCam(camID){
-            var key = tripCheckAPI;
+            var trafficKey = tripCheckAPI;
             fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceID='+camID, {
             method: 'GET',
             // Request headers
             headers: {
             'Cache-Control': 'no-cache',
-            'Ocp-Apim-Subscription-Key': '••••••••••••••••••••••••••••••••',}
+            'Ocp-Apim-Subscription-Key': trafficKey,}
             })
                 .then(response => {
                 console.log(response.status);
