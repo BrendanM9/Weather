@@ -910,7 +910,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     // Request headers
                     headers: {
                         'Cache-Control': 'no-cache',
-                        'Ocp-Apim-Subscription-Key': 'a67a3213e4a24583892b7d4c02ff932e',}
+                        'Ocp-Apim-Subscription-Key': 'a67a3213e4a24583892b7d4c02ff932e',
+                        'Access-Control-Allow-Origin', 'https:brendanm9.github.io/Weather',
+                        'Access-Control-Allow-Credentials', 'true',}
                 })
                 .then(response => {
                     console.log(response.status);
