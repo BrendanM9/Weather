@@ -907,7 +907,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function trafficCam(camID){
             fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
                     method: 'GET',
-                    mode: 'no-cors',
+                    //mode: 'no-cors',
                     // Request headers
                     headers: {
                         //'Cache-Control': 'no-cache',
