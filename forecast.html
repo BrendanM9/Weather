@@ -869,6 +869,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         xhr.setRequestHeader('Cache-Control', 'no-cache')
         xhr.setRequestHeader('Ocp-Apim-Subscription-Key', 'a036194717464c84a1d0d623a518ed57')
+        xhr.setRequestHeader('Access-Control-Allow-Origin', true)
         xhr.send();
     }
         function drawWeather (d){
