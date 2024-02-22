@@ -19,6 +19,7 @@
         <div id="alerts">
         </div>
         <button id="left" hidden><-</button>
+        <input type="submit" value="Start" onclick="getCams()">
         <div class="column" id="b1">
             Current Conditions:
         <div id="currentc">
@@ -857,6 +858,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
         var time;
         var amtemp;
         var updateTime;
+            function getCams() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                alert(xhr.response);
+            }
+        }
+        xhr.open('get', 'https://api.odot.state.or.us/tripcheck/Cctv/Inventory HTTP/1.1', true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        xhr.setRequestHeader('Cache-Control', 'no-cache')
+        xhr.setRequestHeader('Ocp-Apim-Subscription-Key', 'a036194717464c84a1d0d623a518ed57')
+        xhr.send();
+    }
         function drawWeather (d){
             console.log("Weather data \n", d);
             updateTime = d.observations[0].obsTimeLocal;
