@@ -966,7 +966,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
-            fetch('https://api.weather.gov/points/'+Lat+','+Long+'-121.3154')
+            fetch('https://api.weather.gov/points/'+Lat+','+Long)
             .then(function(resp) {return resp.json()})
             .then(function(data){
                 console.log(data)
