@@ -928,12 +928,25 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 
             });
         }
+        function loadStation(json2){
+            var station0 = json2.observationStations[0]
+            fetch(station0)
+            .then(function(resp) {return resp.json() })
+            .then(function(data) {
+                console.log(data)
+                nwsCurrent(data)
+            })
+            .catch(function(){
+
+            })
+        }
         function findConditions(json1){
             var observationStation = json1.properties.observationStations
             fetch(observationStation)
             .then(function(resp) {return resp.json() })
             .then(function(data) {
                 console.log(data)
+                loadStation(data)
             })
             .catch(function(){
 
@@ -981,6 +994,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
             weatherBalloon(bendID, ICAO, Lat, Long);
             //trafficCam(tripCheckDevice);
             //forecast(currentpressure);
+        }
+        var nwsCurrent = function(nws){
+            
         }
         var currentConditions = function(l, r, t, a, w, d, m){
             var l1 = parseInt(l);
