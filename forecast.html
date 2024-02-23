@@ -928,6 +928,17 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 
             });
         }
+        function findConditions(json1){
+            var observationStation = json1.properties.observationStations
+            fetch(observationStation)
+            .then(function(resp) {return resp.json() })
+            .then(function(data) {
+                console.log(data)
+            })
+            .catch(function(){
+
+            })
+        }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
@@ -955,7 +966,15 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
-            //fetch('https://api.weather.gov/
+            fetch('https://api.weather.gov/points/44.0578,-121.3154')
+            .then(function(resp) {return resp.json()})
+            .then(function(data){
+                console.log(data)
+                findConditions(data)
+            })
+            .catch(function(){
+
+            })
         }
         window.onload = function(){
             //load();
