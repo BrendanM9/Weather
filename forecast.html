@@ -25,7 +25,7 @@
             <div id="icon">
                 <img src="icons/44.png" class="icon">
             </div> 
-            <p id="condition"></p>
+            <!--<p id="condition"></p>-->
             <p id="conditionNWS"></p>
             <p id="temp">Temperature: --ºF</p>
             <!--<p id="humidity">Humidity: --%</p>
@@ -999,7 +999,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function nwsCurrent(nws){
             var nws1 = nws.features[0].properties.textDescription
             console.log(nws1)
-            document.getElementById("conditionNWS").innerHTML = "Test"+nws1;
+            document.getElementById("conditionNWS").innerHTML = nws1;
         }
         var currentConditions = function(l, r, t, a, w, d, m){
             var l1 = parseInt(l);
