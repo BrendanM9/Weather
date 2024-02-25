@@ -172,3 +172,6 @@ hr{
   margin-bottom: 15px;
 }
 .alert.warning {background-color: #ff9800;}
+body{
+    background-size:100%
+}
