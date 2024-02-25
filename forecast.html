@@ -906,7 +906,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //feelslike(hindex, wchill);
         }
         function trafficCam(camID){
-            /*fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
+            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
                     method: 'GET',
                     //mode: 'no-cors',
                     mode: 'cors',
@@ -914,11 +914,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     headers: {
                         //'Cache-Control': 'no-cache',
                         //'Ocp-Apim-Subscription-Key': 'a036194717464c84a1d0d623a518ed57',
-                        /*'Access-Control-Allow-Origin': 'https://brendanm9.github.io/',
+                        'Access-Control-Allow-Origin': '*',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Content-Type':'application/json', 'charset':'utf-8',
+                        /*'Content-Type':'application/json', 'charset':'utf-8',*/
                         /*"X-Content-Type-Options": "nosniff",/*}
                 })*/
+            /*
                 fetch('https://api.odot.state.or.us/tripcheck/Dms/Status?RouteId=US97&key=a036194717464c84a1d0d623a518ed57', {
                     method: 'GET',
                     mode: 'cors',
@@ -934,7 +935,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 .catch(function(){
                     
                 })
-            /*
+                */
+            
             .then(function(resp) { return resp.json()})
             .then(function(data) {
                 console.log(data)
@@ -942,7 +944,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             })
             .catch(function(){
                 
-            });*/
+            });
         }
         function loadStation(json2){
             var station0 = json2.observationStations[0]
