@@ -62,8 +62,13 @@
     background-color: black;
     margin: 6px 0;
   }
+             #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
 
         </style>
+        <div id="main">
         <h1>Welcome to My Oregon Weather!</h1>
         <h3>Please select a location to continue.</h3>
         <form action="forecast.html">
@@ -101,6 +106,7 @@
             <input type="submit" id="submit" value="View My Forecast">
             <!--<button id="view">View My Forecast</button>-->
         </form>
+        </div>
         <script>
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
