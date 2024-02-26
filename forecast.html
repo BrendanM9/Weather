@@ -13,6 +13,12 @@
         <!--<script src="weatherscript.js"></script>-->
     </head>
     <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Weather</a>
+            <a href="pass.html">Pass Conditions</a>
+            <a href="traffic.html">Traffic</a>
+        </div>
         <!--Background photo courtesy of https://www.wallpaperup.com/uploads/wallpapers/2015/12/22/866247/82cbad376d1a97b88b9dca2220225513.jpg-->
         <a href="index.html" id="home">Return Home</a>
         <h1 id="title1">Live local forecast:</h1>
@@ -229,6 +235,18 @@
             <p id="rain-amount">Precipitation since midnight: -- in</p>
         </div>-->
         <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
+            }
         //function load(){
             const clientWidth = window.innerWidth
             const clientHeight = window.innerHeight
