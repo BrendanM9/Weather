@@ -649,9 +649,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
                 cloudCoverAvg1 = cloudCoverAvg1/2;
             }
-            if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 33){
+            if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 25){
                 document.getElementById("b2").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (cloudCoverAvg1 > 33 && cloudCoverAvg1 <= 66){
+            } else if (cloudCoverAvg1 > 25 && cloudCoverAvg1 <= 75){
                 document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
                 document.getElementById("b2").style.backgroundImage =  "url('backgrounds/cloudy.png')";
