@@ -928,32 +928,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function trafficCam(camID){
             fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
                     method: 'GET',
-                    //mode: 'no-cors',
                     mode: 'cors',
-                    // Request headers
                     headers: {
                         'Access-Control-Allow-Origin': '*',
                         'Access-Control-Allow-Headers': '*',
-                        'Access-Control-Allow-Credentials': 'true',}
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Access-Control-Expose-Headers':'X-Correlation-Id, X-Request-Id, X-Server-Id',}
                 })
-            /*
-                fetch('https://api.odot.state.or.us/tripcheck/Dms/Status?RouteId=US97&key=a036194717464c84a1d0d623a518ed57', {
-                    method: 'GET',
-                    mode: 'cors',
-                    headers: {
-                        'Cache-Control': 'no-cache',
-                        'Ocp-Apim-Subscription-Key': 'a036194717464c84a1d0d623a518ed57',
-                        'Access-Control-Allow-Origin': '*',}
-                    })
-                .then(function(resp) { return resp.json()})
-                .then(function(data) {
-                    console.log(data)
-                })
-                .catch(function(){
-                    
-                })
-                */
-            
             .then(function(resp) { return resp.json()})
             .then(function(data) {
                 console.log(data)
