@@ -451,7 +451,21 @@
                 alertDiv.appendChild(title)
                 alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
-                        var close = document.getElementsByClassName("closebtn");
+            
+                var alertDiv1 = document.createElement("div")
+                alertDiv1.className = "alert warning"
+                closeObj = document.createElement("span")
+                closeObj.className = "closebtn"
+                closeObj.innerHTML = "&times"
+                title = document.createElement("strong")
+                title.innerHTML = g.features[1].properties.event
+                text = document.createElement("p")
+                text.innerHTML = g.features[1].properties.headline+g.features[1].properties.description;
+                alertDiv1.appendChild(closeObj)
+                alertDiv1.appendChild(title)
+                alertDiv.appendChild(text)
+                document.getElementById("alerts").appendChild(alertDiv1)
+                var close = document.getElementsByClassName("closebtn");
 var closeB;
 
 for (closeB = 0; closeB < close.length; closeB++) {
