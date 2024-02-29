@@ -453,7 +453,7 @@
                 alertDiv.appendChild(title)
                 alertDiv.appendChild(text)
                 document.getElementById("alerts").appendChild(alertDiv);
-                
+                if(g.features[1].properties.event){
                 var alertDiv1 = document.createElement("div")
                 alertDiv1.className = "alert warning"
                 var closeObj1 = document.createElement("span")
@@ -467,6 +467,7 @@
                 alertDiv1.appendChild(title)
                 alertDiv1.appendChild(text)
                 document.getElementById("alerts2").appendChild(alertDiv1)
+                }
                 var close = document.getElementsByClassName("closebtn");
 var closeB;
 
