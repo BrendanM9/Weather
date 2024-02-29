@@ -1093,19 +1093,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 condition = 14;
                 document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
                 favicon.setAttribute("href", "icons/14.png");
+            } else if(parseFloat(t) <= parseFloat(d1) - 1){
+                console.log(t)
+                console.log(d1)
+                iconEl.innerHTML = "<img src='icons/20.png' class='icon'>";
+                //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/20.png">'; 
+                today.innerHTML = "<p>Foggy</p>";
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
+                condition = 20;
+                favicon.setAttribute("href", "icons/20.png");
             }else if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
                 console.log(t)
                 console.log(d1)
-                if(parseFloat(t) <= parseFloat(d1) - 1){
-                    console.log(t)
-                    console.log(d1)
-                    iconEl.innerHTML = "<img src='icons/20.png' class='icon'>";
-                    //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/20.png">'; 
-                    today.innerHTML = "<p>Foggy</p>";
-                    document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
-                    condition = 20;
-                    favicon.setAttribute("href", "icons/20.png");
-                } else if(time >= 7 && time < 19){
+                if(time >= 7 && time < 19){
         iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
         //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/26.png">'; 
         today.innerHTML = "<p>Cloudy</p>";
