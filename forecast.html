@@ -942,6 +942,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //forecast(currentpressure);
             //feelslike(hindex, wchill);
         }
+            /*
         function trafficCam(camID){
             fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
                     method: 'GET',
@@ -962,6 +963,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 
             });
         }
+            */
         function loadStation(json2){
             var station0 = json2.observationStations[0]
             fetch(station0+"/observations")
