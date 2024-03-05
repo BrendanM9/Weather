@@ -13,14 +13,13 @@
         <!--<script src="weatherscript.js"></script>-->
     </head>
     <body>
-        <!--<div id="mySidenav" class="sidenav">
+        <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Weather</a>
             <a href="pass.html">Pass Conditions</a>
             <a href="traffic.html">Traffic</a>
         </div>
         <span onclick="openNav()"><div class="icon"></div><div class="icon"></div><div class="icon"></div></span>
-        -->
         <!--Background photo courtesy of https://www.wallpaperup.com/uploads/wallpapers/2015/12/22/866247/82cbad376d1a97b88b9dca2220225513.jpg-->
         <a href="index.html" id="home">Return Home</a>
         <h1 id="title1">Live local forecast:</h1>
@@ -514,6 +513,22 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } else {
             document.getElementById("icon1").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[0]+".png' class='icon'>";
             }
+            for(var icons = 2; icons <= 12; icons++){
+                var thisIconDiv = document.createElement("div")
+                thisIconDiv.id="icon"+icons
+                var thisIcon = document.createElement("img")
+                thisIcon.className = "icon";
+                thisIcon.setAttribute("src", "icons/"+f.daypart[0].iconCode[icons-1]+".png"
+                thisIconDiv.appendChild(thisIcon)
+                var thisIconDiv1 = document.createElement("div")
+                thisIconDiv1.id="icon"+(icons+1)
+                var thisIcon1 = document.createElement("img")
+                thisIcon1.className = "icon";
+                thisIcon1.setAttribute("src", "icons/"+f.daypart[0].iconCode[icons]+".png"
+                thisIconDiv1.appendChild(thisIcon1)
+                document.getElementById("b"+icons).appendChild(thisIconDiv)
+                document.getElementById("b"+icons).appendChild(thisIconDiv1)
+            }
             document.getElementById("icon2a").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[1]+".png' class='icon'>";
             document.getElementById("icon3").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[2]+".png' class='icon'>";
             document.getElementById("icon4").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[3]+".png' class='icon'>";
@@ -566,94 +581,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         document.getElementById("qpf"+q).innerHTML = " | "+ f.daypart[0].qpfSnow[q]+"in";
                 }
             }
-                /*
-            if(f.daypart[0].wxPhraseShort[1]==="P Cloudy" || f.daypart[0].wxPhraseShort[1]==="M Sunny" || f.daypart[0].wxPhraseShort[1]==="M Clear" || f.daypart[0].wxPhraseShort[1]==="M Cloudy"){
-                document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[1]==="Sunny"|| f.daypart[0].wxPhraseShort[1]==="Clear"){
-                document.getElementById("b2").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (f.daypart[0].wxPhraseShort[1]==="Cloudy"){
-                document.getElementById("b2").style.backgroundImage = "url('backgrounds/cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[1]==="Shwrs Early" || f.daypart[0].wxPhraseShort[1]=== "PM Showers" || f.daypart[0].wxPhraseShort[1]==="AM Showers" || f.daypart[0].wxPhraseShort[1]==="Showers"){
-                document.getElementById("b2").style.backgroundImage = "url('backgrounds/rain.png')";
-            }
-            if(f.daypart[0].wxPhraseShort[2]==="P Cloudy" || f.daypart[0].wxPhraseShort[2]==="M Sunny" || f.daypart[0].wxPhraseShort[2]==="M Clear" || f.daypart[0].wxPhraseShort[2]==="M Cloudy"){
-                document.getElementById("b3").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[2]==="Sunny"|| f.daypart[0].wxPhraseShort[2]==="Clear"){
-                document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (f.daypart[0].wxPhraseShort[2]==="Cloudy"){
-                document.getElementById("b3").style.backgroundImage = "url('backgrounds/cloudy.png')";
-            }
-            if(f.daypart[0].wxPhraseShort[4]==="P Cloudy" || f.daypart[0].wxPhraseShort[4]==="M Sunny" || f.daypart[0].wxPhraseShort[4]==="M Clear" || f.daypart[0].wxPhraseShort[4]==="M Cloudy"){
-                document.getElementById("b4").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[4]==="Sunny"|| f.daypart[0].wxPhraseShort[4]==="Clear"){
-                document.getElementById("b4").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (f.daypart[0].wxPhraseShort[4]==="Cloudy"){
-                document.getElementById("b4").style.backgroundImage = "url('backgrounds/cloudy.png')";
-            }
-            if(f.daypart[0].wxPhraseShort[6]==="P Cloudy" || f.daypart[0].wxPhraseShort[6]==="M Sunny" || f.daypart[0].wxPhraseShort[6]==="M Clear" || f.daypart[0].wxPhraseShort[6]==="M Cloudy"){
-                document.getElementById("b5").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[6]==="Sunny"|| f.daypart[0].wxPhraseShort[6]==="Clear"){
-                document.getElementById("b5").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (f.daypart[0].wxPhraseShort[6]==="Cloudy"){
-                document.getElementById("b5").style.backgroundImage = "url('backgrounds/cloudy.png')";
-            }
-            
-            if(f.daypart[0].wxPhraseShort[8]==="P Cloudy" || f.daypart[0].wxPhraseShort[8]==="M Sunny" || f.daypart[0].wxPhraseShort[8]==="M Clear" || f.daypart[0].wxPhraseShort[8]==="M Cloudy"){
-                document.getElementById("b6").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[8]==="Sunny"|| f.daypart[0].wxPhraseShort[8]==="Clear"){
-                document.getElementById("b6").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (f.daypart[0].wxPhraseShort[8]==="Cloudy"){
-                document.getElementById("b6").style.backgroundImage = "url('backgrounds/cloudy.png')";
-            }
-            if(f.daypart[0].wxPhraseShort[10]==="P Cloudy" || f.daypart[0].wxPhraseShort[10]==="M Sunny" || f.daypart[0].wxPhraseShort[10]==="M Clear" || f.daypart[0].wxPhraseShort[10]==="M Cloudy"){
-                document.getElementById("b7").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
-            } else if (f.daypart[0].wxPhraseShort[10]==="Sunny"|| f.daypart[0].wxPhraseShort[10]==="Clear"){
-                document.getElementById("b7").style.backgroundImage = "url('backgrounds/sunny.png')";
-            } else if (f.daypart[0].wxPhraseShort[10]==="Cloudy"){
-                document.getElementById("b7").style.backgroundImage = "url('backgrounds/cloudy.png')";
-            }
-            */
            console.log(season)
-            /*
-            if (parseFloat(f.qpf[0])>= parseFloat(f.qpfSnow[0])){
-                document.getElementById("qpf1").innerHTML = "Rain Amount: "+ f.qpf[0]+"in";
-            } else {
-                document.getElementById("qpf1").innerHTML = "Snow Amount: "+ f.qpfSnow[0]+"in";
-            }
-            if (parseFloat(f.qpf[1])>= parseFloat(f.qpfSnow[1])){
-                document.getElementById("qpf3").innerHTML = "Rain Amount: "+ f.qpf[1]+"in";
-            } else {
-                document.getElementById("qpf3").innerHTML = "Snow Amount: "+ f.qpfSnow[1]+"in";
-            }
-            */
-            /*
-            if (parseFloat(f.daypart[0].precipType[1]) = "snow"){
-                document.getElementById("qpf3").innerHTML = "Snow Amount: "+ f.qpfSnow[1]+"in";
-            } else {
-                document.getElementById("qpf3").innerHTML = "Rain Amount: "+ f.qpf[1]+"in";
-            }
-            */
-            /*
-            if (parseFloat(f.qpf[2])>= parseFloat(f.qpfSnow[2])){
-                document.getElementById("qpf5").innerHTML = "Rain Amount: "+ f.qpf[2]+"in";
-            } else {
-                document.getElementById("qpf5").innerHTML = "Snow Amount: "+ f.qpfSnow[2]+"in";
-            }if (parseFloat(f.qpf[3])>= parseFloat(f.qpfSnow[3])){
-                document.getElementById("qpf7").innerHTML = "Rain Amount: "+ f.qpf[3]+"in";
-            } else {
-                document.getElementById("qpf7").innerHTML = "Snow Amount: "+ f.qpfSnow[3]+"in";
-            }
-            if (parseFloat(f.qpf[4])>= parseFloat(f.qpfSnow[4])){
-                document.getElementById("qpf9").innerHTML = "Rain Amount: "+ f.qpf[4]+"in";
-            } else {
-                document.getElementById("qpf9").innerHTML = "Snow Amount: "+ f.qpfSnow[4]+"in";
-            }
-            if (parseFloat(f.qpf[5])>= parseFloat(f.qpfSnow[5])){
-                document.getElementById("qpf11").innerHTML = "Rain Amount: "+ f.qpf[5]+"in";
-            } else {
-                document.getElementById("qpf11").innerHTML = "Snow Amount: "+ f.qpfSnow[5]+"in";
-            }
-            */
             var cloudCoverAvg1;
             var cloudCoverAvg2;
             var cloudCoverAvg3;
