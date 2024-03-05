@@ -513,6 +513,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } else {
             document.getElementById("icon1").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[0]+".png' class='icon'>";
             }
+            /*
             for(var icons = 2; icons <= 12; icons++){
                 var thisIconDiv = document.createElement("div")
                 thisIconDiv.id="icon"+icons
@@ -528,8 +529,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisIconDiv1.appendChild(thisIcon1)
                 document.getElementById("b"+icons).appendChild(thisIconDiv)
                 document.getElementById("b"+icons).appendChild(thisIconDiv1)
-            }
-            /*
+            }*/
+            
             document.getElementById("icon2a").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[1]+".png' class='icon'>";
             document.getElementById("icon3").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[2]+".png' class='icon'>";
             document.getElementById("icon4").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[3]+".png' class='icon'>";
@@ -541,7 +542,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("icon10").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[9]+".png' class='icon'>";
             document.getElementById("icon11").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[10]+".png' class='icon'>";
             document.getElementById("icon12").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[11]+".png' class='icon'>";
-            */
+            
             for(var p = 1; p < 12; p++){
                 if(f.daypart[0].precipType[p] === "snow"){
         precipType[p] = "Snow: "; 
