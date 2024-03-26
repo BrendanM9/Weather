@@ -780,10 +780,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //trafficCam(tripCheckDevice);
             //forecast(currentpressure);
         }
+        var nwsSet = false;
         function nwsCurrent(nws){
             var nws1 = nws.features[0].properties.textDescription
             console.log(nws1)
             if(nws1 !== ""){
+                nwsSet = true;
                 console.log("Yes"+nws1)
                 var complexNws1 = null;
                 var nwsWordList = nws1.split(" ");
@@ -805,7 +807,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 }
             } else {
                 console.log("No report!!!")
-                
+                nwsSet = false;
             }
             //document.getElementById("conditionNWS").innerHTML = nws1;
         }
@@ -842,6 +844,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //Full Bucket
                 bucket.src= "Gauges/2:2.png"
             }
+            if(nwsSet === false){
             if(r1 === .01 && a1 > 35){
                 iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
                 today.innerHTML = "<p>Drizzle</p>";
@@ -942,6 +945,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 }
             } else {
                 console.log("No report")
+            }
             }
         }
                 
