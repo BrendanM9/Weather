@@ -471,11 +471,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.innerHTML = f.dayOfWeek[day];
                 document.getElementById("b"+day2).appendChild(thisText);
             }
-            for(precip = 0; precip <= 5; precip+= 2){
+            for(precip = 0; precip <= 10; precip+= 2){
                 precip1 = precip + 1;
                 precip2 = precip + 2;
                 precip3 = precip + 3;
-                thisB = (precip/2)+1
+                thisB = (precip/2)+2;
                 var thisIcon1 = document.createElement("div");
                 thisIcon1.id = "icon"+precip1;
                 if(f.daypart[0].iconCode[precip] === null){
