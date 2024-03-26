@@ -475,18 +475,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
         }
         forecast = function( f ){
             console.log(f);
-            document.getElementById("hi1").innerHTML = "High: "+f.calendarDayTemperatureMax[0]+"º";
-            document.getElementById("hi3").innerHTML = "High: "+f.temperatureMax[1]+"º";
-            document.getElementById("hi5").innerHTML = "High: "+f.temperatureMax[2]+"º";
-            document.getElementById("hi7").innerHTML = "High: "+f.temperatureMax[3]+"º";
-            document.getElementById("hi9").innerHTML = "High: "+f.temperatureMax[4]+"º";
-            document.getElementById("hi11").innerHTML = "High: "+f.temperatureMax[5]+"º";
-            document.getElementById("lo1").innerHTML = "Low: "+f.temperatureMin[0]+"º";
-            document.getElementById("lo3").innerHTML = "Low: "+f.temperatureMin[1]+"º";
-            document.getElementById("lo5").innerHTML = "Low: "+f.temperatureMin[2]+"º";
-            document.getElementById("lo7").innerHTML = "Low: "+f.temperatureMin[3]+"º";
-            document.getElementById("lo9").innerHTML = "Low: "+f.temperatureMin[4]+"º";
-            document.getElementById("lo11").innerHTML = "Low: "+f.temperatureMin[5]+"º";
             for(day = 0; day <= 5; day++){
                 day1 = day+1
                 day2 = day+2
@@ -494,6 +482,22 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
                 document.getElementById("b"+day2).appendChild(thisText);
+            }
+            for(hilo = 0; hilo <= 5; hilo++){
+                hilo1 = hilo + 1;
+                hilo2 = hilo + 2;
+                var thisHi = document.createElement("p");
+                thisHi.id = "hi"+hilo1;
+                if(f.temperatureMax[hilo] === null){
+                    thisHi.innerHTML = "High: "+f.calendarDayTemperatureMax[hilo]+"º";
+                } else {
+                   thisHi.innerHTML = "High: "+f.temperatureMax[hilo]+"º";
+                }
+                var thisLo = document.createElement("p");
+                thisLo.id="lo"+hilo1;
+                thisLo.innerHTML = "Low: "+f.temperatureMin[hilo]+"º";
+                document.getElementById("b"+hilo2).appendChild(thisHi);
+                document.getElementById("b"+hilo2).appendChild(thisLo);
             }
             for(desc = 0; desc <= 5; desc++){
                 desc1 = desc+1
