@@ -98,8 +98,6 @@
             <div id="qpf1">
             </div>
         </div>
-        <p id="hi1" class="hi">High: --º</p>
-        <p id="lo1" class="lo">Low: --º</p>
         </div>
         <div class="column" id="b3">
             <div id="icon3">
@@ -120,8 +118,6 @@
                 <div id="qpf3">
                 </div>
             </div>
-            <p id="hi3" class="hi">High: --º</p>
-            <p id="lo3" class="lo">Low: --º</p>
         </div>
         <div class="column" id="b4">
             <div id="icon5">
@@ -142,8 +138,6 @@
                 <div id="qpf5">
                 </div>
             </div>
-            <p id="hi5" class="hi">High: --º</p>
-            <p id="lo5" class="lo">Low: --º</p>
         </div>
         <div class="column" id="b5">
             <div id="icon7">
@@ -164,8 +158,6 @@
                 <div id="qpf7">
                 </div>
             </div>
-            <p id="hi7" class="hi">High: --º</p>
-            <p id="lo7" class="lo">Low: --º</p>
         </div>
         <div class="column" id="b6">
             <div id="icon9">
@@ -186,8 +178,6 @@
                 <div id="qpf9">
                 </div>
             </div>
-            <p id="hi9" class="hi">High: --º</p>
-            <p id="lo9" class="lo">Low: --º</p>
         </div>
         <div class="column" id="b7">
             <div id="icon11">
@@ -208,8 +198,6 @@
                 <div id="qpf11">
                 </div>
             </div>
-            <p id="hi11" class="hi">High: --º</p>
-            <p id="lo11" class="lo">Low: --º</p>
         </div>
         <br>
         <div id="week">
@@ -488,6 +476,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 hilo2 = hilo + 2;
                 var thisHi = document.createElement("p");
                 thisHi.id = "hi"+hilo1;
+                thisHi.classList = "hi";
                 if(f.temperatureMax[hilo] === null){
                     thisHi.innerHTML = "High: "+f.calendarDayTemperatureMax[hilo]+"º";
                 } else {
@@ -495,6 +484,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 }
                 var thisLo = document.createElement("p");
                 thisLo.id="lo"+hilo1;
+                thisLo.classList = "lo";
                 thisLo.innerHTML = "Low: "+f.temperatureMin[hilo]+"º";
                 document.getElementById("b"+hilo2).appendChild(thisHi);
                 document.getElementById("b"+hilo2).appendChild(thisLo);
