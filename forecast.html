@@ -505,12 +505,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("condition7").innerHTML = f.narrative[3];
             document.getElementById("condition9").innerHTML = f.narrative[4];
             document.getElementById("condition11").innerHTML = f.narrative[5];
-            document.getElementById("text1").innerHTML = f.dayOfWeek[0];
-            document.getElementById("text2").innerHTML = f.dayOfWeek[1];
-            document.getElementById("text3").innerHTML = f.dayOfWeek[2];
-            document.getElementById("text4").innerHTML = f.dayOfWeek[3];
-            document.getElementById("text5").innerHTML = f.dayOfWeek[4];
-            document.getElementById("text6").innerHTML = f.dayOfWeek[5];
+            for(desc = 0; desc <= 5; desc++){
+                desc1 = desc+1
+                document.getElementById("text"+desc1).innerHTML = f.dayOfWeek[desc];
+            }
             if(f.daypart[0].iconCode[0] === null){
                 document.getElementById("icon1").innerHTML = "<img src='icons/30.png' class='icon'>";
             } else {
