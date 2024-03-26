@@ -491,9 +491,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 } else {
                     if(f.daypart[0].precipType[precip] === "snow"){
                         thisPrecip1Type = "Snow: ";
-                    else if(f.daypart[0].precipType[precip] === "rain"){
+                    } else if(f.daypart[0].precipType[precip] === "rain"){
                         thisPrecip1Type = "Rain: ";
-                    else {
+                    } else {
                         thisPrecip1Type = "Precipitation: ";
                     }
                     thisPrecip1.innerHTML = thisPrecip1Type+f.daypart[0].precipChance[precip]+"% | "+totalQPF1+"in";
@@ -507,9 +507,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF2 = f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1];
                    if(f.daypart[0].precipType[precip1] === "snow"){
                         thisPrecip2Type = "Snow: ";
-                    else if(f.daypart[0].precipType[precip1] === "rain"){
+                   } else if(f.daypart[0].precipType[precip1] === "rain"){
                         thisPrecip2Type = "Rain: ";
-                    else {
+                   } else {
                         thisPrecip2Type = "Precipitation: ";
                     }
                 thisPrecip2.innerHTML = thisPrecip2Type+f.daypart[0].precipChance[precip1]+"% | "+totalQPF1+"in";
