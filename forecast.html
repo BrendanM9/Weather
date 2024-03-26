@@ -471,6 +471,53 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.innerHTML = f.dayOfWeek[day];
                 document.getElementById("b"+day2).appendChild(thisText);
             }
+            for(precip = 0; precip <= 5; precip+= 2){
+                precip1 = precip + 1;
+                precip2 = precip + 2;
+                precip3 = precip + 3;
+                thisB = (precip/2)+1
+                var thisIcon1 = document.createElement("div");
+                thisIcon1.id = "icon"+precip1;
+                if(f.daypart[0].iconCode[precip] === null){
+                    thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
+                } else {
+                thisIcon1.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
+                var thisPrecip1 = document.createElement("p");
+                thisPrecip1.id = "precip"+precip1;
+                var thisPrecip1Type = "";
+                var totalQPF1 = f.daypart[0].qpf[precip]+f.daypart[0].qpfSnow[precip];
+                if(f.daypart[0].precipChance[precip] === null){ 
+                    thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip]+"%";
+                } else {
+                    if(f.daypart[0].precipType[precip] === "snow"){
+                        thisPrecip1Type = "Snow: ";
+                    else if(f.daypart[0].precipType[precip] === "rain"){
+                        thisPrecip1Type = "Rain: ";
+                    else {
+                        thisPrecip1Type = "Precipitation: ";
+                    }
+                    thisPrecip1.innerHTML = thisPrecip1Type+f.daypart[0].precipChance[precip]+"% | "+totalQPF1+"in";
+                }
+                var thisIcon2 = document.createElement("div");
+                thisIcon2.id = "icon"+precip2;
+                thisIcon2.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip1]+".png' class='icon'>";
+                var thisPrecip2 = document.createElement("p");
+                thisPrecip2.id = "precip"+precip2;
+                var thisPrecip2Type = "";
+                var totalQPF2 = f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1];
+                   if(f.daypart[0].precipType[precip1] === "snow"){
+                        thisPrecip2Type = "Snow: ";
+                    else if(f.daypart[0].precipType[precip1] === "rain"){
+                        thisPrecip2Type = "Rain: ";
+                    else {
+                        thisPrecip2Type = "Precipitation: ";
+                    }
+                thisPrecip2.innerHTML = thisPrecip2Type+f.daypart[0].precipChance[precip1]+"% | "+totalQPF1+"in";
+                document.getElementById("b"+thisB).appendChild(thisIcon1);
+                document.getElementById("b"+thisB).appendChild(thisPrecip1);
+                document.getElementById("b"+thisB).appendChild(thisIcon2);
+                document.getElementById("b"+thisB).appendChild(thisPrecip2);
+            }
             for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
                 hilo2 = hilo + 2;
@@ -496,11 +543,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisCondition.id = "condition"+desc1
                 thisCondition.innerHTML = f.narrative[desc];
                 document.getElementById("b"+desc2).appendChild(thisCondition);
-            }
-            if(f.daypart[0].iconCode[0] === null){
-                document.getElementById("icon1").innerHTML = "<img src='icons/30.png' class='icon'>";
-            } else {
-            document.getElementById("icon1").innerHTML = "<img src='icons/"+f.daypart[0].iconCode[0]+".png' class='icon'>";
             }
             /*
             for(var icons = 2; icons <= 12; icons++){
