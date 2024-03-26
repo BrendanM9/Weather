@@ -967,11 +967,21 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(nws1)
             if(nws1 !== ""){
                 console.log("Yes"+nws1)
+                var complexNws1 = null;
+                var nwsWordList = nws1.split(" ");
                 if(nws1 === "Cloudy"){
                     iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                     favicon.setAttribute("href", 'icons/26.png');
                     today.innerHTML = "<p>Cloudy</p>";
                     document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
+                } else if{
+                    for(var words = 0; words<= nwsWordList.length; words++){
+                        if(nwsWordList[words] +" "+ nwsWordList[words] === "Light Rain"){
+                            iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
+                            favicon.setAttribute("href", "icons/9.png");
+                            document.getElementById("b1").style.backgroundImage = "url('backgrounds/rain.png')";
+                        }
+                    }
                 } else {
                     today.innerHTML = "<p>"+nws1+"</p>";
                 }
