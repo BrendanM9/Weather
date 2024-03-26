@@ -482,6 +482,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
                 } else {
                 thisIcon1.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
+                }
                 var thisPrecip1 = document.createElement("p");
                 thisPrecip1.id = "precip"+precip1;
                 var thisPrecip1Type = "";
@@ -615,7 +616,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         document.getElementById("qpf"+q).innerHTML = " | "+ f.daypart[0].qpfSnow[q]+"in";
                 }
             }
-            }
+            
            console.log(season)
             var cloudCoverAvg1;
             var cloudCoverAvg2;
