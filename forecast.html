@@ -499,19 +499,21 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("lo7").innerHTML = "Low: "+f.temperatureMin[3]+"º";
             document.getElementById("lo9").innerHTML = "Low: "+f.temperatureMin[4]+"º";
             document.getElementById("lo11").innerHTML = "Low: "+f.temperatureMin[5]+"º";
-            document.getElementById("condition1").innerHTML = f.narrative[0];
-            document.getElementById("condition3").innerHTML = f.narrative[1];
-            document.getElementById("condition5").innerHTML = f.narrative[2];
-            document.getElementById("condition7").innerHTML = f.narrative[3];
-            document.getElementById("condition9").innerHTML = f.narrative[4];
-            document.getElementById("condition11").innerHTML = f.narrative[5];
+            for(day = 0; day <= 5; day++){
+                day1 = day+1
+                day2 = day+2
+                var thisText = document.createElement("p");
+                thisText.id = "text"+day1
+                thisText.innerHTML = f.dayOfWeek[day];
+                document.getElementById("b"+day2).appendChild(thisText);
+            }
             for(desc = 0; desc <= 5; desc++){
                 desc1 = desc+1
                 desc2 = desc+2
-                var thisText = document.createElement("p");
-                thisText.id = "text"+desc1
-                thisText.innerHTML = f.dayOfWeek[desc];
-                document.getElementById("b"+desc2).appendChild(thisText);
+                var thisCondition = document.createElement("p");
+                thisCondition.id = "condition"+desc1
+                thisCondition.innerHTML = f.narrative[desc];
+                document.getElementById("b"+desc2).appendChild(thisCondition);
             }
             if(f.daypart[0].iconCode[0] === null){
                 document.getElementById("icon1").innerHTML = "<img src='icons/30.png' class='icon'>";
