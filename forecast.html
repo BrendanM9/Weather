@@ -794,7 +794,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     favicon.setAttribute("href", 'icons/26.png');
                     today.innerHTML = "<p>Cloudy</p>";
                     document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
-                } else {
+                } else if(nws1 ==="Mostly Cloudy"){
+                    iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/28.png");
+                    today.innerHTML = "<p>Mostly Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                }else {
                     for(var words = 0; words<= nwsWordList.length; words++){
                         if(nwsWordList[words] +" "+ nwsWordList[words+1] === "Light Rain"){
                             iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
