@@ -967,8 +967,17 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(nws1)
             if(nws1 !== ""){
                 console.log("Yes"+nws1)
+                if(nws1 === "Cloudy"){
+                    iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    favicon.setAttribute("href", 'icons/26.png');
+                    today.innerHTML = "<p>Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
+                } else {
+                    today.innerHTML = "<p>"+nws1+"</p>";
+                }
             } else {
                 console.log("No report!!!")
+                
             }
             //document.getElementById("conditionNWS").innerHTML = nws1;
         }
