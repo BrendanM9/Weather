@@ -763,11 +763,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then(function(data) {
                 observationData = data;
                 drawWeather(data);
-                return observationData;
                 
             })
             .catch(function(){
-        
+                return observationData;
             });  
             //fetch('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode='+code+'&units=e&language=en-US&format=json&apiKey='+key)
             fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat1+','+Long1+'&format=json&units=e&language=en-US&apiKey='+key)
