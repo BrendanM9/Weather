@@ -116,14 +116,15 @@
             function getDayNight( dnF ){
                 console.log(dnF);
                 //console.log(dnC);
-                changedSunset = dnF.sunsetTimeLocal[0].split("T");
+                changedSunset = dnF.sunsetTimeUTC[0].split("T");
                 console.log(changedSunset[1]);
-                changedSunrise = dnF.sunriseTimeLocal[0].split("T");
+                changedSunrise = dnF.sunriseTimeUTC[0].split("T");
                 console.log(changedSunrise[1]);
                 const thisDate = new Date();
                 var thisTime = thisDate.toISOString();
                 changedCurrent = thisTime.split("T");
-                console.log(thisTime);
+                console.log(thisTime[1]);
+                
             }
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
