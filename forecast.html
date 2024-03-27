@@ -1048,9 +1048,13 @@ window.onclick = function(event) {
             }
             while(forecastData === null && observationData === null){
                 if(forecastData !== null && observationData !== null){
+                    console.log(observationData);
+                    console.log(forecastData);
                     getDayNight(forecastData, observationData);
                 }
             }
+            console.log(observationData);
+            console.log(forecastData);
             getDayNight(forecastData, observationData);
         </script>
     </body>
