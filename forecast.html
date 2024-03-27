@@ -756,17 +756,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
         }
         var observationData
         var forecastData
+        function assignObservation(thisData1){
+            observationData = thisData1
+        }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
             .then(function(resp) {return resp.json() })
             .then(function(data) {
-                observationData = data;
                 drawWeather(data);
-                
+                assignObservation(data)
             })
             .catch(function(){
-                return observationData;
+                
             });  
             //fetch('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode='+code+'&units=e&language=en-US&format=json&apiKey='+key)
             fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat1+','+Long1+'&format=json&units=e&language=en-US&apiKey='+key)
