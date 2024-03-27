@@ -761,7 +761,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
             .then(function(resp) {return resp.json() })
             .then(function(data) {
-                observationData.append(data);
+                observationData = data;
                 drawWeather(data);
                 
             })
@@ -774,6 +774,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then (function(data) {
                 forecast(data);
                 forecastData = data
+                console.log(forecastData);
             })
             .catch(function(){
         
@@ -795,7 +796,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
-            console.log(forecastData);
             console.log(observationData);
             getDayNight(forecastData, observationData);
         }
