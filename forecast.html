@@ -383,7 +383,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisPrecip1Type = "";
                 var totalQPF1 = f.daypart[0].qpf[precip]+f.daypart[0].qpfSnow[precip];
                 if(f.daypart[0].precipChance[precip] === null){ 
-                    thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainM;
+                    thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
                 } else {
                     if(f.daypart[0].precipType[precip] === "snow"){
                         thisPrecip1Type = "Snow: ";
