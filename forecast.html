@@ -763,7 +763,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function assignForecast(thisData2){
             observationData = thisData1
             console.log(forecastData);
-            getDayNight(forecastData, observationData);
+            //getDayNight(forecastData, observationData);
         }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
@@ -1047,7 +1047,9 @@ window.onclick = function(event) {
                 document.body.style.backgroundImage.width = "100%"
             }
             while(forecastData === null && observationData === null){
-                
+                if(forecastData !== null && observationData !== null){
+                    getDayNight(forecastData, observationData);
+                }
             }
             getDayNight(forecastData, observationData);
         </script>
