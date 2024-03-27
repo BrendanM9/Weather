@@ -116,10 +116,10 @@
             function getDayNight( dnF ){
                 console.log(dnF);
                 //console.log(dnC);
-                changedSunset = dnF.sunsetTimeUtc[0]
+                changedSunset = parseFloat(dnF.sunsetTimeUtc[0])
                 //.split("T");
                 console.log(changedSunset);
-                changedSunrise = dnF.sunriseTimeUtc[0]
+                changedSunrise = parseFloat(dnF.sunriseTimeUtc[0])
                 //.split("T");
                 console.log(changedSunrise);
                 const thisDate = new Date();
