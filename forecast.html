@@ -759,6 +759,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function assignObservation(thisData1){
             observationData = thisData1
             console.log(observationData);
+            getDayNight(forecastData, observationData);
+        }
+        function assignForecast(thisData2){
+            observationData = thisData1
+            console.log(forecastData);
+            getDayNight(forecastData, observationData);
         }
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
@@ -777,6 +783,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then (function(data) {
                 forecast(data);
                 forecastData = data
+                assignForecast(data)
                 console.log(forecastData);
             })
             .catch(function(){
@@ -800,7 +807,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
 
             })
             console.log(observationData);
-            getDayNight(forecastData, observationData);
         }
         window.onload = function(){
             //load();
