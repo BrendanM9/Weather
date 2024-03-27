@@ -116,14 +116,23 @@
             function getDayNight( dnF ){
                 console.log(dnF);
                 //console.log(dnC);
-                changedSunset = dnF.sunsetTimeUtc[0].split("T");
-                console.log(changedSunset[1]);
-                changedSunrise = dnF.sunriseTimeUtc[0].split("T");
-                console.log(changedSunrise[1]);
+                changedSunset = dnF.sunsetTimeUtc[0]
+                //.split("T");
+                console.log(changedSunset);
+                changedSunrise = dnF.sunriseTimeUtc[0]
+                //.split("T");
+                console.log(changedSunrise);
                 const thisDate = new Date();
-                var thisTime = thisDate.toISOString();
-                changedCurrent = thisTime.split("T");
-                console.log(thisTime[1]);
+                var thisTime = thisDate.now();
+                /*changedCurrent = thisTime.split("T");
+                console.log(thisTime[1]);*/
+                if(thisTime >= changedSunrise && thisTime <= changedSunset){
+                    dayOrNight = "Day";
+                    console.log(dayOrNight);
+                else {
+                    dayOrNight = "Night"
+                    console.log(dayOrNight);
+                }
                 
             }
             function openNav() {
