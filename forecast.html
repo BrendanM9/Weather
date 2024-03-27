@@ -769,6 +769,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then (function(data) {
                 forecast(data);
                 var forecastData = data
+                getDayNight(observationData, data);
             })
             .catch(function(){
         
@@ -790,7 +791,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
-            getDayNight(observationData, forecastData);
         }
         window.onload = function(){
             //load();
