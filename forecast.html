@@ -121,7 +121,8 @@
                 changedSunrise = dnF.sunriseTimeLocal[0].split("T");
                 console.log(changedSunrise[1]);
                 const thisDate = new Date();
-                var thisTime = thisDate.getTime();
+                var thisTime = thisDate.toISOString();
+                changedCurrent = thisTime.split("T");
                 console.log(thisTime);
             }
             function openNav() {
