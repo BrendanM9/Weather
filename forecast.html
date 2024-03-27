@@ -759,7 +759,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function assignObservation(thisData1){
             observationData = thisData1
             console.log(observationData);
-            getDayNight(forecastData, observationData);
         }
         function assignForecast(thisData2){
             observationData = thisData1
@@ -1047,7 +1046,10 @@ window.onclick = function(event) {
             } else {
                 document.body.style.backgroundImage.width = "100%"
             }
-
+            while(forecastData === null && observationData === null){
+                
+            }
+            getDayNight(forecastData, observationData);
         </script>
     </body>
 </html>
