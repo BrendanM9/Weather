@@ -367,7 +367,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
 </div>*/
         }
         forecast = function( f ){
-            getDayNight(f, t1);
             console.log(f);
             for(day = 0; day <= 5; day++){
                 day1 = day+1
@@ -451,6 +450,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisCondition.innerHTML = f.narrative[desc];
                 document.getElementById("b"+desc2).appendChild(thisCondition);
             }
+            getDayNight(f, t1);
             
             
            console.log(season)
