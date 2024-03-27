@@ -112,9 +112,9 @@
             <p id="rain-amount">Precipitation since midnight: -- in</p>
         </div>-->
         <script>
-            function getDayNight( dnF, dnC ){
+            function getDayNight( dnF ){
                 console.log(dnF);
-                console.log(dnC);
+                //console.log(dnC);
                 changedSunset = dnF.sunsetTimeLocal[0].split("T");
                 console.log(changedSunset[1]);
                 changedSunrise = dnF.sunriseTimeLocal[0].split("T");
@@ -450,7 +450,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisCondition.innerHTML = f.narrative[desc];
                 document.getElementById("b"+desc2).appendChild(thisCondition);
             }
-            getDayNight(f, t1);
+            getDayNight(f);
             
             
            console.log(season)
