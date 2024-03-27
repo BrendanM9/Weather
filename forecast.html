@@ -752,13 +752,15 @@ for (closeB = 0; closeB < close.length; closeB++) {
 
             })
         }
+        var observationData
+        var forecastData
         function weatherBalloon(cityID, code, Lat1, Long1){
             var key=apiKey;
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
             .then(function(resp) {return resp.json() })
             .then(function(data) {
                 drawWeather(data);
-                var observationData = data
+                observationData = data
             })
             .catch(function(){
         
@@ -768,8 +770,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then(function(resp) {return resp.json()})
             .then (function(data) {
                 forecast(data);
-                var forecastData = data
-                getDayNight(observationData, data);
+                forecastData = data
             })
             .catch(function(){
         
@@ -791,6 +792,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
+            getDayNight(observationData, forecastData);
         }
         window.onload = function(){
             //load();
