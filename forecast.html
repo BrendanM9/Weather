@@ -112,6 +112,7 @@
             <p id="rain-amount">Precipitation since midnight: -- in</p>
         </div>-->
         <script>
+            var dayOrNight;
             function getDayNight( dnF ){
                 console.log(dnF);
                 //console.log(dnC);
@@ -119,8 +120,9 @@
                 console.log(changedSunset[1]);
                 changedSunrise = dnF.sunriseTimeLocal[0].split("T");
                 console.log(changedSunrise[1]);
-                changedCurrent = t1.split(" ");
-                console.log(changedCurrent);
+                const thisDate = new Date();
+                var thisTime = thisDate.getTime();
+                console.log(thisTime);
             }
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
