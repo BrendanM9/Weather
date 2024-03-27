@@ -116,9 +116,9 @@
             function getDayNight( dnF ){
                 console.log(dnF);
                 //console.log(dnC);
-                changedSunset = dnF.sunsetTimeUTC[0].split("T");
+                changedSunset = dnF.sunsetTimeUtc[0].split("T");
                 console.log(changedSunset[1]);
-                changedSunrise = dnF.sunriseTimeUTC[0].split("T");
+                changedSunrise = dnF.sunriseTimeUtc[0].split("T");
                 console.log(changedSunrise[1]);
                 const thisDate = new Date();
                 var thisTime = thisDate.toISOString();
