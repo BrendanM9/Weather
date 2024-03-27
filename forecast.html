@@ -119,7 +119,7 @@
                 console.log(changedSunset[1]);
                 changedSunrise = dnF.sunriseTimeLocal[0].split("T");
                 console.log(changedSunrise[1]);
-                changedCurrent = dnC.obsTimeLocal.split(" ");
+                changedCurrent = t1.split(" ");
                 console.log(changedCurrent);
             }
             function openNav() {
@@ -367,6 +367,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
 </div>*/
         }
         forecast = function( f ){
+            getDayNight(f, t1);
             console.log(f);
             for(day = 0; day <= 5; day++){
                 day1 = day+1
@@ -1050,12 +1051,11 @@ window.onclick = function(event) {
                 if(forecastData !== null && observationData !== null){
                     console.log(observationData);
                     console.log(forecastData);
-                    getDayNight(forecastData, observationData);
+                    //getDayNight(forecastData, observationData);
                 }
             }
             console.log(observationData);
             console.log(forecastData);
-            getDayNight(forecastData, observationData);
         </script>
     </body>
 </html>
