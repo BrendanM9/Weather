@@ -1004,13 +1004,14 @@ window.onclick = function(event) {
             setInterval('autoRefresh()', 120000);
             if(mobile === true){
                 document.body.style.backgroundImage.height = "100%"
-                //window.location.href = "forecastmobile.html"
                 //document.getElementsByClassName("icon").style.height = "50px";
                 //document.getElementsByClassName("icon").style.width = "50px";
-                /*for (var w = 1; w <= 12; w ++){
+                for (var w = 1; w <= 12; w ++){
                     document.getElementById('icon'+w).style.width = "50px";
                     document.getElementById('icon'+w).style.width = "50px"
-                }*/
+                }
+                document.getElementById("left").style.display = "block";
+                document.getElementById("right").style.display = "block";
             } else {
                 document.body.style.backgroundImage.width = "100%"
             }
