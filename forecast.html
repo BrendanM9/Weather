@@ -93,6 +93,7 @@
         <div class="column" id="b7">
         </div>
         <br>
+        <!--
         <div id="week">
             <h3>5-Day Overview:</h3>
             <p id="avhi" class="hi">Average High: --º</p>
@@ -103,6 +104,7 @@
             <p id="avwind">Average Wind Speed: -- MPH</p>
             <p id="update">Last updated: ---------- --:--:--</p>
         </div>
+        -->
         <!--<div id="details">
             <div id="rain-icon">
                 <img href="Gauges/0:2.png">
@@ -537,6 +539,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 */
             }
             //Weekly averages
+            /*
             if(f.temperatureMax[0] === null){
                 var avhi1 = 0;
                 for(var b = 1; b < 5; b++){
@@ -625,6 +628,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //console.log(avprecip1)
                 document.getElementById("avwind").innerHTML = "Average Wind Speed: "+ parseInt(avwind1) +" MPH"
             }
+            */
             for (var m = 0; m <= 5; m ++){
                 var moon = f.moonPhase[m];
                 var phase = document.createElement("p")
