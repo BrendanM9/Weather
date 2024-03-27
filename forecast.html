@@ -112,6 +112,14 @@
             <p id="rain-amount">Precipitation since midnight: -- in</p>
         </div>-->
         <script>
+            function getDayNight( dnF, dnC ){
+                changedSunset = dnF.sunsetTimeLocal[0].split("T");
+                console.log(changedSunset[1]);
+                changedSunrise = dnF.sunriseTimeLocal[0].split("T");
+                console.log(changedSunrise[1]);
+                changedCurrent = dnC.obsTimeLocal.split(" ");
+                console.log(changedCurrent);
+            }
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
                 document.getElementById("main").style.marginLeft = "250px";
@@ -750,6 +758,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then(function(resp) {return resp.json() })
             .then(function(data) {
                 drawWeather(data);
+                var observationData = data
             })
             .catch(function(){
         
@@ -759,6 +768,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then(function(resp) {return resp.json()})
             .then (function(data) {
                 forecast(data);
+                var forecastData = data
             })
             .catch(function(){
         
@@ -780,6 +790,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
+            getDayNight(observationData, forecastData);
         }
         window.onload = function(){
             //load();
