@@ -761,7 +761,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
             .then(function(resp) {return resp.json() })
             .then(function(data) {
-                observationData = data
+                observationData.append(data);
                 drawWeather(data);
                 
             })
