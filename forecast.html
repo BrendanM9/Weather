@@ -853,7 +853,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     favicon.setAttribute("href", "icons/32.png");
                     today.innerHTML = "<p>Clear</p>";
                     document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
-                }else {
+                } else if(nws1==="Mostly Clear"){
+                    iconEl.innerHTML = "<img src='icons/34.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/34.png");
+                    today.innerHTML = "<p>Mostly Clear</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                }
+                else {
                     for(var words = 0; words<= nwsWordList.length; words++){
                         if(nwsWordList[words] +" "+ nwsWordList[words+1] === "Light Rain"){
                             iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
@@ -1053,10 +1059,10 @@ window.onclick = function(event) {
                 document.body.style.backgroundImage.height = "100%"
                 //document.getElementsByClassName("icon").style.height = "50px";
                 //document.getElementsByClassName("icon").style.width = "50px";
-                for (var w = 1; w <= 12; w ++){
+                /*for (var w = 1; w <= 12; w ++){
                     document.getElementById('icon'+w).style.width = "50px";
                     document.getElementById('icon'+w).style.width = "50px"
-                }
+                }*/
                 document.getElementById("left").style.display = "block";
                 document.getElementById("right").style.display = "block";
             } else {
