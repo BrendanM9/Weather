@@ -427,9 +427,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisPrecip2.id = "precip"+precip2;
                 var thisPrecip2Type = "";
                 var totalQPF2 = f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1];
+                console.log(1)
                 var totalQPF2100 =float(totalQPF2)*100
+                console.log(2)
                 totalQPF2100 = int(totalQPF2100);
+                console.log(3)
                 var totalQPF21 = totalQPF2100 / 100
+                console.log(4)
                    if(f.daypart[0].precipType[precip1] === "snow"){
                         thisPrecip2Type = "Snow: ";
                    } else if(f.daypart[0].precipType[precip1] === "rain"){
