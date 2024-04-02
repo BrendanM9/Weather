@@ -407,7 +407,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisPrecip1 = document.createElement("p");
                 thisPrecip1.id = "precip"+precip1;
                 var thisPrecip1Type = "";
-                var totalQPF1 = f.daypart[0].qpf[precip]+f.daypart[0].qpfSnow[precip];
+                var totalQPF1 = parseFloat(f.daypart[0].qpf[precip]+f.daypart[0].qpfSnow[precip];)
+                var totalQPF1100 = totalQPF1 *100
+                totalQPF1100 = parseInt(totalQPF1100);
+                var totalQPF11 = totalQPF1100 / 100;
                 if(f.daypart[0].precipChance[precip] === null){ 
                     thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
                 } else {
@@ -418,7 +421,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     } else {
                         thisPrecip1Type = "Precipitation: ";
                     }
-                    thisPrecip1.innerHTML = thisPrecip1Type+f.daypart[0].precipChance[precip]+"% | "+totalQPF1+"in";
+                    thisPrecip1.innerHTML = thisPrecip1Type+f.daypart[0].precipChance[precip]+"% | "+totalQPF11+"in";
                 }
                 var thisIcon2 = document.createElement("div");
                 thisIcon2.id = "icon"+precip2;
