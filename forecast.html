@@ -426,12 +426,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisPrecip2 = document.createElement("p");
                 thisPrecip2.id = "precip"+precip2;
                 var thisPrecip2Type = "";
-                var totalQPF2 = float(f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1]);
+                var totalQPF2 = parseFloat(f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1]);
                 console.log(1)
                 var totalQPF2100 = (totalQPF2*100)
                 console.log(totalQPF2100);
                 console.log(2)
-                totalQPF2100 = int(totalQPF2100);
+                totalQPF2100 = parseInt(totalQPF2100);
                 console.log(3)
                 var totalQPF21 = totalQPF2100 / 100
                 console.log(4)
