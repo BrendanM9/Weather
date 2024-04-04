@@ -312,7 +312,7 @@
             fetch('https://api.weather.com/v2/pws/observations/hourly/7day?stationId='+bendID+'&format=json&units=e&apiKey='+apiKey)
             .then(function(resp) {return resp.json()})
             .then(function(data){
-                console.log("History Data /n"+data);
+                console.log(data);
             })
             .catch(function(){
                 
