@@ -107,6 +107,7 @@
                 var avgTemp = []
                 console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength <= thisAPILengthDay; graphLength++){
+                    console.log(graphLength);
                     var graphLengthNew = graphLength + 144;
                     console.log(graphLengthNew);
                     console.log(hist.observations[graphLengthNew].imperial.tempAvg);
