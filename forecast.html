@@ -106,7 +106,7 @@
                 thisAPILengthDay = parseFloat(thisAPILength) - 144;
                 avgTemp = []
                 console.log(hist.observations[144].imperial.tempAvg);
-                for(var graphLength = 0; graphLength = thisAPILengthDay; graphLength++){
+                for(var graphLength = 0; graphLength <= thisAPILengthDay; graphLength++){
                     console.log(hist.observations[graphLength+144].imperial.tempAvg);
                     avgTemp.push(hist.observations[graphLength+144].imperial.tempAvg);
                     console.log(hist.observations[graphLength+144].imperial.tempAvg);
