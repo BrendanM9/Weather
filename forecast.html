@@ -754,6 +754,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             }
             document.getElementById("dewpt").innerHTML = "Dew Point: "+d.observations[0].imperial.dewpt+"º";
             currentConditions(light, rain, time, amtemp, wind, dewpoint, rainM);
+            //nwsCurrent(data);
             currentpressure = d.observations[0].imperial.pressure;
             abspressEl.innerHTML = currentpressure;
             //forecast(currentpressure);
@@ -920,6 +921,29 @@ for (closeB = 0; closeB < close.length; closeB++) {
             }
             //document.getElementById("conditionNWS").innerHTML = nws1;
         }
+       function currentRain(m){
+           var m1 = parseFloat(m)
+           var bucket = document.getElementById("bucket")
+            if(m1 === 0){
+                //Empty rain bucket
+                bucket.src= "Gauges/0:2.png"
+            } else if(m1 > 0 && m1 < .25){
+                //1/8th bucket
+                bucket.src= "Gauges/1:8.png"
+            } else if(m1 >= .25 && m1 < .5){
+                //1/4th bucket
+                bucket.src= "Gauges/1:4.png"
+            } else if(m1 >= .5 && m1 < .75){
+                //1/2th bucket
+                bucket.src= "Gauges/1:2.png"
+            } else if(m1 >= .75 && m1 < 1){
+                //3/4ths bucket
+                bucket.src= "Gauges/3:4.png"
+            } else if (m1 >= 1){
+                //Full Bucket
+                bucket.src= "Gauges/2:2.png"
+            }
+       }
         var currentConditions = function(l, r, t, a, w, d, m){
             var l1 = parseInt(l);
             var r1 = parseFloat(r);
