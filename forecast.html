@@ -105,6 +105,7 @@
                 thisAPILengthDay = thisAPILength - 144;
                 avgTemp = []
                 for(var graphLength = 0; graphLength = thisAPILengthDay; graphLength++){
+                    console.log(hist.observations[graphLength+144].imperial.tempAvg);
                     avgTemp.push(hist.observations[graphLength+144].imperial.tempAvg);
                     console.log(hist.observations[graphLength+144].imperial.tempAvg);
                 }
@@ -832,11 +833,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
         var forecastData
         function assignObservation(thisData1){
             observationData = thisData1
-            console.log(observationData);
+            //console.log(observationData);
         }
         function assignForecast(thisData2){
             observationData = thisData1
-            console.log(forecastData);
+            //console.log(forecastData);
             //getDayNight(forecastData, observationData);
         }
         function weatherBalloon(cityID, code, Lat1, Long1){
