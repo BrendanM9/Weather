@@ -101,8 +101,9 @@
                 var thisDate = new Date()
                 hour = thisDate.getHours()
                 console.log(hist);
+                console.log(hist.observations[144].imperial.tempAvg);
                 thisAPILength = hist.length();
-                thisAPILengthDay = thisAPILength - 144;
+                thisAPILengthDay = parseFloat(thisAPILength) - 144;
                 avgTemp = []
                 console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength = thisAPILengthDay; graphLength++){
@@ -479,7 +480,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF2 = parseFloat(f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1]);
                 //console.log(1)
                 var totalQPF2100 = (totalQPF2*100)
-                console.log(totalQPF2100);
+                //console.log(totalQPF2100);
                 //console.log(2)
                 totalQPF2100 = parseInt(totalQPF2100);
                 //console.log(3)
