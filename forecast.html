@@ -104,6 +104,7 @@
                 thisAPILength = hist.length();
                 thisAPILengthDay = thisAPILength - 144;
                 avgTemp = []
+                console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength = thisAPILengthDay; graphLength++){
                     console.log(hist.observations[graphLength+144].imperial.tempAvg);
                     avgTemp.push(hist.observations[graphLength+144].imperial.tempAvg);
@@ -476,14 +477,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisPrecip2.id = "precip"+precip2;
                 var thisPrecip2Type = "";
                 var totalQPF2 = parseFloat(f.daypart[0].qpf[precip1]+f.daypart[0].qpfSnow[precip1]);
-                console.log(1)
+                //console.log(1)
                 var totalQPF2100 = (totalQPF2*100)
                 console.log(totalQPF2100);
-                console.log(2)
+                //console.log(2)
                 totalQPF2100 = parseInt(totalQPF2100);
-                console.log(3)
+                //console.log(3)
                 var totalQPF21 = totalQPF2100 / 100
-                console.log(4)
+                //console.log(4)
                    if(f.daypart[0].precipType[precip1] === "snow"){
                         thisPrecip2Type = "Snow: ";
                    } else if(f.daypart[0].precipType[precip1] === "rain"){
