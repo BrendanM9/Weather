@@ -107,9 +107,10 @@
                 avgTemp = []
                 console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength <= thisAPILengthDay; graphLength++){
-                    console.log(hist.observations[graphLength+144].imperial.tempAvg);
-                    avgTemp.push(hist.observations[graphLength+144].imperial.tempAvg);
-                    console.log(hist.observations[graphLength+144].imperial.tempAvg);
+                    var graphLengthNew = graphLength + 144;
+                    console.log(hist.observations[graphLengthNew].imperial.tempAvg);
+                    avgTemp.push(hist.observations[graphLengthNew].imperial.tempAvg);
+                    console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                 }
                 console.log(avgTemp);
             }
