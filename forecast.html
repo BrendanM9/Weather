@@ -106,6 +106,7 @@
                 avgTemp = []
                 for(var graphLength = 0; graphLength = thisAPILengthDay; graphLength++){
                     avgTemp.push(hist.observations[graphLength+144].imperial.tempAvg);
+                    console.log(hist.observations[graphLength+144].imperial.tempAvg);
                 }
                 console.log(avgTemp);
             }
@@ -1175,8 +1176,8 @@ window.onclick = function(event) {
                     //getDayNight(forecastData, observationData);
                 }
             }
-            console.log(observationData);
-            console.log(forecastData);
+            //console.log(observationData);
+            //console.log(forecastData);
         </script>
     </body>
 </html>
