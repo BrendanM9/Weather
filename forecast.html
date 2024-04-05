@@ -109,13 +109,14 @@
                 console.log(thisAPILengthDay);
                 console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength <= thisAPILengthDay; graphLength++){
-                    console.log("working so far...");
-                    console.log(graphLength);
+                    //console.log("working so far...");
+                    //console.log(graphLength);
                     var graphLengthNew = graphLength + 144;
-                    console.log(graphLengthNew);
-                    console.log(hist.observations[graphLengthNew].imperial.tempAvg);
+                    //console.log(graphLengthNew);
+                    //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                     avgTemp.push(hist.observations[graphLengthNew].imperial.tempAvg);
-                    console.log(hist.observations[graphLengthNew].imperial.tempAvg);
+                    //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
+                    console.log(avgTemp);
                 }
                 console.log(avgTemp);
             }
