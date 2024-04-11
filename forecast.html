@@ -626,7 +626,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         console.log(cloudCoverAvg)
         }*/
                 var a1e = a+2
-                if(f.daypart[0].thunderCategory[a2] || f.daypart[0].thunderCategory[a21] !== "No thunder"){
+                if(f.daypart[0].qualifierPhrase[a2] || f.daypart[0].qualifierPhrase[a21] !== "null"){
                     document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/lightning.png')";
                 }
                 else if(parseFloat(f.qpf[a]) > 0 || parseFloat(f.qpfSnow[a] > 0)){
