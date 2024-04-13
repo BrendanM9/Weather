@@ -628,7 +628,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var a1e = a+2
                 console.log(a2);
                 console.log(a21);
-                if(f.daypart[0].thunderCategory[a2] || f.daypart[0].thunderCategory[a21] === "Thunder expected"){
+                if(f.daypart[0].thunderCategory[a2] === "Thunder expected" || f.daypart[0].thunderCategory[a21] === "Thunder expected"){
                     document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/lightning.png')";
                 }
                 else if(parseFloat(f.qpf[a]) > 0 || parseFloat(f.qpfSnow[a] > 0)){
