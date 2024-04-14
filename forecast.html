@@ -966,9 +966,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
                             favicon.setAttribute("href", "icons/13.png");
                             document.getElementById("b1").style.backgroundImage = "url('backgrounds/Winter.png')";
                         } else if(nwsWordList[words] === "Thunderstorms"){
-                            iconEl.innerHTML = "<img src='icons/4.png'>";
+                            iconEl.innerHTML = "<img src='icons/4.png' class='icon'>";
                             favicon.setAttribute("href", "icons/4.png");
                             document.getElementByID("b1").style.backgroundImage = "url('backgrounds/lightning.png')";
+                            today.innerHTML = "<p>"+nws1+"</p>";
                         } else {
                             today.innerHTML = "<p>"+nws1+"</p>";
                         }
