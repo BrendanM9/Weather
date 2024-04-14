@@ -920,6 +920,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log("Yes"+nws1)
                 var complexNws1 = null;
                 var nwsWordList = nws1.split(" ");
+                today.innerHTML = "<p>"+nws1+"</p>";
                 if(nws1 === "Cloudy"){
                     iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
                     favicon.setAttribute("href", 'icons/26.png');
@@ -968,7 +969,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                         } else if(nwsWordList[words] === "Thunderstorms"){
                             iconEl.innerHTML = "<img src='icons/4.png' class='icon'>";
                             favicon.setAttribute("href", "icons/4.png");
-                            document.getElementByID("b1").style.backgroundImage = "url('backgrounds/lightning.png')";
+                            document.getElementById("b1").style.backgroundImage = "url('backgrounds/lightning.png')";
                             today.innerHTML = "<p>"+nws1+"</p>";
                         } else {
                             today.innerHTML = "<p>"+nws1+"</p>";
