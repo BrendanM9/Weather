@@ -235,6 +235,7 @@
                 Lat = 44.059221;
                 Long = -121.25976;
                 tripCheckDevice = 674;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/US97 at Empire_pid3161.JPG";
                 console.log(cityName)
             } else if (cityNo==="sisters"){
                 bendID = "KORSISTE72"; 
@@ -244,6 +245,7 @@
                 Lat = 44.284
                 Long = -121.529
                 tripCheckDevice = 236;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/Sisters_pid653.jpg";
             } else if (cityNo==="redmond"){
                 bendID = "KORREDMO186"; 
                 ICAO = "KRDM";
@@ -252,6 +254,7 @@
                 Lat = 44.248
                 Long = -121.217
                 tripCheckDevice = 263;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/US97 at Empire_pid3161.JPG";
             } else if (cityNo==="sunriver"){
                 bendID = "KORSUNRI22"; 
                 ICAO = "KS21";
@@ -260,6 +263,7 @@
                 Lat = 43.892
                 Long = -121.44
                 tripCheckDevice = 197;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/LavaButte_pid631.jpg";
             } else if (cityNo==="lapine"){
                 bendID = "KORLAPIN72"; 
                 ICAO = "KS21";
@@ -268,6 +272,7 @@
                 Lat = 43.703
                 Long = -121.497
                 tripCheckDevice = 198;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/LaPine_pid630.jpg";
             } else if (cityNo==="portland"){
                 bendID = "KORPORTL2053"; 
                 ICAO = "KPDX";
@@ -276,6 +281,7 @@
                 Lat = 45.563
                 Long = -122.607
                 tripCheckDevice = 246;
+                tCTVUrl ="http://www.TripCheck.com/roadcams/cams/i5Victory_pid574.jpg";
             } else if (cityNo==="eugene"){
                 bendID = "KOREUGEN267"; 
                 ICAO = "KEUG";
@@ -284,6 +290,7 @@
                 Lat = 44.043999
                 Long = -123.152
                 tripCheckDevice = 541;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/I-5 at Willamette River Bridge_pid2619.JPG";
             } else if (cityNo==="salem"){
                 bendID = "KORSALEM578"; 
                 ICAO = "KSLE";
@@ -292,6 +299,7 @@
                 Lat = 44.931
                 Long = -122.978
                 tripCheckDevice = 792;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/I-5 at ORE22_pid3641.JPG";
             } else if (cityNo==="prineville"){
                 bendID = "KORPRINE54"; 
                 ICAO = "KS39";
@@ -300,6 +308,7 @@
                 Lat = 44.288834
                 Long = -120.815483
                 tripCheckDevice = 764;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/3rd St at Harwood_pid3527.JPG";
             } else if (cityNo==="madras"){
                 bendID = "KORMADRA49"; 
                 ICAO = "KS33";
@@ -308,6 +317,7 @@
                 Lat = 44.659808
                 Long = -121.167526
                 tripCheckDevice = 760;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/US97 at US26 Jct NB_pid3511.JPG";
             } else if (cityNo==="corvallis"){
                 bendID = "KORCORVA213";
                 ICAO = "KCVO";
@@ -316,6 +326,7 @@
                 Lat = 44.581
                 Long = -123.262
                 tripCheckDevice = 861;
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/ORE34 at Peoria Rd EB_pid3919.jpg";
             }  else if (cityNo==="govtcamp") {
                 bendID = "KORRHODO39";
                 ICAO = "KPDX";
@@ -324,6 +335,7 @@
                 cityName = "Government Camp";
                 tripCheckDevice = 203
                 console.log(cityName)
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/GovernmentCamp_pid624.jpg";
             } else if (cityNo==="albany"){
                 bendID = null
                 ICAO = null
@@ -332,9 +344,11 @@
                 cityName = "Albany"
                 tripCheckDevice = 1088
                 console.log(cityName)
+                tCTVUrl = "http://www.TripCheck.com/roadcams/cams/I-5 at US20 MP 233.2 SB_pid4556.jpg";
             }else {
                 window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
+            document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
             document.title = cityName + ", OR Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
