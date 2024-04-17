@@ -98,6 +98,30 @@
         <div id="cam"></div>
         <canvas id="tempChart"></canvas>
         <script>
+            function graphTemp(data1){
+                console.log("Standby for graphs");
+                console.log(data1);
+                const xValuesTemp = ["12:00AM", "1:00AM", "2:00AM", "3:00AM", "4:00AM", "5:00AM", "6:00AM", "7:00AM", "8:00AM", "9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM", "6:00PM", "7:00PM", "8:00PM", "9:00PM", "10:00PM", "11:00PM"];
+                new Chart("tempChart", {
+                    type: "line",
+                    data: {
+                        labels: xValuesTemp,
+                        datasets: [{
+                            data: data1,
+                            borderColor: "white",
+                            fill: true
+                        }]
+                    },
+                    options:{
+                        legend: {display: true},
+                        scales: {
+                            xAxes: [{gridLines: { color: "black" }}],
+                            yAxes: [{gridLines: { color: "black" }}]
+                        }
+                    }
+                });
+                Chart.defaults.color = '#000';
+            }
             function graphTemp(hist){
                 var thisDate = new Date()
                 hour = thisDate.getHours()
@@ -122,30 +146,6 @@
                 }
                 console.log(avgTemp);
                 graphTemp(avgTemp);
-            }
-            function graphTemp(data1){
-                console.log("Standby for graphs");
-                console.log(data1);
-                const xValuesTemp = ["12:00AM", "1:00AM", "2:00AM", "3:00AM", "4:00AM", "5:00AM", "6:00AM", "7:00AM", "8:00AM", "9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM", "6:00PM", "7:00PM", "8:00PM", "9:00PM", "10:00PM", "11:00PM"];
-                new Chart("tempChart", {
-                    type: "line",
-                    data: {
-                        labels: xValuesTemp,
-                        datasets: [{
-                            data: data1,
-                            borderColor: "white",
-                            fill: true
-                        }]
-                    },
-                    options:{
-                        legend: {display: true},
-                        scales: {
-                            xAxes: [{gridLines: { color: "black" }}],
-                            yAxes: [{gridLines: { color: "black" }}]
-                        }
-                    }
-                });
-                Chart.defaults.color = '#000';
             }
         </script>
         <!--
