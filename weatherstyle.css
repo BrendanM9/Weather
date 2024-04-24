@@ -38,12 +38,19 @@
     width:100px;
     opacity: 200%;
 }
+.icon{
+    width:25px;
+    opacity: 200%;
+}
 .column{
     float: left;
     width: 95%;
     /*height: 550px;*/
     border-style: solid;
     background-size: 100%;
+}
+.collapse{
+    width:100%
 }
 .lo{
     color:blue;
