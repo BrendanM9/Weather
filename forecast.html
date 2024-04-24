@@ -625,7 +625,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             
             for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +"&#9"+ chancesList[forecasters] +"&#9"+ iconsList[forecasters] +"&#9"+ hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 thisHeader.appendChild(thisForecasterDiv)
