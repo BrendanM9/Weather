@@ -554,7 +554,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisLo = document.createElement("span");
                 thisLo.classList = "lo";
                 thisLo.innerHTML ="/"+f.temperatureMin[hilo]+"º";
-                var thisHiLo = thisHi + thisLo
+                var thisHiLo = document.createElement("p");
+                thisHiLo = thisHi + thisLo;
                 document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
             }
