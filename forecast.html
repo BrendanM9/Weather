@@ -649,7 +649,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } else if (cloudCoverAvg1 > 25 && cloudCoverAvg1 <= 75){
                 document.getElementsByClassName("column")[1].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("column")[1]).style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementsByClassName("column")[1].style.backgroundImage =  "url('backgrounds/cloudy.png')";
             } 
             cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
             cloudCoverAvg2 = cloudCoverAvg2/2;
