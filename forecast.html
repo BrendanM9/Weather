@@ -547,14 +547,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisHi.id = "hi"+hilo1;
                 thisHi.classList = "hi";
                 if(f.temperatureMax[hilo] === null){
-                    thisHi.innerHTML = "High: "+f.calendarDayTemperatureMax[hilo]+"º";
+                    thisHi.innerHTML = f.calendarDayTemperatureMax[hilo]+"º";
                 } else {
-                   thisHi.innerHTML = "High: "+f.temperatureMax[hilo]+"º";
+                   thisHi.innerHTML = f.temperatureMax[hilo]+"º";
                 }
                 var thisLo = document.createElement("p");
                 thisLo.id="lo"+hilo1;
                 thisLo.classList = "lo";
-                thisLo.innerHTML = "Low: "+f.temperatureMin[hilo]+"º";
+                thisLo.innerHTML = "/"+f.temperatureMin[hilo]+"º";
                 document.getElementById("b"+hilo2).appendChild(thisHi);
                 document.getElementById("b"+hilo2).appendChild(thisLo);
             }
