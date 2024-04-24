@@ -565,10 +565,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
                         thisPrecip2Type = "Precipitation: ";
                     }
                 thisPrecip2.innerHTML = thisPrecip2Type+f.daypart[0].precipChance[precip1]+"% | "+totalQPF21+"in";
-                document.getElementById("b"+thisB).appendChild(thisIcon1);
-                document.getElementById("b"+thisB).appendChild(thisPrecip1);
-                document.getElementById("b"+thisB).appendChild(thisIcon2);
-                document.getElementById("b"+thisB).appendChild(thisPrecip2);
+                document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon1);
+                document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip1);
+                document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon2);
+                document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip2);
                 //var thisIconPrecip = document.createElement("div")
                 //thisIconPrecip = thisChance.innerHTML + thisIcon12.innerHTML
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
@@ -602,7 +602,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisCondition = document.createElement("p");
                 thisCondition.id = "condition"+desc1
                 thisCondition.innerHTML = f.narrative[desc];
-                document.getElementById("b"+desc2).appendChild(thisCondition);
+                document.getElementsByClassName("content")[desc].appendChild(thisCondition);
             }
             getDayNight(f);
             
@@ -806,7 +806,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var phase = document.createElement("p")
                 phase.innerHTML = "Moon Phase: "+ moon;
                 m1 = m + 2;
-                document.getElementById("b"+m1).appendChild(phase);
+                document.getElementsByClassName("content")[m].appendChild(phase);
             }
         }
                 
