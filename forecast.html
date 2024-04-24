@@ -6,7 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link rel="stylesheet" href="weatherstyle.css">
         <link rel="icon" type="image/x-icon" href="Weather Site Logo.png" id="favicon">
-        <script src="https://kit.fontawesome.com/58437b04cc.js" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/58437b04cc.js" crossorigin="anonymous"></script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
@@ -644,20 +644,20 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 cloudCoverAvg1 = cloudCoverAvg1/2;
             }
             if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 25){
-                document.getElementsByClassName("content")[0].style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b2").style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg1 > 25 && cloudCoverAvg1 <= 75){
-                document.getElementsByClassName("content")[0].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                document.getElementById("b2").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("content")[0].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementById("b2").style.backgroundImage =  "url('backgrounds/cloudy.png')";
             } 
             cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
             cloudCoverAvg2 = cloudCoverAvg2/2;
             if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
-                document.getElementsByClassName("content")[1].style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementById("b3").style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg2 > 33 && cloudCoverAvg2 <= 66){
-                document.getElementsByClassName("content")[1].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                document.getElementById("b3").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("content")[1].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementById("b3").style.backgroundImage =  "url('backgrounds/cloudy.png')";
             }
             cloudCoverAvg3 = parseFloat(f.daypart[0].cloudCover[4])+parseFloat(f.daypart[0].cloudCover[5])
             cloudCoverAvg3 = cloudCoverAvg3/2;
