@@ -154,7 +154,7 @@
                 thisAPILength = hist.observations.length;
                 console.log(thisAPILength);
                 thisAPILengthDay = parseFloat(thisAPILength) - 144;
-                var thisAPILengthLeft = 24 - thisAPILengthDay
+                var thisAPILengthLeft = 25 - thisAPILengthDay
                 var avgTemp = []
                 console.log(thisAPILengthDay);
                 console.log(hist.observations[144].imperial.tempAvg);
@@ -511,8 +511,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisText = document.createElement("p");
                 thisText.id = "text"+day1
                 thisText.innerText = f.dayOfWeek[day];
-                daysList.push(thisText.innerText);
-                document.getElementsByClassName("collapse")[day].appendChild(thisText);
+                daysList.push(thisText.innerHTML);
+                //document.getElementsByClassName("collapse")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
                 precip1 = precip + 1;
