@@ -543,7 +543,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
                 hilo2 = hilo + 2;
-                var thisHi = document.createElement("p");
+                var thisHi = document.createElement("span");
                 thisHi.id = "hi"+hilo1;
                 thisHi.classList = "hi";
                 if(f.temperatureMax[hilo] === null){
@@ -551,10 +551,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 } else {
                    thisHi.innerHTML = f.temperatureMax[hilo]+"º";
                 }
-                var thisLo = document.createElement("p");
-                
-                thisHi.innerHTML = thisHi+"/"+f.temperatureMin[hilo]+"º";
-                document.getElementsByClassName("collapse")[hilo].appendChild(thisHi);
+                var thisLo = document.createElement("span");
+                thisLo.classList = "lo";
+                thisLo.innerHTML ="/"+f.temperatureMin[hilo]+"º";
+                var thisHiLo = thisHi + thisLo
+                document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
             }
             for(desc = 0; desc <= 5; desc++){
