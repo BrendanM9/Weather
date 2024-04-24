@@ -534,7 +534,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 totalQPF1100 = parseInt(totalQPF1100);
                 var totalQPF11 = totalQPF1100 / 100;
                 var thisChance = document.createElement("p");
-                thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>"+f.daypart[0].precipChance[precip]+"%"
+                thisChance.innerText = "Precipitation"+f.daypart[0].precipChance[precip]+"%"
                 if(f.daypart[0].precipChance[precip] === null){ 
                     thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
                 } else {
