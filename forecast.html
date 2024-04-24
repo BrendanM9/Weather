@@ -511,7 +511,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisText = document.createElement("p");
                 thisText.id = "text"+day1
                 thisText.innerText = f.dayOfWeek[day];
-                //daysList.append(thisText.innerText);
+                daysList.push(thisText.innerText);
                 document.getElementsByClassName("collapse")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
@@ -582,7 +582,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //thisIconPrecip = thisChance.innerHTML + thisIcon12.innerHTML
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
                 //thisCollapse = thisCollapse.innerHTML + thisIconPrecip.innerHTML
-                //chancesList.append(thisChance.innerText);
+                chancesList.push(thisChance.innerText);
                 iconsList.push(thisIcon12.innerHTML);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
@@ -605,7 +605,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisHiLo = document.createElement("p");
                 thisHiLo.innerHTML = thisHi.innerHTML + thisLo.innerHTML;
                 document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
-                //hiLoList.append(thisHiLo.innerText)
+                hiLoList.push(thisHiLo.innerText)
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
             }
             for(desc = 0; desc <= 5; desc++){
