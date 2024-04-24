@@ -560,8 +560,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisIconPrecip = thisChance.innerHTML + thisIcon12+innerHTML
                 var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
                 thisCollapse = thisCollapse.innerHTML + thisIconPrecip.innerHTML
-                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
-                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
+                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIconPrecip);
+                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
             }
             for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
