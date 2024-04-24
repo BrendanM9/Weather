@@ -40,10 +40,10 @@
 }
 .column{
     float: left;
-    width: 13%;
-    height: 550px;
+    width: 95%;
+    /*height: 550px;*/
     border-style: solid;
-    background-size: 100% 550px;
+    background-size: 100%;
 }
 .lo{
     color:blue;
