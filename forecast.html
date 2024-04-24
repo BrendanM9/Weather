@@ -620,14 +620,16 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(chancesList)
             console.log(iconsList)
             console.log(hiLoList)
-            /*
+            
             for(var forecasters = 0; forecasters <= 6; forecasters++){
+                var thisForecasterDiv = document.createElement('div')
+                thisForecasterDiv.innerHTML = daysList[forecasters] + chancesList[forecasters] + iconsList[forecasters] + hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
-                document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
-                thisHeader.appendChild(chancesList[forecasters])
-                thisHeader.appendChild(iconsList[forecasters])
-                thisHeader.appendChild(hiLoList[forecasters])
-            }*/
+                //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
+                thisHeader.appendChild(thisForecasterDiv)
+                //thisHeader.appendChild(iconsList[forecasters])
+                //thisHeader.appendChild(hiLoList[forecasters])
+            }
             getDayNight(f);
             
             
