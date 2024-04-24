@@ -480,7 +480,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisText = document.createElement("p");
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
-                document.getElementById("b"+day2).appendChild(thisText);
+                document.getElementsByClassName("collapse")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
                 precip1 = precip + 1;
