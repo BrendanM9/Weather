@@ -512,7 +512,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
                 daysList.push(thisText.innerHTML);
-                document.getElementsByClassName("collapse")[day].appendChild(thisText);
+                document.getElementsByClassName("content")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
                 precip1 = precip + 1;
@@ -584,8 +584,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //thisCollapse = thisCollapse.innerHTML + thisIconPrecip.innerHTML
                 chancesList.push(thisChance.innerHTML);
                 iconsList.push(thisIcon12.innerHTML);
-                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
-                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
+                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
+                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
             }
             for(hilo = 0; hilo <= 5; hilo++){
@@ -602,9 +602,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisLo = document.createElement("span");
                 thisLo.classList = "lo";
                 thisLo.innerText ="/"+f.temperatureMin[hilo]+"º";
+                thisLo.style.color = "blue";
                 var thisHiLo = document.createElement("p");
                 thisHiLo.innerHTML = thisHi.innerHTML + thisLo.innerHTML;
-                document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
+                //document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
                 hiLoList.push(thisHiLo.innerHTML)
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
             }
@@ -623,7 +624,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             
             for(var forecasters = 0; forecasters <= 6; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] + chancesList[forecasters] + iconsList[forecasters] + hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +" "+ chancesList[forecasters] +" "+ iconsList[forecasters] +" "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 thisHeader.appendChild(thisForecasterDiv)
