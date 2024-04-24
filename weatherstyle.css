@@ -1,6 +1,6 @@
 .collapse {
   background-color: #FFF;
-  color: white;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -16,7 +16,7 @@
 
 .collapse:after {
   content: '\002B';
-  color: white;
+  color: black;
   font-weight: bold;
   float: right;
   margin-left: 5px;
