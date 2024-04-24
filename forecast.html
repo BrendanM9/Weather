@@ -500,6 +500,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF1100 = totalQPF1 *100
                 totalQPF1100 = parseInt(totalQPF1100);
                 var totalQPF11 = totalQPF1100 / 100;
+                var thisChance = document.createElement("p");
+                thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>"+f.daypart[0].precipChance[precip]+"%"
                 if(f.daypart[0].precipChance[precip] === null){ 
                     thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
                 } else {
@@ -539,6 +541,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 document.getElementById("b"+thisB).appendChild(thisPrecip1);
                 document.getElementById("b"+thisB).appendChild(thisIcon2);
                 document.getElementById("b"+thisB).appendChild(thisPrecip2);
+                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
             }
             for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
