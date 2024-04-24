@@ -599,12 +599,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 } else {
                    thisHi.innerText = f.temperatureMax[hilo]+"º";
                 }
+                thisHi.style.color = "red";
                 var thisLo = document.createElement("span");
                 thisLo.classList = "lo";
-                thisLo.innerText ="/"+f.temperatureMin[hilo]+"º";
+                thisLo.innerText = f.temperatureMin[hilo]+"º";
                 thisLo.style.color = "blue";
                 var thisHiLo = document.createElement("p");
-                thisHiLo.innerHTML = thisHi.innerHTML + thisLo.innerHTML;
+                thisHiLo.innerHTML = thisHi.innerHTML +"/"+ thisLo.innerHTML;
                 //document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
                 hiLoList.push(thisHiLo.innerHTML)
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
@@ -622,9 +623,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(iconsList)
             console.log(hiLoList)
             
-            for(var forecasters = 0; forecasters <= 6; forecasters++){
+            for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +" "+ chancesList[forecasters] +" "+ iconsList[forecasters] +" "+ hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"    "+ chancesList[forecasters] +"    "+ iconsList[forecasters] +"    "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 thisHeader.appendChild(thisForecasterDiv)
