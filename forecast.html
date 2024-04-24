@@ -605,7 +605,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisHiLo = document.createElement("p");
                 thisHiLo.innerHTML = thisHi.innerHTML + thisLo.innerHTML;
                 document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
-                hiLoList.push(thisHiLo.innerText)
+                hiLoList.push(thisHiLo.innerHTML)
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
             }
             for(desc = 0; desc <= 5; desc++){
@@ -622,10 +622,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(hiLoList)
             for(var forecasters = 0; forecasters <= 7; forecasters++){
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
-                thisHeader.appendChild(daysList[forecasters]
-                thisHeader.appendChild(chancesList[forecasters]
-                thisHeader.appendChild(iconsList[forecasters]
-                thisHeader.appendChild(hiLoList[forecasters]
+                thisHeader.appendChild(daysList[forecasters])
+                thisHeader.appendChild(chancesList[forecasters])
+                thisHeader.appendChild(iconsList[forecasters])
+                thisHeader.appendChild(hiLoList[forecasters])
             }
             getDayNight(f);
             
