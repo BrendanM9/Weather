@@ -506,7 +506,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 day2 = day+2
                 var thisText = document.createElement("p");
                 thisText.id = "text"+day1
-                thisText.innerHTML = f.dayOfWeek[day];
+                thisText.innerText = f.dayOfWeek[day];
                 daysList.append(thisText.innerHTML);
                 document.getElementsByClassName("collapse")[day].appendChild(thisText);
             }
@@ -591,13 +591,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisHi.id = "hi"+hilo1;
                 thisHi.classList = "hi";
                 if(f.temperatureMax[hilo] === null){
-                    thisHi.innerHTML = f.calendarDayTemperatureMax[hilo]+"º";
+                    thisHi.innerText = f.calendarDayTemperatureMax[hilo]+"º";
                 } else {
-                   thisHi.innerHTML = f.temperatureMax[hilo]+"º";
+                   thisHi.innerText = f.temperatureMax[hilo]+"º";
                 }
                 var thisLo = document.createElement("span");
                 thisLo.classList = "lo";
-                thisLo.innerHTML ="/"+f.temperatureMin[hilo]+"º";
+                thisLo.innerText ="/"+f.temperatureMin[hilo]+"º";
                 var thisHiLo = document.createElement("p");
                 thisHiLo.innerHTML = thisHi.innerHTML + thisLo.innerHTML;
                 document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
