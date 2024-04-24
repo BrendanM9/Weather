@@ -498,11 +498,15 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 precip3 = precip + 3;
                 thisB = (precip/2)+2;
                 var thisIcon1 = document.createElement("div");
+                var thisIcon12 = document.createElement("div");
                 thisIcon1.id = "icon"+precip1;
+                thisIcon12.id = "icon"+precip1;
                 if(f.daypart[0].iconCode[precip] === null){
                     thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
+                    thisIcon12.innerHTML = "<img src='icons/30.png' class='icon'>";
                 } else {
-                thisIcon1.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
+                    thisIcon1.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
+                    thisIcon12.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
                 }
                 var thisPrecip1 = document.createElement("p");
                 thisPrecip1.id = "precip"+precip1;
@@ -553,7 +557,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 document.getElementById("b"+thisB).appendChild(thisIcon2);
                 document.getElementById("b"+thisB).appendChild(thisPrecip2);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
-                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon1);
+                document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
             }
             for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
