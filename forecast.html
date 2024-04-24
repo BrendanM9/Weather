@@ -497,12 +497,16 @@ for (closeB = 0; closeB < close.length; closeB++) {
         }
         forecast = function( f ){
             console.log(f);
+            var daysList = []
+            var chancesList = []
+            var iconsList = []
             for(day = 0; day <= 5; day++){
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
+                daysList.append(thisText);
                 document.getElementsByClassName("collapse")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
@@ -573,6 +577,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //thisIconPrecip = thisChance.innerHTML + thisIcon12.innerHTML
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
                 //thisCollapse = thisCollapse.innerHTML + thisIconPrecip.innerHTML
+                chancesList.append(thisChance);
+                iconsList.append(thisIcon12);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
