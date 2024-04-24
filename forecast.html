@@ -154,6 +154,7 @@
                 thisAPILength = hist.observations.length;
                 console.log(thisAPILength);
                 thisAPILengthDay = parseFloat(thisAPILength) - 144;
+                var thisAPILengthLeft = 24 - thisAPILengthDay
                 var avgTemp = []
                 console.log(thisAPILengthDay);
                 console.log(hist.observations[144].imperial.tempAvg);
@@ -167,6 +168,9 @@
                     //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                     console.log(avgTemp);
                     //graphTemp(avgTemp);
+                }
+                for(var thisIterator = 0; thisIterator <= thisAPILengthLeft; thisIterator++){
+                    avgTemp.push(0);
                 }
                 console.log(avgTemp);
                 graphTemp(avgTemp);
@@ -579,7 +583,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
                 //thisCollapse = thisCollapse.innerHTML + thisIconPrecip.innerHTML
                 //chancesList.append(thisChance.innerText);
-                iconsList.append(thisIcon12.innerHTML);
+                iconsList.push(thisIcon12.innerHTML);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
                 document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
