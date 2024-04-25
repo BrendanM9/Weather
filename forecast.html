@@ -125,6 +125,7 @@
             function graphTemp(data1){
                 console.log("Standby for graphs");
                 console.log(data1);
+                const thisTempData = data1
                 const xValuesTemp = ["12:00AM", "1:00AM", "2:00AM", "3:00AM", "4:00AM", "5:00AM", "6:00AM", "7:00AM", "8:00AM", "9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM", "6:00PM", "7:00PM", "8:00PM", "9:00PM", "10:00PM", "11:00PM"];
                 console.log(xValuesTemp);
                 new Chart("tempChart", {
@@ -165,13 +166,14 @@
                     var graphLengthNew = graphLength + 144;
                     //console.log(graphLengthNew);
                     //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
-                    avgTemp.push(hist.observations[graphLengthNew].imperial.tempAvg);
+                    avgTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.tempAvg));
                     //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                     console.log(avgTemp);
                     //graphTemp(avgTemp);
                 }
                 for(var thisIterator = 0; thisIterator <= thisAPILengthLeft; thisIterator++){
                     avgTemp.push(0);
+                    console.log(avgTemp);
                 }
                 console.log(avgTemp);
                 graphTemp(avgTemp);
@@ -540,19 +542,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF11 = totalQPF1100 / 100;
                 var thisChance = document.createElement("p");
                 if(f.daypart[0].precipChance[precip] !== null){
-                    thisChance.innerText = "Precipitation: "+f.daypart[0].precipChance[precip]+"%"
+                    thisChance.innerText = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
                 } else {
-                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>0%";
+                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> 0%";
                 }
                 if(f.daypart[0].precipChance[precip] === null){ 
                     thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
                 } else {
                     if(f.daypart[0].precipType[precip] === "snow"){
-                        thisPrecip1Type = "Snow: ";
+                        thisPrecip1Type = "<i class='fa-solid fa-snowflake'></i> ";
                     } else if(f.daypart[0].precipType[precip] === "rain"){
-                        thisPrecip1Type = "Rain: ";
+                        thisPrecip1Type = "<i class='fa-solid fa-droplet'></i> ";
                     } else {
-                        thisPrecip1Type = "Precipitation: ";
+                        thisPrecip1Type = "<i class='fa-solid fa-droplet'></i> ";
                     }
                     thisPrecip1.innerHTML = thisPrecip1Type+f.daypart[0].precipChance[precip]+"% | "+totalQPF11+"in";
                 }
@@ -572,11 +574,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF21 = totalQPF2100 / 100
                 //console.log(4)
                    if(f.daypart[0].precipType[precip1] === "snow"){
-                        thisPrecip2Type = "Snow: ";
+                        thisPrecip2Type = "<i class='fa-solid fa-snowflake'></i> ";
                    } else if(f.daypart[0].precipType[precip1] === "rain"){
-                        thisPrecip2Type = "Rain: ";
+                        thisPrecip2Type = "<i class='fa-solid fa-droplet'></i> ";
                    } else {
-                        thisPrecip2Type = "Precipitation: ";
+                        thisPrecip2Type = "<i class='fa-solid fa-droplet'></i> ";
                     }
                 thisPrecip2.innerHTML = thisPrecip2Type+f.daypart[0].precipChance[precip1]+"% | "+totalQPF21+"in";
                 document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon1);
