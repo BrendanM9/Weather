@@ -542,7 +542,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF11 = totalQPF1100 / 100;
                 var thisChance = document.createElement("p");
                 if(f.daypart[0].precipChance[precip] !== null){
-                    thisChance.innerText = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
+                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
                 } else {
                     thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> 0%";
                 }
