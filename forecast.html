@@ -51,11 +51,24 @@
                 <tbody>
                     <tr>
                         <td><p id="humidity">Humidity: --%</p></td>
-                        <td><p id="pressure">Pressure: -- inHG</p></td>
+                        <td><p id="dewpt" class="detail">Dew Point: --º</p></td>
                     </tr>
                     <tr>
                         <td><p id="winddir">Wind Direction: --º</p></td>
                         <td><p>Wind Speed/Gust</p><span id="windspeed"></span>&#47<span id="windgusts"></span> MPH</p></td>
+                    </tr>
+                    <tr>
+                        <td><p id="feellike" class="detail">Feels Like: --</p></td>
+                        <td><p id="pressure">Pressure: -- inHG</p></td>
+                    </tr>
+                    <tr>
+                        <td><p id="uv" class="detail">UV Index: --</p></td>
+                        <td>
+                            <div id="precip-group">
+                                <p><img src="Gauges/0:2.png" style="width:20%; height:20%" id="bucket">&nbsp;
+                                <div id="precip" class="detail">Precipitation: -- in</div></p>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -82,17 +95,17 @@
                     <!--<p id="winddir1" class="detail">Wind Direction: --º</p>-->
                     <!--<p id="windspeed" class="detail">Wind Speed: -- MPH</p>-->
                     <!--<p id="windgusts" class="detail">Wind Gust: -- MPH</p>-->
-                    <div id="precip-group">
+                    <!--<div id="precip-group">
                         <p><img src="Gauges/0:2.png" style="width:20%; height:20%" id="bucket">&nbsp;
                         <div id="precip" class="detail">Precipitation: -- in</div></p>
-                    </div>
+                    </div>-->
                     <!--<p id="pressure1" class="detail">Absolute Pressure: -- inHG</p>-->
-                    <p id="uv" class="detail">UV Index: --</p>
-                    <p id="feellike" class="detail">Feels Like: --</p>
-                    <p id="dewpt" class="detail">Dew Point: --º</p>
+                    <!--<p id="uv" class="detail">UV Index: --</p>-->
+                    <!--<p id="feellike" class="detail">Feels Like: --</p>-->
+                    <!--<p id="dewpt" class="detail">Dew Point: --º</p>-->
                 </div>
                 <div class="modal-footer">
-                    <h3 id="temp-1">--ºF</h3>
+                    <!--<h3 id="temp-1">--ºF</h3>-->
                 </div>
             </div>
         </div>
@@ -891,8 +904,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var windDirCardinal = ""
             }
             document.getElementById("winddir").innerHTML = "Wind Direction: "+d.observations[0].winddir+"º";
-            document.getElementById("windspeed").innerHTML = "Wind Speed: "+d.observations[0].imperial.windSpeed+" MPH";
-            document.getElementById("windgusts").innerHTML = "Wind Gust: "+d.observations[0].imperial.windGust+" MPH";
+            document.getElementById("windspeed").innerHTML = d.observations[0].imperial.windSpeed;
+            document.getElementById("windgusts").innerHTML = d.observations[0].imperial.windGust;
             document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             document.getElementById("update").innerHTML = "Last updated: "+updateTime;
             rainToday = d.observations[0].imperial.precipTotal;
