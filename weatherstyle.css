@@ -86,11 +86,11 @@
     background-size: 100%;
 }
 #detail-weather{
-  position:absolute;
+  /*position:absolute;*/
   float:right;
   width:60%;
   font-size:20%;
-  top:0%;
+  /*top:0%;*/
 }
 .collapse{
     width:100%
