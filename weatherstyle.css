@@ -85,10 +85,12 @@
     border-style: solid;
     background-size: 100%;
 }
-.detail-weather{
+#detail-weather{
+  position:absolute;
   float:right;
   width:60%;
-  font-size:15%;
+  font-size:20%;
+  top:0%;
 }
 .collapse{
     width:100%
