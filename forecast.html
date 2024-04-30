@@ -44,34 +44,36 @@
             <p id="condition"></p>
             <!--<p id="conditionNWS"></p>-->
             <p id="temp">Temperature: --ºF</p>
-            <table id="detail-weather">
-                <thead>
-                    <th>Weather Details</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><p id="humidity">Humidity: --%</p></td>
-                        <td><p id="dewpt" class="detail">Dew Point: --º</p></td>
-                    </tr>
-                    <tr>
-                        <td><p id="winddir">Wind Direction: --º</p></td>
-                        <td><p>Wind Speed/Gust</p><span id="windspeed"></span>&#47<span id="windgusts"></span> MPH</p></td>
-                    </tr>
-                    <tr>
-                        <td><p id="feellike" class="detail">Feels Like: --</p></td>
-                        <td><p id="pressure">Pressure: -- inHG</p></td>
-                    </tr>
-                    <tr>
-                        <td><p id="uv" class="detail">UV Index: --</p></td>
-                        <td>
-                            <div id="precip-group">
-                                <p><img src="Gauges/0:2.png" style="width:20%; height:20%" id="bucket">&nbsp;
-                                <div id="precip" class="detail">Precipitation: -- in</div></p>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="left-column-detail">
+                <table id="detail-weather">
+                    <thead>
+                        <th>Weather Details</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><p id="humidity">Humidity: --%</p></td>
+                            <td><p id="dewpt" class="detail">Dew Point: --º</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="winddir">Wind Direction: --º</p></td>
+                            <td><p>Wind Speed/Gust</p><span id="windspeed"></span>&#47<span id="windgusts"></span> MPH</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="feellike" class="detail">Feels Like: --</p></td>
+                            <td><p id="pressure">Pressure: -- inHG</p></td>
+                        </tr>
+                        <tr>
+                            <td><p id="uv" class="detail">UV Index: --</p></td>
+                            <td>
+                                <div id="precip-group">
+                                    <p><img src="Gauges/0:2.png" style="width:20%; height:20%" id="bucket">&nbsp;
+                                    <div id="precip" class="detail">Precipitation: -- in</div></p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <!--<p id="humidity">Humidity: --%</p>
             <p id="winddir">Wind Direction: --º</p>
             <p id="windspeed">Wind Speed: -- MPH</p>
