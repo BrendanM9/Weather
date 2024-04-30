@@ -78,6 +78,11 @@
     width:25px;
     opacity: 200%;
 }
+.left-column-detail{
+    position:absolute;
+    left:50%
+    width:50%
+}
 .column{
     float: left;
     width: 95%;
@@ -87,9 +92,9 @@
 }
 #detail-weather{
   /*position:absolute;*/
-  float:right;
-  width:60%;
-  font-size:20%;
+  /*float:right;*/
+  /*width:60%;*/
+  font-size:100%;
   /*top:0%;*/
 }
 .collapse{
