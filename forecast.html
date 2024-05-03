@@ -907,7 +907,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             temp1 = d.observations[0].imperial.temp;
             light = d.observations[0].solarRadiation;
             rain = d.observations[0].imperial.precipRate;
-            rainM = d.observations[0].imperial.precipTotal;
+            rainM = parseFloat(d.observations[0].imperial.precipTotal);
             dewpoint = d.observations[0].imperial.dewpt;
             time = d.observations[0].obsTimeLocal;
             amtemp = d.observations[0].imperial.temp;
@@ -944,7 +944,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //Full Bucket
                 bucket1.innerHTML= "<img src='Gauges/2:2.png'>";
             }
-            console.log(bucket1);
+            console.log(bucket1.innerHTML);
             document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             document.getElementById("update").innerHTML = "Last updated: "+updateTime;
