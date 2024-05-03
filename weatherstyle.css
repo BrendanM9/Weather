@@ -13,7 +13,16 @@
   outline: none;
   font-size: 15px;
 }
-
+table,
+    td {
+        border: 2px solid #333;
+    }
+    
+    thead,
+    tfoot {
+        background-color: b0d6f9;
+        color: #000000;
+    }
 .active, .collapse:hover {
   background-color: #EEE;
 }
