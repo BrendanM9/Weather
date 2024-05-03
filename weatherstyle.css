@@ -47,7 +47,7 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   #b1{
-    position:relative;
+    position:absolute;
     height: 70%;
   }
   /*#b2{
