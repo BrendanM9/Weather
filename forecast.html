@@ -653,6 +653,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisLo.classList = "lo";
                 thisLo.innerText = f.temperatureMin[hilo]+"º";
                 thisLo.style.color = "blue";
+                console.log(thisLo)
+                console.log(thisLo.innerHTML);
                 var thisHiLo = document.createElement("p");
                 thisHiLo.innerHTML = thisHi.innerHTML +"/"+ thisLo.innerHTML;
                 //document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
@@ -921,6 +923,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("windspeed").innerHTML = d.observations[0].imperial.windSpeed;
             document.getElementById("windgusts").innerHTML = d.observations[0].imperial.windGust;
             var bucket1 = document.createElement("div");
+            bucket1.id = "RainBucket1";
             if(rainM === 0){
                 //Empty rain bucket
                 bucket1.innerHTML= "<img src='Gauges/0:2.png'>"
@@ -1322,7 +1325,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             hrElement.style.animationDelay = Math.random() * 5 + "s";
             document.body.appendChild(hrElement);
         }
-        }*/
+        }*//*
             var modal = document.getElementById("modal");
 
 // Get the button that opens the modal
@@ -1346,7 +1349,7 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+}*//*
             var second = 0
             var minute = 0
             function autoRefresh() {
