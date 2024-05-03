@@ -74,10 +74,10 @@
                             <td><p id="uv" class="detail">UV Index: --</p></td>
                             <td>
                                 <div id="all-precip"></div>
-                                <div id="precip-group">
+                                <!--<div id="precip-group">
                                     <p><img src="Gauges/0:2.png" style="width:20%; height:20%" id="bucket">&nbsp;
                                     <div id="precip" class="detail">Precipitation: -- in</div></p>
-                                </div>
+                                </div>-->
                             </td>
                         </tr>
                     </tbody>
@@ -928,27 +928,27 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(rainM);
             if(rainM === 0){
                 //Empty rain bucket
-                bucket1.innerHTML = "<img src='Gauges/0:2.png'>";
+                bucket1.innerHTML = "<img src='Gauges/0:2.png' style='width:20%; height:20%' id='bucket'>";
             } else if(rainM > 0 && rainM < .25){
                 //1/8th bucket
-                bucket1.innerHTML = "<img src='Gauges/1:8.png'>";
+                bucket1.innerHTML = "<img src='Gauges/1:8.png' style='width:20%; height:20%' id='bucket'>";
             } else if(rainM >= .25 && rainM < .5){
                 console.log("yes 1/4");
                 //1/4th bucket
-                bucket1.innerHTML = "<img src='Gauges/1:4.png'>";
+                bucket1.innerHTML = "<img src='Gauges/1:4.png' style='width:20%; height:20%' id='bucket'>";
             } else if(rainM >= .5 && rainM < .75){
                 //1/2th bucket
-                bucket1.innerHTML= "<img src='Gauges/1:2.png'>";
+                bucket1.innerHTML= "<img src='Gauges/1:2.png' style='width:20%; height:20%' id='bucket'>";
             } else if(rainM >= .75 && rainM < 1){
                 //3/4ths bucket
-                bucket1.innerHTML = "<img src='Gauges/3:4.png'>";
+                bucket1.innerHTML = "<img src='Gauges/3:4.png' style='width:20%; height:20%' id='bucket'>";
             } else if (rainM >= 1){
                 //Full Bucket
-                bucket1.innerHTML = "<img src='Gauges/2:2.png'>";
+                bucket1.innerHTML = "<img src='Gauges/2:2.png' style='width:20%; height:20%' id='bucket'>";
             }
             console.log(bucket1.innerHTML);
             document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
-            document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+            //document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             document.getElementById("update").innerHTML = "Last updated: "+updateTime;
             rainToday = d.observations[0].imperial.precipTotal;
             if(parseFloat(d.observations[0].imperial.pressure)===29.8){
@@ -1159,7 +1159,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         }
        function currentRain(m){
            var m1 = parseFloat(m)
-           var bucket = document.getElementById("bucket")
+           /*var bucket = document.getElementById("bucket")
             if(m1 === 0){
                 //Empty rain bucket
                 bucket.src= "Gauges/0:2.png"
@@ -1178,7 +1178,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } else if (m1 >= 1){
                 //Full Bucket
                 bucket.src= "Gauges/2:2.png"
-            }
+            }*/
        }
         var currentConditions = function(l, r, t, a, w, d, m){
             var l1 = parseInt(l);
@@ -1193,7 +1193,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var time = currentDate.getHours();
             console.log("Time: \n", time);
             console.log(r1);
-            var bucket = document.getElementById("bucket")
+            /*var bucket = document.getElementById("bucket")
             if(m1 === 0){
                 //Empty rain bucket
                 bucket.src= "Gauges/0:2.png"
@@ -1212,7 +1212,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } else if (m1 >= 1){
                 //Full Bucket
                 bucket.src= "Gauges/2:2.png"
-            }
+            }*/
             if(nwsSet === false){
             if(r1 === .01 && a1 > 35){
                 iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
