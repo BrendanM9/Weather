@@ -47,7 +47,7 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   #b1{
-    height: 500%;
+    height: 400px;
   }
   /* The navigation menu links */
   .sidenav a {
@@ -85,7 +85,7 @@
     position:absolute;
     left:50%;
     width:50%;
-    top:0%;
+    top:10%;
     height:70%;
     
 }
