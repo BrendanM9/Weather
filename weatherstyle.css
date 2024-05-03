@@ -48,7 +48,7 @@
   }
   #b1{
     position:absolute;
-    height: 50%;
+    height: 70%;
   }
   /* The navigation menu links */
   .sidenav a {
@@ -91,11 +91,14 @@
     
 }
 .column{
+  position:absolute;
     float: left;
     width: 95%;
     /*height: 550px;*/
     border-style: solid;
     background-size: 100%;
+  padding-top:1%;
+  padding-bottom:1%;
 }
 #detail-weather{
   /*position:absolute;*/
