@@ -26,6 +26,7 @@ table,
 table {
   width:50%
   table-layout: fixed;
+  height:100%;
 }
 .active, .collapse:hover {
   background-color: #EEE;
