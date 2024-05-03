@@ -924,7 +924,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("windgusts").innerHTML = d.observations[0].imperial.windGust;
             var bucket1 = document.createElement("div");
             bucket1.id = "RainBucket1";
-            bucket1.innerHTML = "testing";
+            //bucket1.innerHTML = "testing";
+            console.log(rainM);
             if(rainM === 0){
                 //Empty rain bucket
                 bucket1.innerHTML= "<img src='Gauges/0:2.png'>";
