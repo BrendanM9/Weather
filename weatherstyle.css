@@ -47,9 +47,13 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   #b1{
-    position:absolute;
+    position:relative;
     height: 70%;
   }
+  /*#b2{
+    position:absolute;
+    top:80%;
+  }*/
   /* The navigation menu links */
   .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -91,7 +95,7 @@
     
 }
 .column{
-  position:absolute;
+  /*position:absolute;*/
     float: left;
     width: 95%;
     /*height: 550px;*/
