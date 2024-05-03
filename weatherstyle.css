@@ -104,10 +104,11 @@ table,
     position:absolute;
     left:50%;
     width:50%;
-    top:15%;
+    top:12.5%;
     height:80%;
     background-color:white;
   color:black;
+  text-align:center center;
 }
 .column{
   /*position:absolute;*/
