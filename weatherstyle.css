@@ -23,6 +23,9 @@ table,
         background-color: b0d6f9;
         color: #000000;
     }
+table {
+  table-layout: fixed;
+}
 .active, .collapse:hover {
   background-color: #EEE;
 }
@@ -105,7 +108,7 @@ table,
     left:50%;
     width:50%;
     top:0%;
-    height:85%;
+    height:100%;
     background-color:white;
   color:black;
   text-align:center center;
