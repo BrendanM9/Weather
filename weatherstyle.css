@@ -1,6 +1,6 @@
 #forecast{
   position:absolute;
-  top:90%;
+  top:100%;
 }
 .collapse {
   background-color: #FFF;
@@ -61,7 +61,7 @@ table,
   }
   #b1{
     position:absolute;
-    height: 70%;
+    height: 80%;
   }
   /*#b2{
     position:absolute;
@@ -104,7 +104,7 @@ table,
     left:50%;
     width:50%;
     top:17%;
-    height:70%;
+    height:80%;
     background-color:white;
   color:black;
 }
