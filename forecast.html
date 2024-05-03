@@ -924,24 +924,25 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("windgusts").innerHTML = d.observations[0].imperial.windGust;
             var bucket1 = document.createElement("div");
             bucket1.id = "RainBucket1";
+            bucket1.innerHTML = "testing";
             if(rainM === 0){
                 //Empty rain bucket
-                bucket1.innerHTML= "<img src='Gauges/0:2.png'>"
+                bucket1.innerHTML= "<img src='Gauges/0:2.png'>";
             } else if(rainM > 0 && m1 < .25){
                 //1/8th bucket
-                bucket1.innerHTML= "<img src='Gauges/1:8.png'>"
+                bucket1.innerHTML= "<img src='Gauges/1:8.png'>";
             } else if(rainM >= .25 && m1 < .5){
                 //1/4th bucket
-                bucket1.innerHTML= "<img src='Gauges/1:4.png'>"
+                bucket1.innerHTML= "<img src='Gauges/1:4.png'>";
             } else if(rainM >= .5 && m1 < .75){
                 //1/2th bucket
-                bucket1.innerHTML= "<img src='Gauges/1:2.png'>"
+                bucket1.innerHTML= "<img src='Gauges/1:2.png'>";
             } else if(rainM >= .75 && m1 < 1){
                 //3/4ths bucket
-                bucket1.innerHTML= "<img src='Gauges/3:4.png'>"
+                bucket1.innerHTML= "<img src='Gauges/3:4.png'>";
             } else if (rainM >= 1){
                 //Full Bucket
-                bucket1.innerHTML= "<img src='Gauges/2:2.png'>"
+                bucket1.innerHTML= "<img src='Gauges/2:2.png'>";
             }
             console.log(bucket1);
             document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
