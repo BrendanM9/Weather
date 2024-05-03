@@ -24,6 +24,7 @@ table,
         color: #000000;
     }
 table {
+  width:50%
   table-layout: fixed;
 }
 .active, .collapse:hover {
