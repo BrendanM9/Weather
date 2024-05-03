@@ -94,9 +94,10 @@
     position:absolute;
     left:50%;
     width:50%;
-    top:20%;
+    top:17%;
     height:70%;
-    
+    background-color:white;
+  color:black;
 }
 .column{
   /*position:absolute;*/
