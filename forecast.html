@@ -161,9 +161,15 @@
                 <img src="https://radar.weather.gov/ridge/standard/PACNORTHWEST_loop.gif">
             </div>
         </div>
-        <canvas id="tempChart"></canvas>
+        <div class="column" id="b10">
+            <button class="collapse">Hourly Graphs for Today</button>
+            <div class="content">
+                <canvas id="tempChart"></canvas>
+                <canvas id="pressureChart"></canvas>
+            </div>
+        </div>
         <script>
-            function graphTempAfterData(data1, data2, data3){
+            function graphTempAfterData(data1, data2, data3, data4){
                 console.log("Standby for graphs");
                 console.log(data1);
                 const thisTempData = data1
@@ -201,6 +207,25 @@
                     }
                 });
                 Chart.defaults.color = '#000';
+                new Chart("pressureChart", {
+                    type: "line",
+                    data: {
+                        labels: xValuesTemp,
+                        datasets: [{
+                            data: data4,
+                            label: "Barometric Pressure",
+                            borderColor: "white",
+                            fill: true
+                        }]
+                    },
+                    options:{
+                        legend: {display: true},
+                        scales: {
+                            xAxes: [{gridLines: { color: "black" }}],
+                            yAxes: [{gridLines: { color: "black" }}]
+                        }
+                    }
+                })
             }
             function graphTemp(hist){
                 
@@ -216,6 +241,10 @@
                 var avgTemp = []
                 var hiTemp = []
                 var loTemp = []
+                var avgPressure = []
+                var thisHiPress = null;
+                var thisLoPress = null;
+                var thisAvgPress = null;
                 console.log(thisAPILengthDay);
                 console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength <= thisAPILengthDay-1; graphLength++){
@@ -227,6 +256,10 @@
                     avgTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.tempAvg));
                     hiTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.heatindexAvg));
                     loTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.windchillAvg));
+                    thisHiPress = parseFloat(hist.observations[graphLengthNew].imperial.pressureMax);
+                    thisLoPress = parseFloat(hist.observations[graphLengthNew].imperial.pressureMin);
+                    thisAvgPress = (thisHiPress + thisLoPress)/2;
+                    avgPressure.push(thisAvgPress);
                     //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                     console.log(avgTemp);
                     //graphTemp(avgTemp);
@@ -237,7 +270,7 @@
                     console.log(avgTemp);
                 }*/
                 console.log(avgTemp);
-                graphTempAfterData(avgTemp, hiTemp, loTemp);
+                graphTempAfterData(avgTemp, hiTemp, loTemp, avgPressure);
             }
         </script>
         <!--
