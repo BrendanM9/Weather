@@ -190,6 +190,7 @@
                 Chart.defaults.color = '#000';
             }
             function graphTemp(hist){
+                
                 var thisDate = new Date()
                 hour = thisDate.getHours()
                 console.log(hist);
@@ -212,6 +213,7 @@
                     console.log(avgTemp);
                     //graphTemp(avgTemp);
                 }
+                console.log(thisAPILengthLeft);
                 for(var thisIterator = 0; thisIterator <= thisAPILengthLeft; thisIterator++){
                     avgTemp.push(0);
                     console.log(avgTemp);
