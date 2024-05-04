@@ -163,7 +163,7 @@
         </div>
         <canvas id="tempChart"></canvas>
         <script>
-            function graphTempAfterData(data1){
+            function graphTempAfterData(data1, data2, data3){
                 console.log("Standby for graphs");
                 console.log(data1);
                 const thisTempData = data1
@@ -176,6 +176,16 @@
                         datasets: [{
                             data: data1,
                             borderColor: "white",
+                            fill: true
+                        },
+                        {
+                            data:data2,
+                            borderColor: "red",
+                            fill: true
+                        },
+                        {
+                            data:data3,
+                            borderColor: "blue",
                             fill: true
                         }]
                     },
@@ -201,6 +211,8 @@
                 var thisAPILengthLeft = 25 - thisAPILengthDay
                 thisAPILengthLeft = thisAPILengthLeft - 2;
                 var avgTemp = []
+                var hiTemp = []
+                var loTemp = []
                 console.log(thisAPILengthDay);
                 console.log(hist.observations[144].imperial.tempAvg);
                 for(var graphLength = 0; graphLength <= thisAPILengthDay-1; graphLength++){
@@ -210,6 +222,8 @@
                     //console.log(graphLengthNew);
                     //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                     avgTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.tempAvg));
+                    hiTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.heatindexAvg));
+                    loTemp.push(parseFloat(hist.observations[graphLengthNew].imperial.windchillAvg));
                     //console.log(hist.observations[graphLengthNew].imperial.tempAvg);
                     console.log(avgTemp);
                     //graphTemp(avgTemp);
@@ -220,7 +234,7 @@
                     console.log(avgTemp);
                 }*/
                 console.log(avgTemp);
-                graphTempAfterData(avgTemp);
+                graphTempAfterData(avgTemp, hiTemp, loTemp);
             }
         </script>
         <!--
