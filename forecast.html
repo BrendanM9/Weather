@@ -199,6 +199,7 @@
                 console.log(thisAPILength);
                 thisAPILengthDay = parseFloat(thisAPILength) - 144;
                 var thisAPILengthLeft = 25 - thisAPILengthDay
+                thisAPILengthLeft = thisAPILengthLeft -1;
                 var avgTemp = []
                 console.log(thisAPILengthDay);
                 console.log(hist.observations[144].imperial.tempAvg);
