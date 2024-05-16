@@ -619,13 +619,17 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisB = (precip/2)+2;
                 var thisIcon1 = document.createElement("div");
                 var thisIcon12 = document.createElement("div");
+                var thisNarrative1 = document.createElement("div");
                 thisIcon1.id = "icon"+precip1;
                 thisIcon12.id = "icon"+precip1;
+                thisNarrative1.id = "narrative"+precip1;
                 if(f.daypart[0].iconCode[precip] === null){
                     //thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
                     thisIcon1.innerHTML = "";
+                    thisNarrative1.innerHTML = "";
                     thisIcon12.innerHTML = "<img src='icons/30.png' class='iconSmall'>";
                 } else {
+                    thisNarrative1.innerHTML = "<p>"+f.daypart[0].narrative[precip]+"</p>";
                     thisIcon1.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
                     thisIcon12.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='iconSmall'>";
                 }
@@ -640,7 +644,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 if(f.daypart[0].precipChance[precip] !== null){
                     thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
                 } else {
-                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>"+ f.daypart[0].precipChance[precip1];
+                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>"+ f.daypart[0].precipChance[precip1]+"%";
                     //thisChance.innerHTML = ""
                 }
                 if(f.daypart[0].precipChance[precip] === null){ 
@@ -657,6 +661,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     thisPrecip1.innerHTML = thisPrecip1Type+f.daypart[0].precipChance[precip]+"% | "+totalQPF11+"in";
                 }
                 var thisIcon2 = document.createElement("div");
+                var thisNarrative2 = document.createElement("div");
+                thisNarrative2.id = "narrative"+precip2;
+                thisNarrative2.innerHTML = "<p>"+f.daypart[0].narrative[precip1]+"</p>";
                 thisIcon2.id = "icon"+precip2;
                 thisIcon2.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip1]+".png' class='icon'>";
                 var thisPrecip2 = document.createElement("p");
@@ -681,8 +688,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisPrecip2.innerHTML = thisPrecip2Type+f.daypart[0].precipChance[precip1]+"% | "+totalQPF21+"in";
                 document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon1);
                 document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip1);
+                document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative1);
                 document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon2);
                 document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip2);
+                document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative2);
                 //var thisIconPrecip = document.createElement("div")
                 //thisIconPrecip = thisChance.innerHTML + thisIcon12.innerHTML
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
@@ -723,7 +732,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisCondition = document.createElement("p");
                 thisCondition.id = "condition"+desc1
                 thisCondition.innerHTML = f.narrative[desc];
-                document.getElementsByClassName("content")[desc].appendChild(thisCondition);
+                //document.getElementsByClassName("content")[desc].appendChild(thisCondition);
             }
             console.log(daysList)
             console.log(chancesList)
