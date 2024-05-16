@@ -642,9 +642,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var totalQPF11 = totalQPF1100 / 100;
                 var thisChance = document.createElement("p");
                 if(f.daypart[0].precipChance[precip] !== null){
-                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
+                    thisChance.innerHTML = f.daypart[0].precipChance[precip]+"%"
                 } else {
-                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>"+ f.daypart[0].precipChance[precip1]+"%";
+                    thisChance.innerHTML = f.daypart[0].precipChance[precip1]+"%";
                     //thisChance.innerHTML = ""
                 }
                 if(f.daypart[0].precipChance[precip] === null){ 
@@ -738,10 +738,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(chancesList)
             console.log(iconsList)
             console.log(hiLoList)
-            
+            var RainIcon = document.createElement("div")
+            RainIcon.innerHTML = "<i class='fa-solid fa-droplet'></i>";
             for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 thisHeader.appendChild(thisForecasterDiv)
