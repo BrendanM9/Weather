@@ -738,8 +738,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(chancesList)
             console.log(iconsList)
             console.log(hiLoList)
-            var RainIcon = document.createElement("div")
-            RainIcon.innerHTML = "<i class='fa-solid fa-droplet'></i>";
+            var RainIcon = document.createElement("i")
+            RainIcon.classList ='fa-solid fa-droplet';
             for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
                 thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
