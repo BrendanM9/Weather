@@ -622,7 +622,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisIcon1.id = "icon"+precip1;
                 thisIcon12.id = "icon"+precip1;
                 if(f.daypart[0].iconCode[precip] === null){
-                    thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
+                    //thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
+                    thisIcon1.innerHTML = "";
                     thisIcon12.innerHTML = "<img src='icons/30.png' class='iconSmall'>";
                 } else {
                     thisIcon1.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='icon'>";
@@ -639,10 +640,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 if(f.daypart[0].precipChance[precip] !== null){
                     thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
                 } else {
-                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> 0%";
+                    //thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> 0%";
+                    thisChance.innerHTML = ""
                 }
                 if(f.daypart[0].precipChance[precip] === null){ 
-                    thisPrecip1.innerHTML = "Precipitation: "+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
+                    //thisPrecip1.innerHTML = "<i class='fa-solid fa-droplet'></i>"+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
+                    thisPrecip1.innerHTML = "";
                 } else {
                     if(f.daypart[0].precipType[precip] === "snow"){
                         thisPrecip1Type = "<i class='fa-solid fa-snowflake'></i> ";
