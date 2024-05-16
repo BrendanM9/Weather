@@ -742,7 +742,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             RainIcon.classList ='fa-solid fa-droplet';
             for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 thisHeader.appendChild(thisForecasterDiv)
