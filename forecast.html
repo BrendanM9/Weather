@@ -640,8 +640,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 if(f.daypart[0].precipChance[precip] !== null){
                     thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> "+f.daypart[0].precipChance[precip]+"%"
                 } else {
-                    //thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i> 0%";
-                    thisChance.innerHTML = ""
+                    thisChance.innerHTML = "<i class='fa-solid fa-droplet'></i>"+ f.daypart[0].precipChance[precip1];
+                    //thisChance.innerHTML = ""
                 }
                 if(f.daypart[0].precipChance[precip] === null){ 
                     //thisPrecip1.innerHTML = "<i class='fa-solid fa-droplet'></i>"+ f.daypart[0].precipChance[precip1]+"% | "+rainToday+"in";
