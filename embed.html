@@ -623,7 +623,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var phase = document.createElement("p")
                 phase.innerHTML = "Moon Phase: "+ moon;
                 m1 = m + 2;
-                //document.getElementsByClassName("content")[m].appendChild(phase);
+                document.getElementsByClassName("content")[m].appendChild(phase);
             }
         }
                 
@@ -645,7 +645,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             rainM = parseFloat(d.observations[0].imperial.precipTotal);
             time = d.observations[0].obsTimeLocal;
             amtemp = d.observations[0].imperial.temp;
-            document.getElementById("condition").innerHTML = d.observations[0]
+            //document.getElementById("condition").innerHTML = d.observations[0]
             document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
             //document.getElementById("temp-1").innerHTML = temp1+"ºF";
             var bucket1 = document.createElement("div");
