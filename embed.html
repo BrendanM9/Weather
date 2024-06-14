@@ -455,38 +455,38 @@ for (closeB = 0; closeB < close.length; closeB++) {
             cloudCoverAvg3 = parseFloat(f.daypart[0].cloudCover[4])+parseFloat(f.daypart[0].cloudCover[5])
             cloudCoverAvg3 = cloudCoverAvg3/2;
             if(cloudCoverAvg3 > 0 && cloudCoverAvg3 <= 33){
-                document.getElementsByClassName("content")[2].style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementsByClassName("column")[2].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg3 > 33 && cloudCoverAvg3 <= 66){
-                document.getElementsByClassName("content")[2].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                document.getElementsByClassName("column")[2].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("content")[2].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementsByClassName("column")[2].style.backgroundImage =  "url('backgrounds/cloudy.png')";
             }
             cloudCoverAvg4 = parseFloat(f.daypart[0].cloudCover[6])+parseFloat(f.daypart[0].cloudCover[7])
             cloudCoverAvg4 = cloudCoverAvg4/2;
             if(cloudCoverAvg4 > 0 && cloudCoverAvg4 <= 33){
-                document.getElementsByClassName("content")[3].style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementsByClassName("column")[3].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg4 > 33 && cloudCoverAvg4 <= 66){
-                document.getElementsByClassName("content")[3].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                document.getElementsByClassName("column")[3].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("content")[3].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementsByClassName("column")[3].style.backgroundImage =  "url('backgrounds/cloudy.png')";
             }
             cloudCoverAvg5 = parseFloat(f.daypart[0].cloudCover[8])+parseFloat(f.daypart[0].cloudCover[9])
             cloudCoverAvg5 = cloudCoverAvg5/2;
             if(cloudCoverAvg5 > 0 && cloudCoverAvg5 <= 33){
-                document.getElementsByClassName("content")[4].style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementsByClassName("column")[4].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg5 > 33 && cloudCoverAvg5 <= 66){
-                document.getElementsByClassName("content")[4].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                document.getElementsByClassName("column")[4].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("content")[4].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementsByClassName("column")[4].style.backgroundImage =  "url('backgrounds/cloudy.png')";
             }
             cloudCoverAvg6 = parseFloat(f.daypart[0].cloudCover[10])+parseFloat(f.daypart[0].cloudCover[11])
             cloudCoverAvg6 = cloudCoverAvg6/2;
             if(cloudCoverAvg6 > 0 && cloudCoverAvg6 <= 33){
-                document.getElementsByClassName("content")[5].style.backgroundImage = "url('backgrounds/sunny.png')";
+                document.getElementsByClassName("column")[5].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg6 > 33 && cloudCoverAvg6 <= 66){
-                document.getElementsByClassName("content")[5].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                document.getElementsByClassName("column")[5].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
             } else{
-                document.getElementsByClassName("content")[5].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+                document.getElementsByClassName("column")[5].style.backgroundImage =  "url('backgrounds/cloudy.png')";
             }
             
             //console.log(cloudCoverAvg2);
@@ -510,11 +510,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log(a2);
                 console.log(a21);
                 if(f.daypart[0].thunderCategory[a2] === "Thunder expected" || f.daypart[0].thunderCategory[a21] === "Thunder expected"){
-                    document.getElementsByClassName("content")[a].style.backgroundImage = "url('backgrounds/lightning.png')";
+                    document.getElementsByClassName("column")[a].style.backgroundImage = "url('backgrounds/lightning.png')";
                 }
                 else if(parseFloat(f.qpf[a]) > 0 || parseFloat(f.qpfSnow[a] > 0)){
         
-        document.getElementsByClassName("content")[a].style.backgroundImage = "url('backgrounds/rain.png')";
+        document.getElementsByClassName("column")[a].style.backgroundImage = "url('backgrounds/rain.png')";
         //var a2e = ale*2-1
         //document.getElementById("lo"+a2e).style.color = "blue";
         //console.log("Yes", a)
