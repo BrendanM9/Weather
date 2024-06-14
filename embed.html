@@ -14,12 +14,12 @@
     </head>
     <body>
         <script>
-            var second = 0
+            /*var second = 0
             var minute = 0
             function autoRefresh() {
                 window.location = window.location.href;
             }
-            setInterval('autoRefresh()', 120000);
+            setInterval('autoRefresh()', 120000);*/
         </script>
         <!--
         <div class="alert warning">
@@ -785,6 +785,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //trafficCam(tripCheckDevice);
             //forecast(currentpressure);
         }
+            var second = 0
+            var minute = 0
+            function autoRefresh() {
+                weatherBalloon(bendID, ICAO, Lat, Long);
+            }
+            setInterval('autoRefresh()', 120000);
         var nwsSet = false;
         function nwsCurrent(nws){
             var nws1 = nws.features[0].properties.textDescription
