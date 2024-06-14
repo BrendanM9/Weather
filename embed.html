@@ -66,7 +66,7 @@
             <!--<div class="content"></div>-->
         </div>
         <div class="column" id="b7">
-            <!--<p class="collapse"></p>-->
+            <p class="collapse"></p>
             <!--<div class="content"></div>-->
         </div>
         <!--<p id="update">Last updated: ---------- --:--:--</p>-->
@@ -257,6 +257,7 @@
             .then(function(resp) {return resp.json()})
             .then(function(data){
                 //graphTemp(data);
+                console.log(data)
             })
             .catch(function(){
                 
@@ -420,7 +421,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //thisHeader.appendChild(iconsList[forecasters])
                 //thisHeader.appendChild(hiLoList[forecasters])
             }
-            getDayNight(f);
+            //getDayNight(f);
             
             
            console.log(season)
