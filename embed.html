@@ -66,10 +66,10 @@
             <!--<div class="content"></div>-->
         </div>
         <div class="column" id="b7">
-            <p class="collapse"></p>
+            <!--<p class="collapse"></p>-->
             <!--<div class="content"></div>-->
         </div>
-        <p id="update">Last updated: ---------- --:--:--</p>
+        <!--<p id="update">Last updated: ---------- --:--:--</p>-->
         <script>
             var coll = document.getElementsByClassName("collapse");
             /*var i5
@@ -622,7 +622,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var phase = document.createElement("p")
                 phase.innerHTML = "Moon Phase: "+ moon;
                 m1 = m + 2;
-                document.getElementsByClassName("content")[m].appendChild(phase);
+                //document.getElementsByClassName("content")[m].appendChild(phase);
             }
         }
                 
@@ -674,7 +674,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(bucket1.innerHTML);
             //document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             //document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
-            document.getElementById("update").innerHTML = "Last updated: "+updateTime;
+            //document.getElementById("update").innerHTML = "Last updated: "+updateTime;
             rainToday = d.observations[0].imperial.precipTotal;
             //forecast(currentpressure);
             //feelslike(hindex, wchill);
