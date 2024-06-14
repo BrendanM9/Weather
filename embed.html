@@ -1,1 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Oregon Forecast Hub</title>
+        <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <link rel="stylesheet" href="weatherstyle.css">
+        <link rel="icon" type="image/x-icon" href="Weather Site Logo.png" id="favicon">
+        <script src="https://kit.fontawesome.com/58437b04cc.js" crossorigin="anonymous"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+        <!--<script src="weatherscript.js"></script>-->
+    </head>
+    <body>
+        <script>
+            var second = 0
+            var minute = 0
+            function autoRefresh() {
+                window.location = window.location.href;
+            }
+            setInterval('autoRefresh()', 120000);
+        </script>
+        <!--
+        <div class="alert warning">
+            <span class="closebtn">&times</span>
+            <strong>Website Maintenence</strong>
+            <p>Be aware that we will be working on this website from 3/25/24 through 3/30/24. This is an attempt to make it more mobile friendly. During this time, the website may go down. This is planned, and we are sorry for any way this may inconvenience you. Thanks for your cooperation!</p>
+        </div>-->
+        <h1 id="title1">Forecast:</h1>
+        <div id="alerts">
+        </div>
+        <div id="alerts2">
+        </div>  
+        <div class="column" id="b1">
+            <br>
+            Current Conditions:
+        <div id="currentc">
+            <div id="icon">
+                <img src="icons/44.png" class="icon">
+            </div> 
+            <p id="condition"></p>
+            <!--<p id="conditionNWS"></p>-->
+            <p id="temp">Temperature: --ºF</p>
+        </div>
+        </div>
+        <div id="forecast">
+        <div class="column" id="b2">
+            <p class="collapse"></p>
+            <!--<div class="content"></div>-->
+        </div>
+        <div class="column" id="b3">
+            <p class="collapse"></p>
+            <!--<div class="content"></div>-->
+        </div>
+        <div class="column" id="b4">
+            <p class="collapse"></p>
+            <!--<div class="content"></div>-->
+        </div>
+        <div class="column" id="b5">
+            <p class="collapse"></p>
+            <!--<div class="content"></div>-->
+        </div>
+        <div class="column" id="b6">
+            <p class="collapse"></p>
+            <!--<div class="content"></div>-->
+        </div>
+        <div class="column" id="b7">
+            <p class="collapse"></p>
+            <!--<div class="content"></div>-->
+        </div>
+        <p id="update">Last updated: ---------- --:--:--</p>
+        <script>
+            var coll = document.getElementsByClassName("collapse");
+            var i5
+            for(i5 = 0; i5 <= 8; i5 ++){
+                coll[i5].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight){
+                        content.style.maxHeight = null;
+                    } else {
+                      content.style.maxHeight = content.scrollHeight + "px";
+                    } 
+                  });
+            }
+            var dayOrNight;
+            function getDayNight( dnF ){
+                console.log(dnF);
+                //console.log(dnC);
+                changedSunset = parseFloat(dnF.sunsetTimeUtc[0])
+                //.split("T");
+                console.log(changedSunset);
+                changedSunrise = parseFloat(dnF.sunriseTimeUtc[0])
+                //.split("T");
+                console.log(changedSunrise);
+                /*
+                const thisDate = new Date();
+                var thisTime = thisDate.now();
+                console.log(thisTime);
+                /*changedCurrent = thisTime.split("T");
+                console.log(thisTime[1]);*//*
+                if(thisTime >= changedSunrise && thisTime <= changedSunset){
+                    dayOrNight = "Day";
+                    console.log(dayOrNight);
+                } else {
+                    dayOrNight = "Night"
+                    console.log(dayOrNight);
+                }*/
+                
+            }
+        //function load(){
+            const clientWidth = window.innerWidth
+            const clientHeight = window.innerHeight
+            console.log(clientWidth, clientHeight)
+            if (clientWidth <= 630){
+                var mobile = true
+            } else{
+                var mobile = false
+            }
+            const favicon = document.getElementById("favicon")
+            console.log("URL:" + window.location.href)
+            var url = String(window.location.href);
+            //url = url.split("https://brendanm9.github.io/Weather/index.html?city=","")
+            var cityNo = url.substr(55)
+            console.log(cityNo)
+            console.log(url)
+            var abspressEl = document.getElementById("abspress");
+            const inHGav = 29.97;
+            var cityName = ""
+            var bendID;
+            var ICAO;
+            var Lat;
+            var Long;
+            var tripCheckDevice;
+            if(cityNo==="bend"){
+                bendID = "KORBEND727"; 
+                ICAO = "KBDN";
+                cityName = "Bend"
+                Lat = 44.059221;
+                Long = -121.25976;
+            } else if (cityNo==="sisters"){
+                bendID = "KORSISTE72"; 
+                ICAO = "KBDN";
+                cityName = "Sisters"
+                console.log(cityName)
+                Lat = 44.284
+                Long = -121.529
+            } else if (cityNo==="redmond"){
+                bendID = "KORREDMO186"; 
+                ICAO = "KRDM";
+                cityName = "Redmond"
+                console.log(cityName)
+                Lat = 44.248
+                Long = -121.217
+                tripCheckDevice = 263;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/US97%20at%20Empire_pid3161.JPG";
+            } else if (cityNo==="sunriver"){
+                bendID = "KORSUNRI22"; 
+                ICAO = "KS21";
+                cityName = "Sunriver"
+                console.log(cityName)
+                Lat = 43.892
+                Long = -121.44
+                tripCheckDevice = 197;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/LavaButte_pid631.jpg";
+            } else if (cityNo==="lapine"){
+                bendID = "KORLAPIN72"; 
+                ICAO = "KS21";
+                cityName = "La Pine"
+                console.log(cityName)
+                Lat = 43.703
+                Long = -121.497
+                tripCheckDevice = 198;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/LaPine_pid630.jpg";
+            } else if (cityNo==="portland"){
+                bendID = "KORPORTL2053"; 
+                ICAO = "KPDX";
+                cityName = "Portland"
+                console.log(cityName)
+                Lat = 45.563
+                Long = -122.607
+                tripCheckDevice = 246;
+                tCTVUrl ="https://www.TripCheck.com/roadcams/cams/i5Victory_pid574.jpg";
+            } else if (cityNo==="eugene"){
+                bendID = "KOREUGEN267"; 
+                ICAO = "KEUG";
+                cityName = "Eugene"
+                console.log(cityName)
+                Lat = 44.043999
+                Long = -123.152
+                tripCheckDevice = 541;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20Willamette%20River%20Bridge_pid2619.JPG";
+            } else if (cityNo==="salem"){
+                bendID = "KORSALEM578"; 
+                ICAO = "KSLE";
+                cityName = "Salem"
+                console.log(cityName)
+                Lat = 44.931
+                Long = -122.978
+                tripCheckDevice = 792;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20ORE22_pid3641.JPG";
+            } else if (cityNo==="prineville"){
+                bendID = "KORPRINE54"; 
+                ICAO = "KS39";
+                cityName = "Prineville"
+                console.log(cityName)
+                Lat = 44.288834
+                Long = -120.815483
+                tripCheckDevice = 764;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/3rd%20St%20at%20Harwood_pid3527.JPG";
+            } else if (cityNo==="madras"){
+                bendID = "KORMADRA49"; 
+                ICAO = "KS33";
+                cityName = "Madras"
+                console.log(cityName)
+                Lat = 44.659808
+                Long = -121.167526
+                tripCheckDevice = 760;
+                tCTVUrl = "https://www.tripcheck.com/roadcams/cams/US97%20at%20US26%20Jct%20NB_pid3511.JPG";
+            } else if (cityNo==="corvallis"){
+                bendID = "KORCORVA213";
+                ICAO = "KCVO";
+                cityName = "Corvallis";
+                console.log(cityName)
+                Lat = 44.581
+                Long = -123.262
+                tripCheckDevice = 861;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/ORE34%20at%20Peoria%20Rd%20EB_pid3919.jpg";
+            }  else if (cityNo==="govtcamp") {
+                bendID = "KORRHODO39";
+                ICAO = "KPDX";
+                Lat = 45.349;
+                Long = -121.939;
+                cityName = "Government Camp";
+                tripCheckDevice = 203
+                console.log(cityName)
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/GovernmentCamp_pid624.jpg";
+            } else if (cityNo==="albany"){
+                bendID = null
+                ICAO = null
+                Lat = 44.62998
+                Long = -123.06256
+                cityName = "Albany"
+                tripCheckDevice = 1088
+                console.log(cityName)
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20US20%20MP%20233.2%20SB_pid4556.jpg";
+            }else {
+                window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
+            }
+            document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
+            document.title = cityName + ", OR Forecast";
+            const apiKey = "be3a60645b954897ba60645b95f89776";
+            const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
+            fetch('https://api.weather.com/v2/pws/observations/hourly/7day?stationId='+bendID+'&format=json&units=e&apiKey='+apiKey)
+            .then(function(resp) {return resp.json()})
+            .then(function(data){
+                graphTemp(data);
+            })
+            .catch(function(){
+                
+            });
+            document.getElementById("title1").innerHTML = "Forecast for "+cityName;
+            var hi1El = document.getElementById("hi1");
+            var lo1El = document.getElementById("lo1");
+            var today = document.getElementById("condition");
+            var future = document.getElementById("condition1");
+            var tomorrow = document.getElementById("condition2");
+            var day2 = document.getElementById("condition3");
+            var day3 = document.getElementById("condition4");
+            var day4 = document.getElementById("condition5");
+            var iconEl = document.getElementById("icon");
+            var icon1El =document.getElementById("icon1");
+            var icon2El = document.getElementById("icon2a");
+            var icon3El = document.getElementById("icon3");
+            var icon4El = document.getElementById("icon4");
+            var icon5El = document.getElementById("icon5");
+            var condition = 44;
+            var season = "string";
+            var rainToday = 0;
+            var precipType = [];
+            var date = new Date();
+            month = date.getMonth() + 1;
+            day = date.getDate();
+            
+        nwsAlerts = function( g ){
+            console.log(g)
+            console.log("LEN"+g.features.length)
+                var alertDiv = document.createElement("div")
+                alertDiv.className = "alert warning"
+                var closeObj = document.createElement("span")
+                closeObj.className = "closebtn"
+                closeObj.innerHTML = "&times"
+                var title = document.createElement("strong")
+                title.innerHTML = g.features[0].properties.event
+                var text = document.createElement("p")
+                var more = document.createElement("a")
+            more.innerHTML = "More Info"
+                more.onclick = function(){
+                    alert(g.features[0].properties.description)
+                }
+                
+                text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
+                
+                alertDiv.appendChild(closeObj)
+                alertDiv.appendChild(title)
+                alertDiv.appendChild(text)
+                document.getElementById("alerts").appendChild(alertDiv);
+                if(g.features[1].properties.event !== null){
+                var alertDiv1 = document.createElement("div")
+                alertDiv1.className = "alert warning"
+                var closeObj1 = document.createElement("span")
+                closeObj1.className = "closebtn"
+                closeObj1.innerHTML = "&times"
+                var title1 = document.createElement("strong")
+                title1.innerHTML = g.features[1].properties.event
+                var text1 = document.createElement("p")
+                text1.innerHTML = g.features[1].properties.headline+g.features[1].properties.description;
+                alertDiv1.appendChild(closeObj)
+                alertDiv1.appendChild(title)
+                alertDiv1.appendChild(text)
+                document.getElementById("alerts2").appendChild(alertDiv1)
+                }
+                var close = document.getElementsByClassName("closebtn");
+var closeB;
 
+for (closeB = 0; closeB < close.length; closeB++) {
+  close[closeB].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+            /*<div class="alert info">
+  <span class="closebtn">&times;</span>  
+  <strong>Info!</strong> Indicates a neutral informative change or action.
+</div>*/
+        }
+        forecast = function( f ){
+            console.log(f);
+            var daysList = [];
+            var chancesList = [];
+            var iconsList = [];
+            var hiLoList = [];
+            for(day = 0; day <= 5; day++){
+                day1 = day+1
+                day2 = day+2
+                var thisText = document.createElement("p");
+                thisText.id = "text"+day1
+                thisText.innerHTML = f.dayOfWeek[day];
+                daysList.push(thisText.innerHTML);
+                document.getElementsByClassName("content")[day].appendChild(thisText);
+            }
+            for(precip = 0; precip <= 10; precip+= 2){
+                precip1 = precip + 1;
+                precip2 = precip + 2;
+                precip3 = precip + 3;
+                thisB = (precip/2)+2;
+                var thisIcon12 = document.createElement("div");
+                thisIcon12.id = "icon"+precip1;
+                if(f.daypart[0].iconCode[precip] === null){
+                    //thisIcon1.innerHTML = "<img src='icons/30.png' class='icon'>";
+                    thisIcon12.innerHTML = "<img src='icons/30.png' class='iconSmall'>";
+                } else {
+                    thisIcon12.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='iconSmall'>";
+                }
+                var thisChance = document.createElement("p");
+                if(f.daypart[0].precipChance[precip] !== null){
+                    thisChance.innerHTML = f.daypart[0].precipChance[precip]+"%"
+                } else {
+                    thisChance.innerHTML = f.daypart[0].precipChance[precip1]+"%";
+                    //thisChance.innerHTML = ""
+                }
+                
+                chancesList.push(thisChance.innerHTML);
+                iconsList.push(thisIcon12.innerHTML);
+                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
+                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
+                //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
+            }
+            for(hilo = 0; hilo <= 5; hilo++){
+                hilo1 = hilo + 1;
+                hilo2 = hilo + 2;
+                var thisHi = document.createElement("span");
+                thisHi.id = "hi"+hilo1;
+                thisHi.classList = "hi";
+                if(f.temperatureMax[hilo] === null){
+                    thisHi.innerText = f.calendarDayTemperatureMax[hilo]+"º";
+                } else {
+                   thisHi.innerText = f.temperatureMax[hilo]+"º";
+                }
+                thisHi.style.color = "red";
+                var thisLo = document.createElement("span");
+                thisLo.classList = "lo";
+                thisLo.innerText = f.temperatureMin[hilo]+"º";
+                thisLo.style.color = "blue";
+                console.log(thisLo)
+                console.log(thisLo.innerHTML);
+                var thisHiLo = document.createElement("p");
+                thisHiLo.innerHTML = thisHi.innerHTML +"/"+ thisLo.innerHTML;
+                //document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
+                hiLoList.push(thisHiLo.innerHTML)
+                //document.getElementById("b"+hilo2).appendChild(thisLo);
+            }
+            console.log(daysList)
+            console.log(chancesList)
+            console.log(iconsList)
+            console.log(hiLoList)
+            var RainIcon = document.createElement("div")
+            RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
+            for(var forecasters = 0; forecasters <= 5; forecasters++){
+                var thisForecasterDiv = document.createElement('div')
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                var thisHeader = document.getElementsByClassName("collapse")[forecasters]
+                //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
+                thisHeader.appendChild(thisForecasterDiv)
+                //thisHeader.appendChild(iconsList[forecasters])
+                //thisHeader.appendChild(hiLoList[forecasters])
+            }
+            getDayNight(f);
+            
+            
+           console.log(season)
+            var cloudCoverAvg1;
+            var cloudCoverAvg2;
+            var cloudCoverAvg3;
+            var cloudCoverAvg4;
+            var cloudCoverAvg5;
+            var cloudCoverAvg6;
+            if(f.daypart[0].cloudCover[0] === null){
+                cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[1])/2;
+            } else {
+                cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
+                cloudCoverAvg1 = cloudCoverAvg1/2;
+            }
+            if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 25){
+                document.getElementsByClassName("column")[1].style.backgroundImage = "url('backgrounds/sunny.png')";
+            } else if (cloudCoverAvg1 > 25 && cloudCoverAvg1 <= 75){
+                document.getElementsByClassName("column")[1].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+            } else{
+                document.getElementsByClassName("column")[1].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+            } 
+            cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
+            cloudCoverAvg2 = cloudCoverAvg2/2;
+            if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
+                document.getElementsByClassName("column")[2].style.backgroundImage = "url('backgrounds/sunny.png')";
+            } else if (cloudCoverAvg2 > 33 && cloudCoverAvg2 <= 66){
+                document.getElementsByClassName("column")[2].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+            } else{
+                document.getElementsByClassName("column")[2].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+            }
+            cloudCoverAvg3 = parseFloat(f.daypart[0].cloudCover[4])+parseFloat(f.daypart[0].cloudCover[5])
+            cloudCoverAvg3 = cloudCoverAvg3/2;
+            if(cloudCoverAvg3 > 0 && cloudCoverAvg3 <= 33){
+                document.getElementsByClassName("content")[2].style.backgroundImage = "url('backgrounds/sunny.png')";
+            } else if (cloudCoverAvg3 > 33 && cloudCoverAvg3 <= 66){
+                document.getElementsByClassName("content")[2].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+            } else{
+                document.getElementsByClassName("content")[2].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+            }
+            cloudCoverAvg4 = parseFloat(f.daypart[0].cloudCover[6])+parseFloat(f.daypart[0].cloudCover[7])
+            cloudCoverAvg4 = cloudCoverAvg4/2;
+            if(cloudCoverAvg4 > 0 && cloudCoverAvg4 <= 33){
+                document.getElementsByClassName("content")[3].style.backgroundImage = "url('backgrounds/sunny.png')";
+            } else if (cloudCoverAvg4 > 33 && cloudCoverAvg4 <= 66){
+                document.getElementsByClassName("content")[3].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+            } else{
+                document.getElementsByClassName("content")[3].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+            }
+            cloudCoverAvg5 = parseFloat(f.daypart[0].cloudCover[8])+parseFloat(f.daypart[0].cloudCover[9])
+            cloudCoverAvg5 = cloudCoverAvg5/2;
+            if(cloudCoverAvg5 > 0 && cloudCoverAvg5 <= 33){
+                document.getElementsByClassName("content")[4].style.backgroundImage = "url('backgrounds/sunny.png')";
+            } else if (cloudCoverAvg5 > 33 && cloudCoverAvg5 <= 66){
+                document.getElementsByClassName("content")[4].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+            } else{
+                document.getElementsByClassName("content")[4].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+            }
+            cloudCoverAvg6 = parseFloat(f.daypart[0].cloudCover[10])+parseFloat(f.daypart[0].cloudCover[11])
+            cloudCoverAvg6 = cloudCoverAvg6/2;
+            if(cloudCoverAvg6 > 0 && cloudCoverAvg6 <= 33){
+                document.getElementsByClassName("content")[5].style.backgroundImage = "url('backgrounds/sunny.png')";
+            } else if (cloudCoverAvg6 > 33 && cloudCoverAvg6 <= 66){
+                document.getElementsByClassName("content")[5].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+            } else{
+                document.getElementsByClassName("content")[5].style.backgroundImage =  "url('backgrounds/cloudy.png')";
+            }
+            
+            //console.log(cloudCoverAvg2);
+            for(var a = 0; a < 6; a++){
+                var a2 = a * 2;
+                var a21 = a2 - 1;
+        /*var av = a + a + 1;
+        var av1 = a + a + 1;
+        av1 -= 1;
+        console.log(f.daypart[0].cloudCover[av])
+        if(a = 0){
+            cloudCoverAvg = parseFloat(f.daypart[0].cloudcover[av])
+        } else{
+        cloudCoverAvg = parseFloat(f.daypart[0].cloudCover[av]);
+        cloudCoverAvg += parseFloat(f.daypart[0].cloudCover[av1]);
+        console.log(cloudCoverAvg)
+        cloudCoverAvg = parseFloat(cloudCoverAvg)/2;
+        console.log(cloudCoverAvg)
+        }*/
+                var a1e = a+2
+                console.log(a2);
+                console.log(a21);
+                if(f.daypart[0].thunderCategory[a2] === "Thunder expected" || f.daypart[0].thunderCategory[a21] === "Thunder expected"){
+                    document.getElementsByClassName("content")[a].style.backgroundImage = "url('backgrounds/lightning.png')";
+                }
+                else if(parseFloat(f.qpf[a]) > 0 || parseFloat(f.qpfSnow[a] > 0)){
+        
+        document.getElementsByClassName("content")[a].style.backgroundImage = "url('backgrounds/rain.png')";
+        //var a2e = ale*2-1
+        //document.getElementById("lo"+a2e).style.color = "blue";
+        //console.log("Yes", a)
+                }
+                /*
+                else if(parseFloat(cloudCoverAvg > 20)){
+        
+        document.getElementById("b"+a1e).style.backgroundImage = "url('backgrounds/sunny.png')";
+                }
+                */
+            }
+            //Weekly averages
+            /*
+            if(f.temperatureMax[0] === null){
+                var avhi1 = 0;
+                for(var b = 1; b < 5; b++){
+        avhi1 = avhi1 + parseFloat(f.temperatureMax[b]);
+                }
+                avhi1 = avhi1/5
+                //console.log(avhi1)
+                document.getElementById("avhi").innerHTML = "Average High: "+ parseInt(avhi1) +"º"
+            }else{
+                var avhi1 = 0;
+                for(var b = 0; b < 6; b++){
+        avhi1 = avhi1 + parseFloat(f.temperatureMax[b]);
+                }
+                avhi1 = avhi1/6
+                //console.log(avhi1)
+                document.getElementById("avhi").innerHTML = "Average High: "+ parseInt(avhi1) +"º"
+            }   
+            var avlo1 = 0;
+            for(var c = 0; c < 6; c++){
+                avlo1 = avlo1 + parseFloat(f.temperatureMin[c]);
+            }
+            avlo1 = avlo1/6
+            console.log(avlo1)
+            document.getElementById("avlo").innerHTML = "Average Low: "+ parseInt(avlo1) +"º"
+            //Precipitation
+            if(f.daypart[0].precipChance[0] === null){
+                var avprecip1 = 0;
+                for(var d = 1; d < 12; d++){
+        avprecip1 = avprecip1 + parseFloat(f.daypart[0].precipChance[d]);
+                }
+                avprecip1 = avprecip1/11
+                console.log(avprecip1)
+                document.getElementById("avp").innerHTML = "Average Precipitation Chance: "+ parseInt(avprecip1) +"%"
+            } else{
+                var avprecip2 = 0;
+                for(var e = 0; e < 12; e++){
+        avprecip2 = avprecip2 + parseFloat(f.daypart[0].precipChance[e]);
+                }
+                avprecip2 = avprecip2/12
+                console.log(avprecip2)
+                document.getElementById("avp").innerHTML = "Average Precipitation Chance: "+ parseInt(avprecip2) +"%"
+            }
+            //inches of precipitation
+            totalRain = 0
+            for(var g = 0; g < 6; g++){
+                totalRain = totalRain + f.qpf[g]
+                totalRain = totalRain + f.qpfSnow[g]
+            }
+            totalRain = totalRain*100;
+            totalRain = parseInt(totalRain);
+            totalRain = totalRain/100;
+            document.getElementById("avqpf").innerHTML = "Total Amount of Precipitation: "+ parseFloat(totalRain) +"in"
+            //Cloud Cover
+            if(f.daypart[0].cloudCover[0] === null){
+                var avcloud1 = 0;
+                for(var h = 1; h < 12; h++){
+        avcloud1 = avcloud1 + parseFloat(f.daypart[0].cloudCover[h]);
+                }
+                avcloud1 = avcloud1/11
+                //console.log(avprecip1)
+                document.getElementById("avcloud").innerHTML = "Average Cloud Cover: "+ parseInt(avcloud1) +"%"
+            } else{
+                var avcloud1 = 0;
+                for(var i = 0; i < 12; i++){
+        avcloud1 = avcloud1 + parseFloat(f.daypart[0].cloudCover[i]);
+                }
+                avcloud1 = avcloud1/12
+                //console.log(avprecip1)
+                document.getElementById("avcloud").innerHTML = "Average Cloud Cover: "+ parseInt(avcloud1) +"%"
+            }
+            //Wind Speed
+            if(f.daypart[0].windSpeed[0] === null){
+                var avwind1 = 0;
+                for(var j = 1; j < 12; j++){
+        avwind1 = avwind1 + parseFloat(f.daypart[0].windSpeed[j]);
+                }
+                avwind1 = avwind1/11
+                //console.log(avprecip1)
+                document.getElementById("avwind").innerHTML = "Average Wind Speed: "+ parseInt(avwind1) +" MPH"
+            } else{
+                var avwind1 = 0;
+                for(var k = 0; k < 12; k++){
+        avwind1 = avwind1 + parseFloat(f.daypart[0].windSpeed[k]);
+                }
+                avwind1 = avwind1/12
+                //console.log(avprecip1)
+                document.getElementById("avwind").innerHTML = "Average Wind Speed: "+ parseInt(avwind1) +" MPH"
+            }
+            */
+            for (var m = 0; m <= 5; m ++){
+                var moon = f.moonPhase[m];
+                var phase = document.createElement("p")
+                phase.innerHTML = "Moon Phase: "+ moon;
+                m1 = m + 2;
+                document.getElementsByClassName("content")[m].appendChild(phase);
+            }
+        }
+                
+        var currentpressure;
+        var hindex;
+        var wchill;
+        var temp1;
+        var realFeel;
+        var light;
+        var rain;
+        var time;
+        var amtemp;
+        var updateTime;
+        function drawWeather (d){
+            console.log("Weather data \n", d);
+            updateTime = d.observations[0].obsTimeLocal;
+            temp1 = d.observations[0].imperial.temp;
+            rain = d.observations[0].imperial.precipRate;
+            rainM = parseFloat(d.observations[0].imperial.precipTotal);
+            time = d.observations[0].obsTimeLocal;
+            amtemp = d.observations[0].imperial.temp;
+            document.getElementById("condition").innerHTML = d.observations[0]
+            document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
+            //document.getElementById("temp-1").innerHTML = temp1+"ºF";
+            var bucket1 = document.createElement("div");
+            bucket1.id = "RainBucket1";
+            //bucket1.innerHTML = "testing";
+            console.log(rainM);
+            if(rainM === 0){
+                //Empty rain bucket
+                bucket1.innerHTML = "<img src='Gauges/0:2.png' style='width:20%; height:20%' id='bucket'>";
+            } else if(rainM > 0 && rainM < .25){
+                //1/8th bucket
+                bucket1.innerHTML = "<img src='Gauges/1:8.png' style='width:20%; height:20%' id='bucket'>";
+            } else if(rainM >= .25 && rainM < .5){
+                console.log("yes 1/4");
+                //1/4th bucket
+                bucket1.innerHTML = "<img src='Gauges/1:4.png' style='width:20%; height:20%' id='bucket'>";
+            } else if(rainM >= .5 && rainM < .75){
+                //1/2th bucket
+                bucket1.innerHTML= "<img src='Gauges/1:2.png' style='width:20%; height:20%' id='bucket'>";
+            } else if(rainM >= .75 && rainM < 1){
+                //3/4ths bucket
+                bucket1.innerHTML = "<img src='Gauges/3:4.png' style='width:20%; height:20%' id='bucket'>";
+            } else if (rainM >= 1){
+                //Full Bucket
+                bucket1.innerHTML = "<img src='Gauges/2:2.png' style='width:20%; height:20%' id='bucket'>";
+            }
+            console.log(bucket1.innerHTML);
+            //document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+            //document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+            document.getElementById("update").innerHTML = "Last updated: "+updateTime;
+            rainToday = d.observations[0].imperial.precipTotal;
+            //forecast(currentpressure);
+            //feelslike(hindex, wchill);
+        }
+            /*
+        function trafficCam(camID){
+            fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Access-Control-Allow-Origin': 'https://brendanm9.github.io/',
+                        'Access-Control-Allow-Headers': '*',
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Access-Control-Expose-Headers':'X-Correlation-Id, X-Request-Id, X-Server-Id',
+                        'Origin': 'https://brendanm9.github.io/',}
+                })
+            .then(function(resp) { return resp.json()})
+            .then(function(data) {
+                console.log(data)
+                //liveTripCheckCams(data)
+            })
+            .catch(function(){
+                
+            });
+        }
+            */
+        function loadStation(json2){
+            var station0 = json2.observationStations[0]
+            fetch(station0+"/observations")
+            .then(function(resp) {return resp.json() })
+            .then(function(data) {
+                console.log(data)
+                nwsCurrent(data)
+            })
+            .catch(function(){
+
+            })
+        }
+        function findConditions(json1){
+            var observationStation = json1.properties.observationStations
+            fetch(observationStation)
+            .then(function(resp) {return resp.json() })
+            .then(function(data) {
+                console.log(data)
+                loadStation(data)
+            })
+            .catch(function(){
+
+            })
+        }
+        var observationData
+        var forecastData
+        function assignObservation(thisData1){
+            observationData = thisData1
+            //console.log(observationData);
+        }
+        function assignForecast(thisData2){
+            observationData = thisData1
+            //console.log(forecastData);
+            //getDayNight(forecastData, observationData);
+        }
+        function weatherBalloon(cityID, code, Lat1, Long1){
+            var key=apiKey;
+            fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+            .then(function(resp) {return resp.json() })
+            .then(function(data) {
+                drawWeather(data);
+                assignObservation(data)
+            })
+            .catch(function(){
+                
+            });  
+            //fetch('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode='+code+'&units=e&language=en-US&format=json&apiKey='+key)
+            fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat1+','+Long1+'&format=json&units=e&language=en-US&apiKey='+key)
+            .then(function(resp) {return resp.json()})
+            .then (function(data) {
+                forecast(data);
+                forecastData = data
+                assignForecast(data)
+                console.log(forecastData);
+            })
+            .catch(function(){
+        
+            });
+            fetch('https://api.weather.gov/alerts/active?point='+Lat+'%2C'+Long+'&limit=500')
+            .then(function(resp) {return resp.json()})
+            .then (function(data) {
+                nwsAlerts(data);
+            })
+            .catch(function(){
+
+            })
+            fetch('https://api.weather.gov/points/'+Lat+','+Long)
+            .then(function(resp) {return resp.json()})
+            .then(function(data){
+                console.log(data)
+                findConditions(data)
+            })
+            .catch(function(){
+
+            })
+            console.log(observationData);
+        }
+        window.onload = function(){
+            //load();
+            weatherBalloon(bendID, ICAO, Lat, Long);
+            //trafficCam(tripCheckDevice);
+            //forecast(currentpressure);
+        }
+        var nwsSet = false;
+        function nwsCurrent(nws){
+            var nws1 = nws.features[0].properties.textDescription
+            console.log(nws1)
+            if(nws1 !== ""){
+                nwsSet = true;
+                console.log("Yes"+nws1)
+                var complexNws1 = null;
+                var nwsWordList = nws1.split(" ");
+                today.innerHTML = "<p>"+nws1+"</p>";
+                if(nws1 === "Cloudy"){
+                    iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    favicon.setAttribute("href", 'icons/26.png');
+                    today.innerHTML = "<p>Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
+                } else if(nws1 ==="Mostly Cloudy"){
+                    iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/28.png");
+                    today.innerHTML = "<p>Mostly Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                } else if(nws1 === "Clear"){
+                    iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/32.png");
+                    today.innerHTML = "<p>Clear</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                } else if(nws1==="Mostly Clear"){
+                    iconEl.innerHTML = "<img src='icons/34.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/34.png");
+                    today.innerHTML = "<p>Mostly Clear</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                } else if(nws1 === "Partly Cloudy"){
+                    iconEl.innerHTML = "<img src='icons/30.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/30.png");
+                    today.innerHTML = "<p>Partly Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                } else if(nws1 === "Light Drizzle"){
+                     iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
+                     favicon.setAttribute("href", "icons/9.png");
+                     today.innerHTML = "<p>Light Rain</p>";
+                     document.getElementById("b1").style.backgroundImage = "url('backgrounds/rain.png')";
+                } else if(nws1 === "Light Snow"){
+                    iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
+                    favicon.setAttribute("href", 'icons/13.png');
+                    today.innerHTML = "<p>Light Snow</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/Winter.png')";
+                } else {
+                    for(var words = 0; words<= nwsWordList.length; words++){
+                        if(nwsWordList[words] +" "+ nwsWordList[words+1] === "Light Rain"){
+                            iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
+                            favicon.setAttribute("href", "icons/9.png");
+                            document.getElementById("b1").style.backgroundImage = "url('backgrounds/rain.png')";
+                        } else if(nwsWordList[words] +" "+nwsWordList[words+1] === "Light Snow"){
+                            iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
+                            favicon.setAttribute("href", "icons/13.png");
+                            document.getElementById("b1").style.backgroundImage = "url('backgrounds/Winter.png')";
+                        } else if(nwsWordList[words] === "Thunderstorms"){
+                            iconEl.innerHTML = "<img src='icons/4.png' class='icon'>";
+                            favicon.setAttribute("href", "icons/4.png");
+                            document.getElementById("b1").style.backgroundImage = "url('backgrounds/lightning.png')";
+                            today.innerHTML = "<p>"+nws1+"</p>";
+                        } else if(nwsWordList[words] === "Windy"){
+                            iconEl.innerHTML = "<img src='icons/24.png' class='icon'>";
+                            favicon.setAttribute("href", "icons/24.png");
+                            document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
+                            today.innerHTML = "<p>"+nws1+"</p>";
+                        } else {
+                            today.innerHTML = "<p>"+nws1+"</p>";
+                        }
+                    }
+                }
+            } else {
+                console.log("No report!!!")
+                nwsSet = false;
+            }
+            //document.getElementById("conditionNWS").innerHTML = nws1;
+        }
+       function currentRain(m){
+           var m1 = parseFloat(m)
+           /*var bucket = document.getElementById("bucket")
+            if(m1 === 0){
+                //Empty rain bucket
+                bucket.src= "Gauges/0:2.png"
+            } else if(m1 > 0 && m1 < .25){
+                //1/8th bucket
+                bucket.src= "Gauges/1:8.png"
+            } else if(m1 >= .25 && m1 < .5){
+                //1/4th bucket
+                bucket.src= "Gauges/1:4.png"
+            } else if(m1 >= .5 && m1 < .75){
+                //1/2th bucket
+                bucket.src= "Gauges/1:2.png"
+            } else if(m1 >= .75 && m1 < 1){
+                //3/4ths bucket
+                bucket.src= "Gauges/3:4.png"
+            } else if (m1 >= 1){
+                //Full Bucket
+                bucket.src= "Gauges/2:2.png"
+            }*/
+       }
+        var currentConditions = function(l, r, t, a, w, d, m){
+            var l1 = parseInt(l);
+            var r1 = parseFloat(r);
+            var t1 = parseInt(t);
+            var a1 = parseInt(a);
+            var w1 = parseInt(w);
+            var d1 = parseInt(d);
+            var m1 = parseFloat(m)
+            console.log(l1, r1, t1, a1, w1, d1, m1);
+            var currentDate = new Date();
+            var time = currentDate.getHours();
+            console.log("Time: \n", time);
+            console.log(r1);
+            /*var bucket = document.getElementById("bucket")
+            if(m1 === 0){
+                //Empty rain bucket
+                bucket.src= "Gauges/0:2.png"
+            } else if(m1 > 0 && m1 < .25){
+                //1/8th bucket
+                bucket.src= "Gauges/1:8.png"
+            } else if(m1 >= .25 && m1 < .5){
+                //1/4th bucket
+                bucket.src= "Gauges/1:4.png"
+            } else if(m1 >= .5 && m1 < .75){
+                //1/2th bucket
+                bucket.src= "Gauges/1:2.png"
+            } else if(m1 >= .75 && m1 < 1){
+                //3/4ths bucket
+                bucket.src= "Gauges/3:4.png"
+            } else if (m1 >= 1){
+                //Full Bucket
+                bucket.src= "Gauges/2:2.png"
+            }*/
+            if(nwsSet === false){
+            if(r1 === .01 && a1 > 35){
+                iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
+                today.innerHTML = "<p>Drizzle</p>";
+                condition = 9;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
+                favicon.setAttribute("href", "icons/9.png");
+            }else if(r1 > .01 && a1 > 35){
+                iconEl.innerHTML = "<img src='icons/12.png' class='icon'>";
+                today.innerHTML = "<p>Rain Showers</p>"
+                condition = 12;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
+                favicon.setAttribute("href", "icons/12.png");
+            }else if(r1 > 0 && a1 <= 35 && a1 >= 32){
+                iconEl.innerHTML = "<img src='icons/7.png' class='icon'>";
+                today.innerHTML = "<p>Wintery Mix</p>";
+                condition = 7;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
+                favicon.setAttribute("href", "icons/7.png");
+            }else if(r1 === .01 && a1 < 32){
+                iconEl.innerHTML = "<img src='icons/13.png' class='icon'>";
+                today.innerHTML = "<p>Flurries</p>";
+                favicon.setAttribute("href", "icons/13.png");
+                condition = 13;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
+            }else if(r1 > .01 && a1 < 32){
+                iconEl.innerHTML = "<img src='icons/14.png' class='icon'>";
+                today.innerHTML = "<p>Snow Showers</p>";
+                condition = 14;
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/rain.png')"
+                favicon.setAttribute("href", "icons/14.png");
+            } else if(parseFloat(a1) <= parseFloat(d1) + 1){
+                console.log(a1)
+                console.log(d1)
+                iconEl.innerHTML = "<img src='icons/20.png' class='icon'>";
+                //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/20.png">'; 
+                today.innerHTML = "<p>Foggy</p>";
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
+                condition = 20;
+                favicon.setAttribute("href", "icons/20.png");
+            } else if (wind >= 13){
+                iconEl.innerHTML = "<img src='icons/24.png' class='icon'>";
+                today.innerHTML = "<p>Windy</p>";
+                condition = 24;
+                document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                favicon.setAttribute("href", "icons.24.png");
+            }
+            else if(l1 >= 0 && l1 <= 200 && r1 < 0.01){
+                console.log(t)
+                console.log(d1)
+                if(time >= 7 && time < 19){
+        iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
+        //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/26.png">'; 
+        today.innerHTML = "<p>Cloudy</p>";
+        document.getElementById("b1").style.backgroundImage= "url('backgrounds/cloudy.png')"
+        condition = 26;
+        favicon.setAttribute("href", "icons/26.png");
+                } else if(time < 7 || time >= 19){
+        iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
+        //favEl.innerHTML = '<link rel="icon" type="image/x-icon" href="icons/27.png">';
+        today.innerHTML = "<p>Partly Cloudy</p>";
+        document.getElementById("b1").style.backgroundImage= "url('backgrounds/partly_cloudy_night.png')"
+        condition = 27;
+        favicon.setAttribute("href", "icons/27.png");
+                }
+            }else if(l1 > 200 && l1<= 400 && r1 < 0.01){
+                if(time >= 7 && time < 19){
+        iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+        condition = 28;
+        favicon.setAttribute("href", "icons/28.png");
+                } else if(time < 7 || time >= 19){
+        iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
+        condition = 27;
+        favicon.setAttribute("href", "icons/27.png");
+                }
+                today.innerHTML = "<p>Partly Cloudy</p>";
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/partly_cloudy.png')"
+            }else if(l1 > 400){
+                if(time >= 7 && time < 19){
+        iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
+        condition = 32;
+        favicon.setAttribute("href", "icons/32.png");
+                } else if(time < 7 || time >= 19){
+        iconEl.innerHTML = "<img src='icons/31.png' class='icon'>";
+        condition = 31;
+        favicon.setAttribute("href", "icons/31.png");
+                }
+                today.innerHTML = "<p>Clear</p>";
+                document.getElementById("b1").style.backgroundImage= "url('backgrounds/sunny.png')"
+            }
+            console.log(condition)
+            if(condition !== null){
+                console.log('Yes'+condition);
+                if(condition === "Cloudy"){
+                    iconEl.innerHTML = "<img src='icons/26.png' class='icon'>";
+                    favicon.setAttribute("href", 'icons/26.png');
+                    today.innerHTML = "<p>Cloudy</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
+                }
+            } else {
+                console.log("No report")
+            }
+            }
+        }
+                
+        /*if(rain>0){
+        let hrElement;
+        let counter = 100;
+        for (let i = 0; i < counter; i++) {
+            hrElement = document.createElement("HR");
+            hrElement.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+            hrElement.style.animationDuration = 0.2 + Math.random() * 0.3 + "s";
+            hrElement.style.animationDelay = Math.random() * 5 + "s";
+            document.body.appendChild(hrElement);
+        }
+        }*//*
+            var modal = document.getElementById("modal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("expand");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}*//*
+            var second = 0
+            var minute = 0
+            function autoRefresh() {
+                window.location = window.location.href;
+            }
+            setInterval('autoRefresh()', 120000);*/
+            if(mobile === true){
+                document.body.style.backgroundImage.height = "100%"
+                //document.getElementsByClassName("icon").style.height = "50px";
+                //document.getElementsByClassName("icon").style.width = "50px";
+                /*for (var w = 1; w <= 12; w ++){
+                    document.getElementById('icon'+w).style.width = "50px";
+                    document.getElementById('icon'+w).style.width = "50px"
+                }*/
+                /*
+                document.getElementById("left").style.display = "block";
+                document.getElementById("right").style.display = "block";
+                */
+            } else {
+                document.body.style.backgroundImage.width = "100%"
+            }
+            while(forecastData === null && observationData === null){
+                if(forecastData !== null && observationData !== null){
+                    console.log(observationData);
+                    console.log(forecastData);
+                    //getDayNight(forecastData, observationData);
+                }
+            }
+            //console.log(observationData);
+            //console.log(forecastData);
+        </script>
+    </body>
+</html>
