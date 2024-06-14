@@ -350,7 +350,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
                 daysList.push(thisText.innerHTML);
-                document.getElementsByClassName("content")[day].appendChild(thisText);
+                //document.getElementsByClassName("content")[day].appendChild(thisText);
+                console.log(thisText)
             }
             for(precip = 0; precip <= 10; precip+= 2){
                 precip1 = precip + 1;
