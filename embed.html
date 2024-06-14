@@ -133,6 +133,7 @@
             var Lat;
             var Long;
             var tripCheckDevice;
+            cityNo = "bend"
             if(cityNo==="bend"){
                 bendID = "KORBEND727"; 
                 ICAO = "KBDN";
@@ -246,7 +247,7 @@
                 console.log(cityName)
                 tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20US20%20MP%20233.2%20SB_pid4556.jpg";
             }else {
-                window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
+                //window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
             document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
             document.title = cityName + ", OR Forecast";
