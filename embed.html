@@ -256,13 +256,13 @@
             fetch('https://api.weather.com/v2/pws/observations/hourly/7day?stationId='+bendID+'&format=json&units=e&apiKey='+apiKey)
             .then(function(resp) {return resp.json()})
             .then(function(data){
-                graphTemp(data);
+                //graphTemp(data);
             })
             .catch(function(){
                 
             });
             document.getElementById("title1").innerHTML = "Forecast for "+cityName;
-            var hi1El = document.getElementById("hi1");
+            /*var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
             var today = document.getElementById("condition");
             var future = document.getElementById("condition1");
@@ -275,7 +275,7 @@
             var icon2El = document.getElementById("icon2a");
             var icon3El = document.getElementById("icon3");
             var icon4El = document.getElementById("icon4");
-            var icon5El = document.getElementById("icon5");
+            var icon5El = document.getElementById("icon5");*/
             var condition = 44;
             var season = "string";
             var rainToday = 0;
