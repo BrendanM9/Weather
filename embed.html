@@ -363,6 +363,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 precip2 = precip + 2;
                 precip3 = precip + 3;
                 thisB = (precip/2)+2;
+                document.getElementById("icon"+precip1).remove()
                 var thisIcon12 = document.createElement("div");
                 thisIcon12.id = "icon"+precip1;
                 if(f.daypart[0].iconCode[precip] === null){
