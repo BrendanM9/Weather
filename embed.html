@@ -348,8 +348,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var iconsList = [];
             var hiLoList = [];
             for(day = 0; day <= 5; day++){
-                var thisPreviousText = document.getElementById("text"+day1)
-                thisPreviousText.remove()
+                //var thisPreviousText = document.getElementById("text"+day1)
+                //thisPreviousText.remove()
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
@@ -421,6 +421,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisForecasterDiv = document.createElement('div')
                 thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
+                thisHeader.innerHTML = "";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 console.log(thisForecasterDiv);
                 thisHeader.appendChild(thisForecasterDiv)
