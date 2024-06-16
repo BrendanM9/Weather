@@ -348,7 +348,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var iconsList = [];
             var hiLoList = [];
             for(day = 0; day <= 5; day++){
-                //document.getElementById("text"+day1).remove()
+                var thisPreviousText = document.getElementById("text"+day1)
+                thisPreviousText.remove()
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
@@ -372,15 +373,15 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 } else {
                     thisIcon12.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='iconSmall'>";
                 }
-                var thisChance = document.createElement("p");
+                /*var thisChance = document.createElement("p");
                 if(f.daypart[0].precipChance[precip] !== null){
                     thisChance.innerHTML = f.daypart[0].precipChance[precip]+"%"
                 } else {
                     thisChance.innerHTML = f.daypart[0].precipChance[precip1]+"%";
                     //thisChance.innerHTML = ""
-                }
+                }*/
                 
-                chancesList.push(thisChance.innerHTML);
+                //chancesList.push(thisChance.innerHTML);
                 iconsList.push(thisIcon12.innerHTML);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
@@ -411,14 +412,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
             }
             console.log(daysList)
-            console.log(chancesList)
+            //console.log(chancesList)
             console.log(iconsList)
             console.log(hiLoList)
             var RainIcon = document.createElement("div")
-            RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
+            //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
             for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 console.log(thisForecasterDiv);
