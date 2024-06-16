@@ -348,7 +348,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var iconsList = [];
             var hiLoList = [];
             for(day = 0; day <= 5; day++){
-                document.getElementById("text"+day1).remove()
+                //document.getElementById("text"+day1).remove()
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
@@ -363,7 +363,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 precip2 = precip + 2;
                 precip3 = precip + 3;
                 thisB = (precip/2)+2;
-                document.getElementById("icon"+precip1).remove()
+                //document.getElementById("icon"+precip1).remove()
                 var thisIcon12 = document.createElement("div");
                 thisIcon12.id = "icon"+precip1;
                 if(f.daypart[0].iconCode[precip] === null){
