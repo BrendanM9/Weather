@@ -348,6 +348,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var iconsList = [];
             var hiLoList = [];
             for(day = 0; day <= 5; day++){
+                document.getElementById("text"+day1).remove()
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
@@ -620,7 +621,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //console.log(avprecip1)
                 document.getElementById("avwind").innerHTML = "Average Wind Speed: "+ parseInt(avwind1) +" MPH"
             }
-            */
+            *//*
             for (var m = 0; m <= 5; m ++){
                 var moon = f.moonPhase[m];
                 var phase = document.createElement("p")
@@ -628,7 +629,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 m1 = m + 2;
                 document.getElementsByClassName("content")[m].appendChild(phase);
             }
-        }
+        }*/
                 
         var currentpressure;
         var hindex;
