@@ -1,6 +1,9 @@
 * {
   width:100%;
 }
+select{
+    width:25%;
+}
 /*#forecast{
   /*position:absolute;
   /*top:100%;*//*
