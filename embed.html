@@ -286,7 +286,9 @@
             var cityID = document.getElementById("cityID")
             cityID.addEventListener("click", newCity());
             function newCity(){
+                console.log("clicked")
                 cityNo = cityID.value
+                console.log(cityNo);
                 if(cityNo==="bend"){
                 bendID = "KORBEND727"; 
                 ICAO = "KBDN";
