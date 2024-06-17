@@ -428,7 +428,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
             for(var forecasters = 0; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                //thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiList[forecasters]+"/"+icons2List[forecasters]+"    "+loList[forecasters];
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 thisHeader.innerHTML = "";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
