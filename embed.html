@@ -348,6 +348,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var iconsList = [];
             var icons2List = [];
             var hiLoList = [];
+            var hiList = [];
+            var loList = [];
             for(day = 0; day <= 5; day++){
                 //var thisPreviousText = document.getElementById("text"+day1)
                 //thisPreviousText.remove()
@@ -404,12 +406,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
                    thisHi.innerText = f.temperatureMax[hilo]+"º";
                 }
                 thisHi.style.color = "red";
+                hiList.push(thisHi.innerHTML);
                 var thisLo = document.createElement("span");
                 thisLo.classList = "lo";
                 thisLo.innerText = f.temperatureMin[hilo]+"º";
                 thisLo.style.color = "blue";
                 console.log(thisLo)
                 console.log(thisLo.innerHTML);
+                loList.push(thisLo.innerHTML);
                 var thisHiLo = document.createElement("p");
                 thisHiLo.innerHTML = thisHi.innerHTML +"/"+ thisLo.innerHTML;
                 //document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
