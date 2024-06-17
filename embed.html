@@ -165,6 +165,8 @@
             var Lat;
             var Long;
             var tripCheckDevice;
+            const apiKey = "be3a60645b954897ba60645b95f89776";
+            const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
             cityNo = "bend"
             if(cityNo==="bend"){
                 bendID = "KORBEND727"; 
@@ -404,8 +406,6 @@
             }
             //document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
             document.title = cityName + " Forecast";
-            const apiKey = "be3a60645b954897ba60645b95f89776";
-            const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
             fetch('https://api.weather.com/v2/pws/observations/hourly/7day?stationId='+bendID+'&format=json&units=e&apiKey='+apiKey)
             .then(function(resp) {return resp.json()})
             .then(function(data){
