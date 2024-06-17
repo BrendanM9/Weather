@@ -346,6 +346,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var daysList = [];
             var chancesList = [];
             var iconsList = [];
+            var icons2List = [];
             var hiLoList = [];
             for(day = 0; day <= 5; day++){
                 //var thisPreviousText = document.getElementById("text"+day1)
@@ -373,6 +374,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 } else {
                     thisIcon12.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip]+".png' class='iconSmall'>";
                 }
+                var thisIcon22 = document.createElement("div");
+                thisIcon22.id = "icon"+precip2;
+                thisIcon22.innerHTML = "<img src='icons/"+f.daypart[0].iconCode[precip1]+".png' class='iconSmall'>";
                 /*var thisChance = document.createElement("p");
                 if(f.daypart[0].precipChance[precip] !== null){
                     thisChance.innerHTML = f.daypart[0].precipChance[precip]+"%"
@@ -383,6 +387,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 
                 //chancesList.push(thisChance.innerHTML);
                 iconsList.push(thisIcon12.innerHTML);
+                icons2List.push(thisIcon22.innerHTML);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisChance);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
