@@ -281,6 +281,127 @@
             }else {
                 //window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
+            var cityID = document.getElementById("cityID")
+            cityID.addEventListener("click", newCity());
+            function newCity(){
+                cityNo = cityID.value
+                if(cityNo==="bend"){
+                bendID = "KORBEND727"; 
+                ICAO = "KBDN";
+                cityName = "Bend, OR"
+                Lat = 44.059221;
+                Long = -121.25976;
+            } else if (cityNo==="sisters"){
+                bendID = "KORSISTE72"; 
+                ICAO = "KBDN";
+                cityName = "Sisters, OR"
+                console.log(cityName)
+                Lat = 44.284
+                Long = -121.529
+            } else if (cityNo==="redmond"){
+                bendID = "KORREDMO186"; 
+                ICAO = "KRDM";
+                cityName = "Redmond, OR"
+                console.log(cityName)
+                Lat = 44.248
+                Long = -121.217
+                tripCheckDevice = 263;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/US97%20at%20Empire_pid3161.JPG";
+            } else if (cityNo==="sunriver"){
+                bendID = "KORSUNRI22"; 
+                ICAO = "KS21";
+                cityName = "Sunriver, OR"
+                console.log(cityName)
+                Lat = 43.892
+                Long = -121.44
+                tripCheckDevice = 197;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/LavaButte_pid631.jpg";
+            } else if (cityNo==="lapine"){
+                bendID = "KORLAPIN72"; 
+                ICAO = "KS21";
+                cityName = "La Pine, OR"
+                console.log(cityName)
+                Lat = 43.703
+                Long = -121.497
+                tripCheckDevice = 198;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/LaPine_pid630.jpg";
+            } else if (cityNo==="portland"){
+                bendID = "KORPORTL2053"; 
+                ICAO = "KPDX";
+                cityName = "Portland, OR"
+                console.log(cityName)
+                Lat = 45.563
+                Long = -122.607
+                tripCheckDevice = 246;
+                tCTVUrl ="https://www.TripCheck.com/roadcams/cams/i5Victory_pid574.jpg";
+            } else if (cityNo==="eugene"){
+                bendID = "KOREUGEN267"; 
+                ICAO = "KEUG";
+                cityName = "Eugene, OR"
+                console.log(cityName)
+                Lat = 44.043999
+                Long = -123.152
+                tripCheckDevice = 541;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20Willamette%20River%20Bridge_pid2619.JPG";
+            } else if (cityNo==="salem"){
+                bendID = "KORSALEM578"; 
+                ICAO = "KSLE";
+                cityName = "Salem, OR"
+                console.log(cityName)
+                Lat = 44.931
+                Long = -122.978
+                tripCheckDevice = 792;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20ORE22_pid3641.JPG";
+            } else if (cityNo==="prineville"){
+                bendID = "KORPRINE54"; 
+                ICAO = "KS39";
+                cityName = "Prineville, OR"
+                console.log(cityName)
+                Lat = 44.288834
+                Long = -120.815483
+                tripCheckDevice = 764;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/3rd%20St%20at%20Harwood_pid3527.JPG";
+            } else if (cityNo==="madras"){
+                bendID = "KORMADRA49"; 
+                ICAO = "KS33";
+                cityName = "Madras, OR"
+                console.log(cityName)
+                Lat = 44.659808
+                Long = -121.167526
+                tripCheckDevice = 760;
+                tCTVUrl = "https://www.tripcheck.com/roadcams/cams/US97%20at%20US26%20Jct%20NB_pid3511.JPG";
+            } else if (cityNo==="corvallis"){
+                bendID = "KORCORVA213";
+                ICAO = "KCVO";
+                cityName = "Corvallis, OR";
+                console.log(cityName)
+                Lat = 44.581
+                Long = -123.262
+                tripCheckDevice = 861;
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/ORE34%20at%20Peoria%20Rd%20EB_pid3919.jpg";
+            }  else if (cityNo==="govtcamp") {
+                bendID = "KORRHODO39";
+                ICAO = "KPDX";
+                Lat = 45.349;
+                Long = -121.939;
+                cityName = "Government Camp, OR";
+                tripCheckDevice = 203
+                console.log(cityName)
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/GovernmentCamp_pid624.jpg";
+            } else if (cityNo==="albany"){
+                bendID = null
+                ICAO = null
+                Lat = 44.62998
+                Long = -123.06256
+                cityName = "Albany, OR"
+                tripCheckDevice = 1088
+                console.log(cityName)
+                tCTVUrl = "https://www.TripCheck.com/roadcams/cams/I-5%20at%20US20%20MP%20233.2%20SB_pid4556.jpg";
+            }else {
+                //window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
+            }
+                weatherBalloon(bendID, ICAO, Lat, Long)
+            }
             //document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
             document.title = cityName + " Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
