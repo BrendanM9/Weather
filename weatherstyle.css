@@ -27,11 +27,11 @@ table,
         color: #000000;
     }
 table {
-  width:50%
+  width:50%;
   table-layout: fixed;
   height:100%;
 }
-th.t-column-l, th.t-column-r{
+td.t-column-l, td.t-column-r{
   width:50%;
 }
 .active, .collapse:hover {
