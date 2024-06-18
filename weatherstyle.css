@@ -31,7 +31,10 @@ table {
   table-layout: fixed;
   height:100%;
 }
-td.t-column-l, td.t-column-r{
+td.t-column-l{
+  width:50%;
+}
+td.t-column-r{
   width:50%;
 }
 .active, .collapse:hover {
