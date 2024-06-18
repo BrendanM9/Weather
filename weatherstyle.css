@@ -28,7 +28,7 @@ table,
     }
 table {
   width:50%
-  table-layout: fixed;
+  /*table-layout: fixed;*/
   height:100%;
 }
 th.t-column-l, th.t-column-r{
