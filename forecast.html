@@ -57,7 +57,8 @@
                 <table id="detail-weather">
                     <!--<h5>Weather Details</h5>-->
                     <thead>
-                        <th>Weather Details</th>
+                        <th class="h-column-l">Weather</th>
+                        <th class="h-column-r">Details</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -985,9 +986,25 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
             //document.getElementById("temp-1").innerHTML = temp1+"ºF";
             document.getElementById("humidity").innerHTML = "Humidity: "+ d.observations[0].humidity +"%";
-            if(parseFloat(d.observations[0].winddir)){
-                var windDirCardinal = ""
+            var windDir = parseFloat(d.observations[0].winddir)
+            if(windDir > 337.5 || windDir <= 22.5){
+                var windDirCardinal = "N"
+            } else if(windDir > 22.5 && windDir <= 67.5){
+                var windDirCardinal = "NE"
+            } else if(windDir > 67.5 && windDir <= 112.5){
+                var windDirCardinal = "E"
+            } else if(windDir > 112.5 && windDir <= 157.5){
+                var windDirCardinal = "SE"
+            } else if(windDir > 157.5 && windDir <= 202.5){
+                var windDirCardinal = "S"
+            } else if(windDir > 202.5 && windDir <= 247.5){
+                var windDirCardinal = "SW"
+            } else if(windDir > 247.5 && windDir <= 292.5){
+                var windDirCardinal = "W"
+            } else if(windDir > 292.5 && windDir <= 337.5){
+                var windDirCardinal = "NW"
             }
+            console.log(windDirCardinal);
             document.getElementById("winddir").innerHTML = "Wind Direction: "+d.observations[0].winddir+"º";
             document.getElementById("windspeed").innerHTML = d.observations[0].imperial.windSpeed;
             document.getElementById("windgusts").innerHTML = d.observations[0].imperial.windGust;
