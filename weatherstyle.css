@@ -27,7 +27,7 @@ table,
         color: #000000;
     }
 table {
-  width:50%;
+  width:100%;
   table-layout: fixed;
   height:100%;
 }
