@@ -17,7 +17,8 @@
             var second = 0
             var minute = 0
             function autoRefresh() {
-                window.location = window.location.href;
+                //window.location = window.location.href;
+                weatherBalloon(bendID, ICAO, Lat, Long);
             }
             setInterval('autoRefresh()', 120000);
         </script>
@@ -745,6 +746,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisForecasterDiv = document.createElement('div')
                 thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
+                thisHeader.innerHTML = "";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 thisHeader.appendChild(thisForecasterDiv)
                 //thisHeader.appendChild(iconsList[forecasters])
