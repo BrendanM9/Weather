@@ -613,6 +613,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
                 daysList.push(thisText.innerHTML);
+                document.getElementsByClassName("content")[day].innerHTML = "";
                 document.getElementsByClassName("content")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
