@@ -1212,6 +1212,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     favicon.setAttribute("href", 'icons/13.png');
                     today.innerHTML = "<p>Light Snow</p>";
                     document.getElementById("b1").style.backgroundImage = "url('backgrounds/Winter.png')";
+                } else if(nws1 === "Haze"){
+                  iconEl.innerHTML = "<img src='icons/21.png' class='icon'>";
+                    favicon.setAttribute("href", "icons/21.png");
+                    today.innerHTML = "<p>Haze</p>";
+                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
                 } else {
                     for(var words = 0; words<= nwsWordList.length; words++){
                         if(nwsWordList[words] +" "+ nwsWordList[words+1] === "Light Rain"){
