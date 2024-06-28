@@ -6,6 +6,9 @@
   top:100%;
 }
 #web-id{
+  position:absolute;
+  top:5px;
+  left:80%;
   float:right;
 }
 .collapse {
