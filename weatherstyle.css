@@ -5,6 +5,9 @@
   position:absolute;
   top:100%;
 }
+#web-id{
+  float:right;
+}
 .collapse {
   background-color: #FFF;
   color: black;
