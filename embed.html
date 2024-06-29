@@ -99,7 +99,7 @@
             <p class="collapse"></p>
             <!--<div class="content"></div>-->
         </div>
-            <a href="https://brendanm9.github.io/Weather">
+            <a href="https://brendanm9.github.io/Weather" target="_blank">
         <div id="web-id"><img src="OregonForecastHub-TITLE.png" alt="Oregon Forecast Hub Logo" style="width:100px;height:auto;">
         <h3>Oregon Forecast Hub</h3></div>
             </a>
@@ -482,6 +482,7 @@
                 alertDiv1.appendChild(closeObj)
                 alertDiv1.appendChild(title)
                 alertDiv1.appendChild(text)
+                document.getElementById("alerts2").innerHTML = "";
                 document.getElementById("alerts2").appendChild(alertDiv1)
                 }
                 var close = document.getElementsByClassName("closebtn");
