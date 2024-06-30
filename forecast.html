@@ -605,12 +605,16 @@ for (closeB = 0; closeB < close.length; closeB++) {
   <strong>Info!</strong> Indicates a neutral informative change or action.
 </div>*/
         }
-        forecast = function( f ){
+        forecast = function( f , latitude, longitude){
             console.log(f);
             var daysList = [];
             var chancesList = [];
             var iconsList = [];
             var hiLoList = [];
+            var sunsetUTC = f.sunsetTimeUtc[0]
+            var sunriseUTC = f.sunriseTimeUtc[0]
+            var validUTC = f.validTimeUtc[0]
+            getNWS(latitude, longitude, sunsetUTC, sunriseUTC, validUTC);
             for(day = 0; day <= 5; day++){
                 day1 = day+1
                 day2 = day+2
@@ -1090,25 +1094,36 @@ for (closeB = 0; closeB < close.length; closeB++) {
             });
         }
             */
-        function loadStation(json2){
+        function loadStation(json2, sset, srise, dvalid){
             var station0 = json2.observationStations[0]
             fetch(station0+"/observations")
             .then(function(resp) {return resp.json() })
             .then(function(data) {
                 console.log(data)
-                nwsCurrent(data)
+                nwsCurrent(data, sset, srise, dvalid)
             })
             .catch(function(){
 
             })
         }
-        function findConditions(json1){
+        function findConditions(json1, set, rise, actual){
             var observationStation = json1.properties.observationStations
             fetch(observationStation)
             .then(function(resp) {return resp.json() })
             .then(function(data) {
                 console.log(data)
-                loadStation(data)
+                loadStation(data, set, rise, actual)
+            })
+            .catch(function(){
+
+            })
+        }
+        function getNWS(Lat, Long, sunset, sunrise, valid){
+            fetch('https://api.weather.gov/points/'+Lat+','+Long)
+            .then(function(resp) {return resp.json()})
+            .then(function(data){
+                console.log(data)
+                findConditions(data, sunset, sunrise, valid)
             })
             .catch(function(){
 
@@ -1140,7 +1155,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat1+','+Long1+'&format=json&units=e&language=en-US&apiKey='+key)
             .then(function(resp) {return resp.json()})
             .then (function(data) {
-                forecast(data);
+                forecast(data, latitude, longitude);
                 forecastData = data
                 assignForecast(data)
                 console.log(forecastData);
@@ -1156,15 +1171,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
 
             })
-            fetch('https://api.weather.gov/points/'+Lat+','+Long)
-            .then(function(resp) {return resp.json()})
-            .then(function(data){
-                console.log(data)
-                findConditions(data)
-            })
-            .catch(function(){
-
-            })
             console.log(observationData);
         }
         window.onload = function(){
@@ -1173,10 +1179,18 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //trafficCam(tripCheckDevice);
             //forecast(currentpressure);
         }
+            
         var nwsSet = false;
-        function nwsCurrent(nws){
+        function nwsCurrent(nws, sunsetU, sunriseU, validU){
             var nws1 = nws.features[0].properties.textDescription
             console.log(nws1)
+            var dayNight = "day"
+            if(validU >= sunriseU && validU <= sunsetU){
+                console.log("IT IS DAYTIME");
+            }
+            else if(validU <= sunriseU || validU >= sunsetU){
+                console.log("IT IS NIGHTTIME");
+            }
             if(nws1 !== ""){
                 nwsSet = true;
                 console.log("Yes"+nws1)
