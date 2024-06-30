@@ -1185,12 +1185,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function nwsCurrent(nws, sunsetU, sunriseU, validU){
             var nws1 = nws.features[0].properties.textDescription
             console.log(nws1)
-            var dayNight = "day"
+            var dayNight = "day";
             if(validU >= sunriseU && validU <= sunsetU){
                 console.log("IT IS DAYTIME");
+                dayNight = "day";
             }
             else if(validU <= sunriseU || validU >= sunsetU){
                 console.log("IT IS NIGHTTIME");
+                dayNight = "night";
             }
             if(nws1 !== ""){
                 nwsSet = true;
@@ -1204,25 +1206,50 @@ for (closeB = 0; closeB < close.length; closeB++) {
                     today.innerHTML = "<p>Cloudy</p>";
                     document.getElementById("b1").style.backgroundImage = "url('backgrounds/cloudy.png')";
                 } else if(nws1 ==="Mostly Cloudy"){
-                    iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
-                    favicon.setAttribute("href", "icons/28.png");
+                    if(dayNight === "day"){
+                        iconEl.innerHTML = "<img src='icons/28.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/28.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                    } else if(dayNight === "night") {
+                        iconEl.innerHTML = "<img src='icons/27.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/27.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy_night.png')";
+                    }
                     today.innerHTML = "<p>Mostly Cloudy</p>";
-                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                    
                 } else if(nws1 === "Clear"){
-                    iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
-                    favicon.setAttribute("href", "icons/32.png");
                     today.innerHTML = "<p>Clear</p>";
-                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                    if(dayNight === "day"){
+                        iconEl.innerHTML = "<img src='icons/32.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/32.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                    } else if(dayNight === "night") {
+                        iconEl.innerHTML = "<img src='icons/31.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/31.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                    }
                 } else if(nws1==="Mostly Clear"){
-                    iconEl.innerHTML = "<img src='icons/34.png' class='icon'>";
-                    favicon.setAttribute("href", "icons/34.png");
                     today.innerHTML = "<p>Mostly Clear</p>";
-                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                    if(dayNight === "day"){
+                        iconEl.innerHTML = "<img src='icons/34.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/34.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                    } else if(dayNight === "night") {
+                        iconEl.innerHTML = "<img src='icons/33.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/33.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/sunny.png')";
+                    }
                 } else if(nws1 === "Partly Cloudy"){
-                    iconEl.innerHTML = "<img src='icons/30.png' class='icon'>";
-                    favicon.setAttribute("href", "icons/30.png");
                     today.innerHTML = "<p>Partly Cloudy</p>";
-                    document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                    if(dayNight === "day"){
+                        iconEl.innerHTML = "<img src='icons/30.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/30.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
+                    } else if(dayNight === "night") {
+                        iconEl.innerHTML = "<img src='icons/29.png' class='icon'>";
+                        favicon.setAttribute("href", "icons/29.png");
+                        document.getElementById("b1").style.backgroundImage = "url('backgrounds/partly_cloudy_night.png')";
+                    }
                 } else if(nws1 === "Light Drizzle"){
                      iconEl.innerHTML = "<img src='icons/9.png' class='icon'>";
                      favicon.setAttribute("href", "icons/9.png");
