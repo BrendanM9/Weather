@@ -1118,8 +1118,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
 
             })
         }
-        function getNWS(Lat, Long, sunset, sunrise, valid){
-            fetch('https://api.weather.gov/points/'+Lat+','+Long)
+        function getNWS(Lat2, Long2, sunset, sunrise, valid){
+            console.log("so far, so good");
+            fetch('https://api.weather.gov/points/'+Lat2+','+Long2)
             .then(function(resp) {return resp.json()})
             .then(function(data){
                 console.log(data)
@@ -1155,7 +1156,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat1+','+Long1+'&format=json&units=e&language=en-US&apiKey='+key)
             .then(function(resp) {return resp.json()})
             .then (function(data) {
-                forecast(data, latitude, longitude);
+                forecast(data, Lat1, Long1);
                 forecastData = data
                 assignForecast(data)
                 console.log(forecastData);
