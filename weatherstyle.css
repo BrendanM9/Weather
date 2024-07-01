@@ -1,6 +1,10 @@
 * {
   width:100%;
 }
+.forecast-column{
+  width:50%;
+  float:left;
+}
 #forecast{
   position:absolute;
   top:100%;
