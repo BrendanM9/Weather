@@ -612,8 +612,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisText.id = "text"+day1
                 thisText.innerHTML = f.dayOfWeek[day];
                 daysList.push(thisText.innerHTML);
-                document.getElementsByClassName("content")[day].innerHTML = "";
-                document.getElementsByClassName("content")[day].appendChild(thisText);
+            //document.getElementsByClassName("content")[day].innerHTML = "";
+            //document.getElementsByClassName("content")[day].appendChild(thisText);
             }
             for(precip = 0; precip <= 10; precip+= 2){
                 precip1 = precip + 1;
@@ -702,11 +702,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon1);
                 //document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip1);
                 //document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative1);
-                document.getElementsByClassName("content")[thisB-2].appendChild(forecastColumn1);
+            //document.getElementsByClassName("content")[thisB-2].appendChild(forecastColumn1);
                 //document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon2);
                 //document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip2);
                 //document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative2);
-                document.getElementsByClassName("content")[thisB-2].appendChild(forecastColumn2);
+            //document.getElementsByClassName("content")[thisB-2].appendChild(forecastColumn2);
                 //var thisIconPrecip = document.createElement("div")
                 //thisIconPrecip = thisChance.innerHTML + thisIcon12.innerHTML
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
@@ -747,7 +747,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisCondition = document.createElement("p");
                 thisCondition.id = "condition"+desc1
                 thisCondition.innerHTML = f.narrative[desc];
-                //document.getElementsByClassName("content")[desc].appendChild(thisCondition);
+            //document.getElementsByClassName("content")[desc].appendChild(thisCondition);
             }
             console.log(daysList)
             console.log(chancesList)
@@ -755,10 +755,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(hiLoList)
             var RainIcon = document.createElement("div")
             RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
-            for(var forecasters = 0; forecasters <= 5; forecasters++){
+            for(var forecasters = 1; forecasters <= 5; forecasters++){
                 var thisForecasterDiv = document.createElement('div')
                 thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
-                var thisHeader = document.getElementsByClassName("collapse")[forecasters]
+                var thisHeader = document.getElementsByClassName("collapse")[forecasters-1]
                 thisHeader.innerHTML = "";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 //thisHeader.appendChild(thisForecasterDiv)
