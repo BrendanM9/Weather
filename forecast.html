@@ -786,12 +786,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var cloudCoverAvg5;
             var cloudCoverAvg6;
             if(f.daypart[0].cloudCover[0] === null){
-                cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[1])/2;
+                cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[1]);
             } else {
                 cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
                 cloudCoverAvg1 = cloudCoverAvg1/2;
             }
-            if(cloudCoverAvg1 > 0 && cloudCoverAvg1 <= 25){
+            if(cloudCoverAvg1 >= 0 && cloudCoverAvg1 <= 25){
                 document.getElementsByClassName("column")[1].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg1 > 25 && cloudCoverAvg1 <= 75){
                 document.getElementsByClassName("column")[1].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -800,7 +800,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } 
             cloudCoverAvg2 = parseFloat(f.daypart[0].cloudCover[2])+parseFloat(f.daypart[0].cloudCover[3])
             cloudCoverAvg2 = cloudCoverAvg2/2;
-            if(cloudCoverAvg2 > 0 && cloudCoverAvg2 <= 33){
+            if(cloudCoverAvg2 >= 0 && cloudCoverAvg2 <= 33){
                 document.getElementsByClassName("column")[2].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg2 > 33 && cloudCoverAvg2 <= 66){
                 document.getElementsByClassName("column")[2].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -809,7 +809,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             }
             cloudCoverAvg3 = parseFloat(f.daypart[0].cloudCover[4])+parseFloat(f.daypart[0].cloudCover[5])
             cloudCoverAvg3 = cloudCoverAvg3/2;
-            if(cloudCoverAvg3 > 0 && cloudCoverAvg3 <= 33){
+            if(cloudCoverAvg3 >= 0 && cloudCoverAvg3 <= 33){
                 document.getElementsByClassName("content")[2].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg3 > 33 && cloudCoverAvg3 <= 66){
                 document.getElementsByClassName("content")[2].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -818,7 +818,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             }
             cloudCoverAvg4 = parseFloat(f.daypart[0].cloudCover[6])+parseFloat(f.daypart[0].cloudCover[7])
             cloudCoverAvg4 = cloudCoverAvg4/2;
-            if(cloudCoverAvg4 > 0 && cloudCoverAvg4 <= 33){
+            if(cloudCoverAvg4 >= 0 && cloudCoverAvg4 <= 33){
                 document.getElementsByClassName("content")[3].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg4 > 33 && cloudCoverAvg4 <= 66){
                 document.getElementsByClassName("content")[3].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -827,7 +827,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             }
             cloudCoverAvg5 = parseFloat(f.daypart[0].cloudCover[8])+parseFloat(f.daypart[0].cloudCover[9])
             cloudCoverAvg5 = cloudCoverAvg5/2;
-            if(cloudCoverAvg5 > 0 && cloudCoverAvg5 <= 33){
+            if(cloudCoverAvg5 >= 0 && cloudCoverAvg5 <= 33){
                 document.getElementsByClassName("content")[4].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg5 > 33 && cloudCoverAvg5 <= 66){
                 document.getElementsByClassName("content")[4].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
@@ -836,7 +836,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             }
             cloudCoverAvg6 = parseFloat(f.daypart[0].cloudCover[10])+parseFloat(f.daypart[0].cloudCover[11])
             cloudCoverAvg6 = cloudCoverAvg6/2;
-            if(cloudCoverAvg6 > 0 && cloudCoverAvg6 <= 33){
+            if(cloudCoverAvg6 >= 0 && cloudCoverAvg6 <= 33){
                 document.getElementsByClassName("content")[5].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg6 > 33 && cloudCoverAvg6 <= 66){
                 document.getElementsByClassName("content")[5].style.backgroundImage = "url('backgrounds/partly_cloudy.png')";
