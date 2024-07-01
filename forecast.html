@@ -756,18 +756,21 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(chancesList)
             console.log(iconsList)
             console.log(hiLoList)
-            var RainIcon = document.createElement("div")
-            RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
+            //var RainIcon = document.createElement("div")
+            //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
             for(var forecasters = 0; forecasters <= 5; forecasters++){
-                var thisForecasterDiv = document.createElement('div')
-                thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                //var thisForecasterDiv = document.createElement('div')
+                //thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
+                console.log("105.7")
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
+                console.log("KQAK");
                 thisHeader.innerHTML = "";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 //thisHeader.appendChild(thisForecasterDiv)
                 thisHeader.appendChild(daysList[forecasters])
                 thisHeader.appendChild(iconsList[forecasters])
                 thisHeader.appendChild(hiLoList[forecasters])
+                console.log("BEND")
             }
             getDayNight(f);
             
