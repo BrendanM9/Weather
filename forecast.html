@@ -46,9 +46,9 @@
         </div>
         <div id="alerts2">
         </div>
-            <div id="location">
-                <h1 id="title1">Forecast:</h1>
-            </div>
+        <div id="location">
+            <h1 id="title1">Forecast:</h1>
+        </div>
         <div id="currentc">
             <div class="forecast-column">
                 <div id="icon">
@@ -62,6 +62,7 @@
                 <h2 id="condition"></h2>
             </div>
         </div>
+        <hr>
         <div>
             <div class="forecast-column">
                 <p id="hi-lo--today"></p>
@@ -78,6 +79,7 @@
                 <p id="aqi">AQI Coming Soon</p>
             </div>
         </div>
+        <hr>
             <!--<p id="humidity">Humidity: --%</p>
             <p id="winddir">Wind Direction: --º</p>
             <p id="windspeed">Wind Speed: -- MPH</p>
@@ -782,6 +784,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 cloudCoverAvg1 = parseFloat(f.daypart[0].cloudCover[0])+parseFloat(f.daypart[0].cloudCover[1])
                 cloudCoverAvg1 = cloudCoverAvg1/2;
             }
+        /*
             if(cloudCoverAvg1 >= 0 && cloudCoverAvg1 <= 25){
                 document.getElementsByClassName("column")[1].style.backgroundImage = "url('backgrounds/sunny.png')";
             } else if (cloudCoverAvg1 > 25 && cloudCoverAvg1 <= 75){
@@ -834,7 +837,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             } else{
                 document.getElementsByClassName("content")[5].style.backgroundImage =  "url('backgrounds/cloudy.png')";
             }
-            
+        */
             //console.log(cloudCoverAvg2);
             for(var a = 0; a < 6; a++){
                 var a2 = a * 2;
@@ -968,7 +971,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var phase = document.createElement("p")
                 phase.innerHTML = "Moon Phase: "+ moon;
                 m1 = m + 2;
-                document.getElementsByClassName("content")[m].appendChild(phase);
+            //document.getElementsByClassName("content")[m].appendChild(phase);
             }
         }
                 
