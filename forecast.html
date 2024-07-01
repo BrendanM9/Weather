@@ -71,7 +71,7 @@
                 <p id="dewpt"></p>
             </div>
             <div class="forecast-column">
-                <p id="wind"><span id="winddir"></span><span id="windspeed"></span><span id="windgusts"></span></p>
+                <p id="wind"><span id="winddir"></span>  <span id="windspeed"></span>MPH / Gusts: <span id="windgusts"></span>MPH</p>
                 <p id="humidity"></p>
                 <p id="all-precip"></p>
                 <p id="uv"></p>
@@ -1014,7 +1014,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var windDirCardinal = "NW"
             }
             console.log(windDirCardinal);
-            document.getElementById("winddir").innerHTML = "Wind Direction: "+windDirCardinal;
+            document.getElementById("winddir").innerHTML = "Wind: "+windDirCardinal;
             document.getElementById("windspeed").innerHTML = d.observations[0].imperial.windSpeed;
             document.getElementById("windgusts").innerHTML = d.observations[0].imperial.windGust;
             var bucket1 = document.createElement("div");
