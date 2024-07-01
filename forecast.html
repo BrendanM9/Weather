@@ -770,11 +770,12 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log("H")
                 console.log(iconsList[forecasters])
                 console.log(daysList[forecasters])
-                thisHeader.appendChild(daysList[forecasters].innerHTML)
+                //thisHeader.appendChild(daysList[forecasters].innerHTML)
+                thisHeader.innerHTML = daysList[forecasters] + "<br>"+ iconsList[forecasters] + "<br>" + hiLoList[forecasters]
                 console.log("D");
-                thisHeader.appendChild(iconsList[forecasters].innerHTML)
+                //thisHeader.appendChild(iconsList[forecasters].innerHTML)
                 console.log("1");
-                thisHeader.appendChild(hiLoList[forecasters].innerHTML)
+                //thisHeader.appendChild(hiLoList[forecasters].innerHTML)
                 console.log("BEND")
             }
             getDayNight(f);
