@@ -1059,7 +1059,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 bucket1.innerHTML = "<img src='Gauges/2:2.png' style='width:20%; height:20%' id='bucket'>";
             }
             console.log(bucket1.innerHTML);
-            document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+            //document.getElementById("all-precip").innerHTML = bucket1.innerHTML + "  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
+            document.getElementById("all-precip").innerHTML =  Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             //document.getElementById("precip").innerHTML = "Precipitation: "+d.observations[0].imperial.precipTotal+" in";
             document.getElementById("update").innerHTML = "Last updated: "+updateTime;
             rainToday = d.observations[0].imperial.precipTotal;
