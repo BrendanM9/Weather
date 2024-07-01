@@ -764,15 +764,15 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log("105.7")
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 console.log("KQAK");
-                thisHeader.innerHTML = "Test 1-2-3";
+                //thisHeader.innerHTML = "Test 1-2-3";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
                 //thisHeader.appendChild(thisForecasterDiv)
                 console.log("H")
-                //thisHeader.appendChild(daysList[forecasters])
+                thisHeader.appendChild(daysList[forecasters].innerHTML)
                 console.log("D");
-                thisHeader.appendChild(iconsList[forecasters])
+                thisHeader.appendChild(iconsList[forecasters].innerHTML)
                 console.log("1");
-                thisHeader.appendChild(hiLoList[forecasters])
+                thisHeader.appendChild(hiLoList[forecasters].innerHTML)
                 console.log("BEND")
             }
             getDayNight(f);
