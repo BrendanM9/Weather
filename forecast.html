@@ -114,9 +114,12 @@
                 </div>
             </div>
         </div>-->
-        <p id="abspress" hidden></p>  
-        <button id="right" hidden>-></button>
-        <div id="forecast">
+        <button class="collapse" id="1Out"></button>
+        <button class="collapse" id="2Out"></button>
+        <button class="collapse" id="3Out"></button>
+        <button class="collapse" id="4Out"></button>
+        <button class="collapse" id="5Out"></button>
+        <!--<div id="forecast">
         <div class="column" id="b2">
             <button class="collapse"></button>
             <div class="content"></div>
@@ -141,7 +144,7 @@
             <button class="collapse"></button>
             <div class="content"></div>
         </div>
-        <br>
+        <br>-->
         <div class="column" id="b8">
             <button class="collapse"><i class="fa-solid fa-video"></i>Traffic Camera</button>
             <div class="content">
@@ -160,7 +163,7 @@
                 <canvas id="tempChart"></canvas>
                 <canvas id="pressureChart"></canvas>
             </div>
-        </div>
+        <!--</div>-->
         </main>
         <script>
             function graphTempAfterData(data1, data2, data3, data4){
@@ -758,9 +761,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 thisHeader.innerHTML = "";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
-                thisHeader.appendChild(thisForecasterDiv)
-                //thisHeader.appendChild(iconsList[forecasters])
-                //thisHeader.appendChild(hiLoList[forecasters])
+                //thisHeader.appendChild(thisForecasterDiv)
+                thisHeader.appendChild(daysList[forecasters])
+                thisHeader.appendChild(iconsList[forecasters])
+                thisHeader.appendChild(hiLoList[forecasters])
             }
             getDayNight(f);
             
