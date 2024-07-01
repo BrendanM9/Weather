@@ -53,11 +53,11 @@ td.t-column-r{
 }
 
 .collapse:after {
-  content: '\002B';
+  /*content: '\002B';
   color: black;
   font-weight: bold;
   float: right;
-  margin-left: 5px;
+  margin-left: 5px;*/
 }
 
 .active:after {
@@ -151,9 +151,6 @@ td.t-column-r{
   /*width:60%;*/
   font-size:100%;
   /*top:0%;*/
-}
-.collapse{
-    width:100%
 }
 .lo{
     color:blue;
