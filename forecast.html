@@ -61,41 +61,23 @@
                 <h3 id="feellike" class="detail">Feels Like: --</h3>
                 <h2 id="condition"></h2>
             </div>
-            
         </div>
-            <div class="left-column-detail">
-                <table id="detail-weather">
-                    <!--<h5>Weather Details</h5>-->
-                    <thead>
-                        <th class="h-column-l">Weather</th>
-                        <th class="h-column-r">Details</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="t-column-l"><i class="fa-solid fa-glass-water-droplet"></i><p id="humidity">Humidity: --%</p></td>
-                            <td class="t-column-r"><i class="fa-solid fa-droplet"></i><p id="dewpt" class="detail">Dew Point: --º</p></td>
-                        </tr>
-                        <tr>
-                            <td><nobr><i class="fa-solid fa-location-arrow"></i><p id="winddir">Wind Direction: --º</p></nobr></td>
-                            <td><i class="fa-solid fa-wind"></i><p>Wind Speed/Gust</p><span id="windspeed"></span>&#47<span id="windgusts"></span> MPH</p></td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-solid fa-stopwatch"></i><p id="pressure">Pressure: -- inHG</p></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-regular fa-sun"></i><p id="uv" class="detail">UV Index: --</p></td>
-                            <td>
-                                <div id="all-precip"></div>
-                                <!--<div id="precip-group">
-                                    <p><img src="Gauges/0:2.png" style="width:20%; height:20%" id="bucket">&nbsp;
-                                    <div id="precip" class="detail">Precipitation: -- in</div></p>
-                                </div>-->
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div>
+            <div class="forecast-column">
+                <p id="hi-lo--today"></p>
+                <p id="sunrise"></p>
+                <p id="sunset"></p>
+                <p id="pressure"></p>
+                <p id="dewpt"></p>
             </div>
+            <div class="forecast-column">
+                <p id="wind"><span id="winddir"></span><span id="windspeed"></span><span id="windgusts"></span></p>
+                <p id="humidity"></p>
+                <p id="all-precip"></p>
+                <p id="uv"></p>
+                <p id="aqi">AQI Coming Soon</p>
+            </div>
+        </div>
             <!--<p id="humidity">Humidity: --%</p>
             <p id="winddir">Wind Direction: --º</p>
             <p id="windspeed">Wind Speed: -- MPH</p>
@@ -1010,7 +992,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             amtemp = d.observations[0].imperial.temp;
             wind = d.observations[0].imperial.windSpeed;
             //document.getElementById("condition").innerHTML = d.observations[0]
-            document.getElementById("temp").innerHTML = "Temperature: "+ temp1+"ºF";
+            document.getElementById("temp").innerHTML = temp1+"ºF";
             //document.getElementById("temp-1").innerHTML = temp1+"ºF";
             document.getElementById("humidity").innerHTML = "Humidity: "+ d.observations[0].humidity +"%";
             var windDir = parseFloat(d.observations[0].winddir)
