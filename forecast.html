@@ -699,12 +699,24 @@ for (closeB = 0; closeB < close.length; closeB++) {
                         thisPrecip2Type = "<i class='fa-solid fa-droplet'></i> ";
                     }
                 thisPrecip2.innerHTML = thisPrecip2Type+f.daypart[0].precipChance[precip1]+"% | "+totalQPF21+"in";
-                document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon1);
-                document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip1);
-                document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative1);
-                document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon2);
-                document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip2);
-                document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative2);
+                var forecastColumn1 = document.createElement("div");
+                forecastColumn1.classList.add("forecast-column");
+                forecastColumn1.appendChild(thisIcon1);
+                forecastColumn1.appendChild(thisPrecip1);
+                forecastColumn1.appendChild(thisNarrative1);
+                var forecastColumn2 = document.createElement("div");
+                forecastColumn2.classList.add("forecast-column");
+                forecastColumn2.appendChild(thisIcon2);
+                forecastColumn2.appendChild(thisPrecip2);
+                forecastColumn2.appendChild(thisNarrative2);
+                //document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon1);
+                //document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip1);
+                //document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative1);
+                document.getElementsByClassName("content")[thisB-2].appendChild(forecastColumn1);
+                //document.getElementsByClassName("content")[thisB-2].appendChild(thisIcon2);
+                //document.getElementsByClassName("content")[thisB-2].appendChild(thisPrecip2);
+                //document.getElementsByClassName("content")[thisB-2].appendChild(thisNarrative2);
+                document.getElementsByClassName("content")[thisB-2].appendChild(forecastColumn1);
                 //var thisIconPrecip = document.createElement("div")
                 //thisIconPrecip = thisChance.innerHTML + thisIcon12.innerHTML
                 //var thisCollapse = document.getElementsByClassName("collapse")[thisB-2];
