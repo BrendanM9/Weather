@@ -559,13 +559,14 @@
                 title.innerHTML = g.features[0].properties.event
                 var text = document.createElement("p")
                 var more = document.createElement("a")
+                text.innerHTML = g.features[0].properties.headline+"\n"+g.features[0].properties.description;
                 more.innerHTML = "  <u>View Advisory</u>"
                 more.addEventListener("click", function(){
-                    alert(g.features[0].properties.description)
+                    alert(text.innerHTML)
                     //alert("I worked");
                 })
                 
-                text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
+                
                 
                 alertDiv.appendChild(closeObj)
                 alertDiv.appendChild(title)
