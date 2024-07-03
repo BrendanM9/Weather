@@ -124,7 +124,7 @@
         <button class="collapse" id="3Out"></button>
         <button class="collapse" id="4Out"></button>
         <button class="collapse" id="5Out"></button>
-        <button class="collapse" id="5Out"></button>
+        <!--<button class="collapse" id="5Out"></button>-->
         <!--<div id="forecast">
         <div class="column" id="b2">
             <button class="collapse"></button>
@@ -785,6 +785,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //thisHeader.appendChild(hiLoList[forecasters].innerHTML)
                 console.log("BEND")
             }
+            document.getElementById("hi-lo--today").innerHTML = hiLoList[0]
             getDayNight(f);
             
             
