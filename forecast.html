@@ -157,12 +157,12 @@
                 <div id="cam"></div>
             </div>
         </div>
-        <div class="column" id="b9" hidden>
+        <!--<div class="column" id="b9" hidden>
             <button class="collapse">Radar</button>
             <div class="content">
                 <img src="https://radar.weather.gov/ridge/standard/PACNORTHWEST_loop.gif">
             </div>
-        </div>
+        </div>-->
         <div class="column" id="b10" hidden>
             <button class="collapse">Hourly Graphs for Today</button>
             <div class="content">
@@ -490,7 +490,7 @@
             }else {
                 window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
-            document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
+            //document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
             document.title = cityName + ", OR Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
@@ -502,7 +502,7 @@
             .catch(function(){
                 
             });
-            document.getElementById("title1").innerHTML = "Forecast for "+cityName;
+            document.getElementById("title1").innerHTML = cityName + ", OR Forecast";
             var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
             var today = document.getElementById("condition");
@@ -559,16 +559,19 @@
                 title.innerHTML = g.features[0].properties.event
                 var text = document.createElement("p")
                 var more = document.createElement("a")
-            more.innerHTML = "More Info"
-                more.onclick = function(){
-                    alert(g.features[0].properties.description)
+                more.innerHTML = "More Info"
+                more.setAttribute("click" = function(){
+                    //alert(g.features[0].properties.description)
+                    alert("I worked");
                 }
                 
                 text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
                 
                 alertDiv.appendChild(closeObj)
                 alertDiv.appendChild(title)
-                alertDiv.appendChild(text)
+                //alertDiv.appendChild(text)
+                alertDiv.appendChild(more);
+                document.getElementById("alerts").innerHTML = ""
                 document.getElementById("alerts").appendChild(alertDiv);
                 if(g.features[1].properties.event !== null){
                 var alertDiv1 = document.createElement("div")
