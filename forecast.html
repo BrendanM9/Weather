@@ -560,7 +560,7 @@
                 var text = document.createElement("p")
                 var more = document.createElement("a")
                 more.innerHTML = "More Info"
-                more.setAttribute("click" = function(){
+                more.addEventListener("click", function(){
                     //alert(g.features[0].properties.description)
                     alert("I worked");
                 }
