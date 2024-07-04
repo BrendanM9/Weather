@@ -1211,6 +1211,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var nws1 = nws.features[0].properties.textDescription
             console.log(nws1)
             var dayNight = "day";
+            document.getElementById("sunrise").innerHTML = "Sunrise: "+ sunriseU.toDateString();
             if(validU >= sunriseU && validU <= sunsetU){
                 console.log("IT IS DAYTIME");
                 dayNight = "day";
