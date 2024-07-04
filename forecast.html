@@ -614,6 +614,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var sunsetUTC = f.sunsetTimeUtc[0]
             var sunriseUTC = f.sunriseTimeUtc[0]
             var validUTC = f.validTimeUtc[0]
+            var localSunrise = new Date(f.sunsetTimeLocal);
+            document.getElementById("sunrise").innerHTML = "Sunrise: "+ localSunrise.toDateString();
             getNWS(latitude, longitude, sunsetUTC, sunriseUTC, validUTC);
             for(day = 0; day <= 5; day++){
                 day1 = day+1
@@ -1211,7 +1213,6 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var nws1 = nws.features[0].properties.textDescription
             console.log(nws1)
             var dayNight = "day";
-            document.getElementById("sunrise").innerHTML = "Sunrise: "+ sunriseU.toDateString();
             if(validU >= sunriseU && validU <= sunsetU){
                 console.log("IT IS DAYTIME");
                 dayNight = "day";
