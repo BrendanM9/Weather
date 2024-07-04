@@ -617,7 +617,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var localSunrise = new Date(f.sunriseTimeLocal[0]);
             var localSunset = new Date(f.sunsetTimeLocal[0]);
             document.getElementById("sunrise").innerHTML = "Sunrise: "+ localSunrise.toLocaleTimeString();
-            document.getElementById("sunset").innerHTML = "Sunset: "+ localSunset.toTimeString();
+            document.getElementById("sunset").innerHTML = "Sunset: "+ localSunset.toLocaleTimeString();
             getNWS(latitude, longitude, sunsetUTC, sunriseUTC, validUTC);
             for(day = 0; day <= 5; day++){
                 day1 = day+1
