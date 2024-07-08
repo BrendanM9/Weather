@@ -620,6 +620,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             document.getElementById("sunset").innerHTML = "Sunset: "+ localSunset.toLocaleTimeString();
             var thisDate = new Date;
             let ms = Date.parse(thisDate);
+            ms = ms/1000
             validUTC = ms
             getNWS(latitude, longitude, sunsetUTC, sunriseUTC, validUTC);
             for(day = 0; day <= 5; day++){
