@@ -12,6 +12,7 @@
         <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
         <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
         <style> body { font-family: "Kalam";font-size: 18px; } </style> 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--<script src="weatherscript.js"></script>-->
     </head>
     <body>
@@ -562,7 +563,12 @@
                 text.innerHTML = g.features[0].properties.headline+"\n\n"+g.features[0].properties.description;
                 more.innerHTML = "  <u>View Weather Statement</u>"
                 more.addEventListener("click", function(){
-                    alert(text.innerHTML)
+                    //alert(text.innerHTML)
+                    Swal.fire({
+                        title: title.innerHTML,
+                        text: text.innerHTML,
+                        confirmButtonText: 'OK'
+                    });
                     //alert("I worked");
                 })
                 
