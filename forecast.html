@@ -618,6 +618,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var chancesList = [];
             var iconsList = [];
             var hiLoList = [];
+            var narrativeList = []
             var sunsetUTC = f.sunsetTimeUtc[0]
             var sunriseUTC = f.sunriseTimeUtc[0]
             var validUTC = f.validTimeUtc[0]
@@ -765,6 +766,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //document.getElementsByClassName("collapse")[hilo].appendChild(thisHiLo);
                 hiLoList.push(thisHiLo.innerHTML)
                 //document.getElementById("b"+hilo2).appendChild(thisLo);
+                var thisNarrative3 = document.createElement("p");
+                thisNarrative3.innerHTML = f.narrative[hilo];
+                narrativeList.push(thisNarrative3.innerHTML)
             }
             for(desc = 0; desc <= 5; desc++){
                 desc1 = desc+1
@@ -778,6 +782,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(chancesList)
             console.log(iconsList)
             console.log(hiLoList)
+            console.log(narrativeList)
             //var RainIcon = document.createElement("div")
             //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
             for(var forecasters = 1; forecasters <= 5; forecasters++){
@@ -794,6 +799,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log(daysList[forecasters])
                 //thisHeader.appendChild(daysList[forecasters].innerHTML)
                 thisHeader.innerHTML = daysList[forecasters] + "<br>"+ iconsList[forecasters] + "<br>" + hiLoList[forecasters]
+                thisHeader.addEventListener("click", function(){
+                    Swal.fire({
+                        title: daysList[forecasters],
+                        confirmButtonColor: '#3085d6',
+                        text: narrativeList[forecasters],
+                        confirmButtonText: 'OK'
+                    });
+                })
                 console.log("D");
                 //thisHeader.appendChild(iconsList[forecasters].innerHTML)
                 console.log("1");
