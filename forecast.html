@@ -799,7 +799,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log(daysList[forecasters])
                 //thisHeader.appendChild(daysList[forecasters].innerHTML)
                 thisHeader.innerHTML = daysList[forecasters] + "<br>"+ iconsList[forecasters] + "<br>" + hiLoList[forecasters]
-                thisHeader.addEventListener("click", function(){
+                thisHeader.addEventListener("click", function(forecasters){
                     Swal.fire({
                         title: daysList[forecasters],
                         confirmButtonColor: '#3085d6',
