@@ -1239,16 +1239,17 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .then(function(resp) {
                 resp.json()
                 .then(function(j) { 
-                  console.log(j); 
+                  //console.log(j); 
+                    aqiSet(j);
                 })
                 .catch(function(e){
                   console.log(e);
                 });
             })
-            .then (function(data) {
+            /*.then (function(data) {
                 console.log("Data: \n"+data);
                 //aqiSet(data);
-            })
+            })*/
             .catch(function(){
 
             })
