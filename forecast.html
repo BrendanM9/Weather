@@ -495,7 +495,7 @@
             document.title = cityName + ", OR Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
-            var aqiKey = "4652a98c9359bbc737bd4e7e8797adfc";
+            var aqiKey = "1F8402F6-8749-46B1-947E-464A6163C6D9";
             fetch('https://api.weather.com/v2/pws/observations/hourly/7day?stationId='+bendID+'&format=json&units=e&apiKey='+apiKey)
             .then(function(resp) {return resp.json()})
             .then(function(data){
@@ -614,8 +614,11 @@ for (closeB = 0; closeB < close.length; closeB++) {
 </div>*/
         }
         function aqiSet(aqiData){
-            var thisAQI = aqiData.list[0].main.aqi
-            document.getElementById("aqi").innerHTML = "AQI: "+thisAQI
+            //var thisAQI = aqiData.list[0].main.aqi;
+            //var thisAQI = parseInt(thisAQI);
+            //var thisAQIStr
+            //document.getElementById("aqi").innerHTML = "AQI: "+thisAQI
+            console.log(aqiData)
         }
         forecast = function( f , latitude, longitude){
             console.log(f);
@@ -1231,7 +1234,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
 
             })
             console.log(observationData);
-            fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat='+Lat+'&lon='+Long+'&appid='+aqiKey)
+            fetch('https://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude='+Lat+'&longitude='+Long+'&distance=25&API_KEY='+aqiKey)
             .then(function(resp) {return resp.json()})
             .then (function(data) {
                 aqiSet(data);
