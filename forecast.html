@@ -614,11 +614,13 @@ for (closeB = 0; closeB < close.length; closeB++) {
 </div>*/
         }
         function aqiSet(aqiData){
-            //var thisAQI = aqiData.list[0].main.aqi;
-            //var thisAQI = parseInt(thisAQI);
-            //var thisAQIStr
-            //document.getElementById("aqi").innerHTML = "AQI: "+thisAQI
             console.log(aqiData)
+            var thisAQI = aqiData.AQI;
+            //var thisAQI = parseInt(thisAQI);
+            var thisAQIStr = aqiData.Category.Name
+            var thisAQICategory = aqiData.Category.Number
+            document.getElementById("aqi").innerHTML = "AQI: "+ thisAQIStr + " " + thisAQI;
+            
         }
         forecast = function( f , latitude, longitude){
             console.log(f);
