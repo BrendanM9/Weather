@@ -619,11 +619,19 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //var thisAQI = parseInt(thisAQI);
             var thisAQIStr = aqiData.Category.Name
             var thisAQICategory = aqiData.Category.Number
-            document.getElementById("aqi").innerHTML = "AQI: "+ thisAQIStr + " (" + thisAQI+")";
+            document.getElementById("aqi").innerHTML = "US AQI: "+ thisAQIStr + " (" + thisAQI+")";
             if(thisAQICategory === 1){
                 document.getElementById("aqi").style.color = "#00e400"
             } else if(thisAQICategory === 2){
                 document.getElementById("aqi").style.color = "#ffff00"
+            } else if(thisAQICategory === 3){
+                document.getElementById("aqi").style.color = "#ff7e00"
+            } else if(thisAQICategory === 4){
+                document.getElementById("aqi").style.color = "#ff0000"
+            } else if(thisAQICategory === 5){
+                document.getElementById("aqi").style.color = "#8f3f97"
+            } else if(thisAQICategory === 6){
+                document.getElementById("aqi").style.color = "#7e0023"
             }
             
         }
