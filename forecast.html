@@ -495,6 +495,7 @@
             document.title = cityName + ", OR Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
+            var aqiKey = "4652a98c9359bbc737bd4e7e8797adfc";
             fetch('https://api.weather.com/v2/pws/observations/hourly/7day?stationId='+bendID+'&format=json&units=e&apiKey='+apiKey)
             .then(function(resp) {return resp.json()})
             .then(function(data){
@@ -611,6 +612,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
   <span class="closebtn">&times;</span>  
   <strong>Info!</strong> Indicates a neutral informative change or action.
 </div>*/
+        }
+        function aqiSet(aqiData){
+            var thisAQI = aqiData.list[0].main.aqi
+            document.getElementById("aqi").innerHTML = "AQI: "+thisAQI
         }
         forecast = function( f , latitude, longitude){
             console.log(f);
@@ -1226,6 +1231,14 @@ for (closeB = 0; closeB < close.length; closeB++) {
 
             })
             console.log(observationData);
+            fetch('https://api.openweathermap.org/data/2.5/air_pollution?lat='+Lat+'&lon='+Long+'&appid='+aqiKey)
+            .then(function(resp) {return resp.json()})
+            .then (function(data) {
+                aqiSet(data);
+            })
+            .catch(function(){
+
+            })
         }
         window.onload = function(){
             //load();
