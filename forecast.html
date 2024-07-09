@@ -1240,7 +1240,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 resp.json()
                 .then(function(j) { 
                   //console.log(j); 
-                    aqiSet(j);
+                    aqiSet(j[0]);
                 })
                 .catch(function(e){
                   console.log(e);
