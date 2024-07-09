@@ -621,7 +621,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
             var thisAQICategory = aqiData.Category.Number
             document.getElementById("aqi").innerHTML = "AQI: "+ thisAQIStr + " (" + thisAQI+")";
             if(thisAQICategory === 1){
-                document.getElementById("aqi").style.color = "green"
+                document.getElementById("aqi").style.color = "#00e400"
+            } else if(thisAQICategory === 2){
+                document.getElementById("aqi").style.color = "#ffff00"
             }
             
         }
