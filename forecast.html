@@ -1236,7 +1236,15 @@ for (closeB = 0; closeB < close.length; closeB++) {
             })
             console.log(observationData);
             fetch('https://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude='+Lat+'&longitude='+Long+'&distance=25&API_KEY='+aqiKey)
-            .then(function(resp) {console.log(resp.json())})
+            .then(function(resp) {
+                resp.json()
+                .then(function(j) { 
+                  console.log(j); 
+                })
+                .catch(function(e){
+                  console.log(e);
+                });
+            })
             .then (function(data) {
                 console.log("Data: \n"+data);
                 //aqiSet(data);
