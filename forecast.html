@@ -619,7 +619,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //var thisAQI = parseInt(thisAQI);
             var thisAQIStr = aqiData.Category.Name
             var thisAQICategory = aqiData.Category.Number
-            document.getElementById("aqi").innerHTML = "AQI: "+ thisAQIStr + " " + thisAQI;
+            document.getElementById("aqi").innerHTML = "AQI: "+ thisAQIStr + " (" + thisAQI+")";
+            if(thisAQICategory === 1){
+                document.getElementById("aqi").style.color = "green"
+            }
             
         }
         forecast = function( f , latitude, longitude){
