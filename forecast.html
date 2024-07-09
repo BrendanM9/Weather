@@ -1170,6 +1170,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
         function findConditions(json1, set, rise, actual){
             var observationStation = json1.properties.observationStations
             fetch(observationStation)
+                .then(function(resp) {console.log(resp)})
             .then(function(resp) {return resp.json() })
             .then(function(data) {
                 console.log(data)
