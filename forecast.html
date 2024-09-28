@@ -814,7 +814,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //var thisForecasterDiv = document.createElement('div')
                 //thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 console.log("105.7")
-                var thisHeader = document.getElementsByClassName("collapse")[forecasters-1]
+                var thisHeader = document.getElementsByClassName("collapse")[forecasters]
                 console.log("KQAK");
                 //thisHeader.innerHTML = "Test 1-2-3";
                 //document.getElementsByClassName("collapse")[forecasters].appendChild(daysList[forecasters])
@@ -824,8 +824,8 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log(daysList[forecasters])
                 console.log(hiLoList[forecasters])
                 //thisHeader.appendChild(daysList[forecasters].innerHTML)+ iconsList[forecasters] 
-                //thisHeader.innerHTML = daysList[forecasters] + "<br>"+ iconsList[forecasters] + "<br>" + hiLoList[forecasters]
-                    thisHeader.innerHTML = "TEST";
+                thisHeader.innerHTML = daysList[forecasters] + "<br>"+ iconsList[forecasters] + "<br>" + hiLoList[forecasters]
+                    //thisHeader.innerHTML = "TEST";
                 /*thisHeader.addEventListener("click", function(forecasters){
                     Swal.fire({
                         title: daysList[forecasters],
