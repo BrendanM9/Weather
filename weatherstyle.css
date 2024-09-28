@@ -60,14 +60,18 @@
   left:80%;
   float:right;
 }
+.forecast-row{
+        margin-left: 5%;
+        margin-right: 5%;
+}
 .collapse {
   background-color: #FFF;
   color: black;
   cursor: pointer;
   padding: 18px;
-  width: 18%;
+  width: 16%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 15px;
 }
@@ -162,7 +166,7 @@ td.t-column-r{
     margin-left: 50px;
   }
 .icon{
-    width:100px;
+    width:150px;
     opacity: 200%;
 }
 .iconSmall{
@@ -264,7 +268,9 @@ hr{
   animation-name: slideIn;
   animation-duration: 0.4s
 }
-
+.title1{
+  text-align: center;
+}
 /* The Close Button */
 .close {
   color: white;
