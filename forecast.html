@@ -773,18 +773,18 @@ for (closeB = 0; closeB < close.length; closeB++) {
             for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
                 hilo2 = hilo + 2;
-                var thisHi = document.createElement("span");
+                var thisHi = document.createElement("p");
                 thisHi.id = "hi"+hilo1;
                 thisHi.classList = "hi";
                 if(f.temperatureMax[hilo] === null){
-                    thisHi.innerText = f.calendarDayTemperatureMax[hilo]+"º";
+                    thisHi.innerHTML = "<span class='hi'>"+f.calendarDayTemperatureMax[hilo]+"º</span>";
                 } else {
-                   thisHi.innerText = f.temperatureMax[hilo]+"º";
+                   thisHi.innerText = "<span class='hi'>"+f.temperatureMax[hilo]+"º</span>";
                 }
                 thisHi.style.color = "red";
-                var thisLo = document.createElement("span");
+                var thisLo = document.createElement("p");
                 thisLo.classList = "lo";
-                thisLo.innerText = f.temperatureMin[hilo]+"º";
+                thisLo.innerText = "<span class='lo'>"+f.temperatureMin[hilo]"º</span>";
                 thisLo.style.color = "blue";
                 console.log(thisLo)
                 console.log(thisLo.innerHTML);
