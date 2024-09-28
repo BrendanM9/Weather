@@ -494,7 +494,7 @@
                 window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
             //document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
-            document.title = cityName + ", Oregon";
+            document.title = cityName + ", OR Forecast";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
             var aqiKey = "1F8402F6-8749-46B1-947E-464A6163C6D9";
@@ -506,7 +506,7 @@
             .catch(function(){
                 
             });
-            document.getElementById("title1").innerHTML = cityName + ", OR Forecast";
+            document.getElementById("title1").innerHTML = cityName + ", Oregon";
             var hi1El = document.getElementById("hi1");
             var lo1El = document.getElementById("lo1");
             var today = document.getElementById("condition");
@@ -810,7 +810,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(narrativeList)
             //var RainIcon = document.createElement("div")
             //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
-            for(var forecasters = 1; forecasters <= 6; forecasters++){
+            for(var forecasters = 0; forecasters <= 6; forecasters++){
                 //var thisForecasterDiv = document.createElement('div')
                 //thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 console.log("105.7")
