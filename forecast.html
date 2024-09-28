@@ -768,7 +768,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
             }
-            for(hilo = 0; hilo <= 6; hilo++){
+            for(hilo = 0; hilo <= 5; hilo++){
                 hilo1 = hilo + 1;
                 hilo2 = hilo + 2;
                 var thisHi = document.createElement("span");
@@ -823,7 +823,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 console.log(iconsList[forecasters])
                 console.log(daysList[forecasters])
                 //thisHeader.appendChild(daysList[forecasters].innerHTML)+ iconsList[forecasters] 
-                thisHeader.innerHTML = daysList[forecasters] + "<br>"+ "<br>" + hiLoList[forecasters]
+                thisHeader.innerHTML = daysList[forecasters] + "<br>"+ iconsList[forecasters] + "<br>" + hiLoList[forecasters]
                 /*thisHeader.addEventListener("click", function(forecasters){
                     Swal.fire({
                         title: daysList[forecasters],
