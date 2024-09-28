@@ -126,7 +126,7 @@
         <button class="collapse" id="3Out"></button>
         <button class="collapse" id="4Out"></button>
         <button class="collapse" id="5Out"></button>
-        <!--<button class="collapse" id="5Out"></button>-->
+        <button class="collapse" id="6Out"></button>
         <!--<div id="forecast">
         <div class="column" id="b2">
             <button class="collapse"></button>
@@ -494,7 +494,7 @@
                 window.location.href ="https://brendanm9.github.io/Weather/404-1.html?"+cityNo
             }
             //document.getElementById("cam").innerHTML = "<img src="+tCTVUrl+">";
-            document.title = cityName + ", OR Forecast";
+            document.title = cityName + ", Oregon";
             const apiKey = "be3a60645b954897ba60645b95f89776";
             const tripCheckAPI = "a036194717464c84a1d0d623a518ed57";
             var aqiKey = "1F8402F6-8749-46B1-947E-464A6163C6D9";
@@ -656,7 +656,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             ms = ms/1000
             validUTC = ms
             getNWS(latitude, longitude, sunsetUTC, sunriseUTC, validUTC);
-            for(day = 0; day <= 5; day++){
+            for(day = 0; day <= 6; day++){
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
@@ -666,7 +666,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //document.getElementsByClassName("content")[day].innerHTML = "";
             //document.getElementsByClassName("content")[day].appendChild(thisText);
             }
-            for(precip = 0; precip <= 10; precip+= 2){
+            for(precip = 0; precip <= 12; precip+= 2){
                 precip1 = precip + 1;
                 precip2 = precip + 2;
                 precip3 = precip + 3;
@@ -768,7 +768,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisIcon12);
                 //document.getElementsByClassName("collapse")[thisB-2].appendChild(thisCollapse);
             }
-            for(hilo = 0; hilo <= 5; hilo++){
+            for(hilo = 0; hilo <= 6; hilo++){
                 hilo1 = hilo + 1;
                 hilo2 = hilo + 2;
                 var thisHi = document.createElement("span");
@@ -795,7 +795,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 thisNarrative3.innerHTML = f.narrative[hilo];
                 narrativeList.push(thisNarrative3.innerHTML)
             }
-            for(desc = 0; desc <= 5; desc++){
+            for(desc = 0; desc <= 6; desc++){
                 desc1 = desc+1
                 desc2 = desc+2
                 var thisCondition = document.createElement("p");
@@ -810,7 +810,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(narrativeList)
             //var RainIcon = document.createElement("div")
             //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
-            for(var forecasters = 1; forecasters <= 5; forecasters++){
+            for(var forecasters = 1; forecasters <= 6; forecasters++){
                 //var thisForecasterDiv = document.createElement('div')
                 //thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 console.log("105.7")
