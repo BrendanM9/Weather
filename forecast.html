@@ -776,15 +776,20 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 var thisHi = document.createElement("p");
                 thisHi.id = "hi"+hilo1;
                 thisHi.classList = "hi";
+                var thisHiSpan = document.createElement("span");
+                thisHiSpan.classList = "hi"
                 if(f.temperatureMax[hilo] === null){
-                    thisHi.innerHTML = "<span class='hi'>"+f.calendarDayTemperatureMax[hilo]+"º</span>";
+                    thisHiSpan.innerText = f.calendarDayTemperatureMax[hilo]+"º";
                 } else {
-                   thisHi.innerText = "<span class='hi'>"+f.temperatureMax[hilo]+"º</span>";
+                   thisHi.innerHTML = "<span class='hi'>"+f.temperatureMax[hilo]+"º</span>";
                 }
                 thisHi.style.color = "red";
                 var thisLo = document.createElement("p");
                 thisLo.classList = "lo";
-                thisLo.innerText = "<span class='lo'>"+f.temperatureMin[hilo]+"º</span>";
+                var thisLoSpan = document.createElement("span");
+                thisLoSpan.classList = "lo";
+                thisLoSpan.innerText = "<span class='lo'>"+f.temperatureMin[hilo]+"º</span>";
+                thisLo.innerHTML = thisLoSpan;
                 thisLo.style.color = "blue";
                 console.log(thisLo)
                 console.log(thisLo.innerHTML);
