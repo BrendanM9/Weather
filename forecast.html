@@ -656,7 +656,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             ms = ms/1000
             validUTC = ms
             getNWS(latitude, longitude, sunsetUTC, sunriseUTC, validUTC);
-            for(day = 0; day <= 6; day++){
+            for(day = 0; day <= 5; day++){
                 day1 = day+1
                 day2 = day+2
                 var thisText = document.createElement("p");
@@ -810,7 +810,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             console.log(narrativeList)
             //var RainIcon = document.createElement("div")
             //RainIcon.innerHTML ="<i class='fa-solid fa-droplet'></i>";
-            for(var forecasters = 0; forecasters <= 6; forecasters++){
+            for(var forecasters = 0; forecasters <= 5; forecasters++){
                 //var thisForecasterDiv = document.createElement('div')
                 //thisForecasterDiv.innerHTML = daysList[forecasters] +"     "+ RainIcon.innerHTML + chancesList[forecasters] +"     "+ iconsList[forecasters] +"     "+ hiLoList[forecasters]
                 console.log("105.7")
