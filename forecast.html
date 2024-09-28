@@ -70,18 +70,18 @@
         <div class="horizontal_line"></div>
         <div>
             <div class="forecast-column">
-                <p id="hi-lo--today"></p>
-                <p id="sunrise"></p>
-                <p id="sunset"></p>
-                <p id="pressure"></p>
-                <p id="dewpt"></p>
+                <!--<p id="hi-lo--today"></p>-->
+                <p id="sunrise" hidden></p>
+                <p id="sunset" hidden></p>
+                <p id="pressure" hidden></p>
+                <p id="dewpt" hidden></p>
             </div>
             <div class="forecast-column">
-                <p id="wind"><span id="winddir"></span>  <span id="windspeed"></span>MPH / Gusts: <span id="windgusts"></span>MPH</p>
-                <p id="humidity"></p>
-                <p id="all-precip"></p>
-                <p id="uv"></p>
-                <p id="aqi">AQI Coming Soon</p>
+                <p id="wind" hidden><span id="winddir"></span>  <span id="windspeed"></span>MPH / Gusts: <span id="windgusts"></span>MPH</p>
+                <p id="humidity" hidden></p>
+                <p id="all-precip" hidden></p>
+                <p id="uv" hidden></p>
+                <p id="aqi" hidden>AQI Coming Soon</p>
             </div>
         </div>
         <div class="horizontal_line"></div>
@@ -840,7 +840,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
                 //thisHeader.appendChild(hiLoList[forecasters].innerHTML)
                 console.log("BEND")
             }
-            document.getElementById("hi-lo--today").innerHTML = "High/Low for today: "+hiLoList[0]
+            //document.getElementById("hi-lo--today").innerHTML = "High/Low for today: "+hiLoList[0]
             getDayNight(f);
             
             
