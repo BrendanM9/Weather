@@ -210,7 +210,10 @@ td.t-column-r{
 .hi{
     color:red;
 }
-hr{
+hr {
+        border-top: 1px solid white;
+}
+/*hr{
     width: 50px;
     border-color: transparent;
     border-right-color: rgba(255, 255, 255, 0.7);
@@ -230,7 +233,7 @@ hr{
     to {
      transform: rotate(105deg) translateX(calc(100vh + 20px));
     }
-   }
+   }*/
 .precip {
     white-space: nowrap;
 }
