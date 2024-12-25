@@ -477,8 +477,11 @@
                 var closeObj1 = document.createElement("span")
                 closeObj1.className = "closebtn"
                 closeObj1.innerHTML = "&times"
-                var title1 = document.createElement("strong")
-                title1.innerHTML = g.features[1].properties.event
+                var more1 = document.createElement("strong")
+                more1.innerHTML = g.features[1].properties.event
+                more.onclick = function(){
+                    alert(g.features[1].properties.description)
+                }   
                 var text1 = document.createElement("p")
                 text1.innerHTML = g.features[1].properties.headline+g.features[1].properties.description;
                 alertDiv1.appendChild(closeObj)
