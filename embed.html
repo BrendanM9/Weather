@@ -468,9 +468,9 @@
                 text.innerHTML = g.features[0].properties.headline+g.features[0].properties.description;
                 
                 //alertDiv.appendChild(closeObj)
-                alertDiv.appendChild(title)
+                //alertDiv.appendChild(title)
                 //alertDiv.appendChild(text)
-                document.getElementById("alerts").appendChild(alertDiv);
+                //document.getElementById("alerts").appendChild(alertDiv);
                 if(g.features[1].properties.event !== null){
                 var alertDiv1 = document.createElement("div")
                 alertDiv1.className = "alert warning"
@@ -483,7 +483,7 @@
                 text1.innerHTML = g.features[1].properties.headline+g.features[1].properties.description;
                 alertDiv1.appendChild(closeObj)
                 alertDiv1.appendChild(title)
-                alertDiv1.appendChild(text)
+                //alertDiv1.appendChild(text)
                 document.getElementById("alerts2").innerHTML = "";
                 document.getElementById("alerts2").appendChild(alertDiv1)
                 }
