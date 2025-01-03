@@ -1157,15 +1157,20 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //feelslike(hindex, wchill);
         }
         function evenMoreForecastInformation(forecast, latitude, longitude, dayNumber){
+            console.log("K")
             var dayNumberJSON = dayNumber - 1;
+            console.log("Y")
             var dayIdentifier = document.createElement("strong");
+            console.log("C")
             dayIdentifier.innerHTML = "<strong>Forecast for "+forecast.dayOfWeek[parseInt(dayNumberJSON)]+"</strong>";
+            console.log("H")
             Swal.fire({
                 title: title.innerHTML,
                 confirmButtonColor: '#3085d6',
                 text: text.innerHTML,
                 confirmButtonText: 'OK'
             });
+            console.log("F")
         }
         function moreForecastInformation(number){
             fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat+','+Long+'&format=json&units=e&language=en-US&apiKey='+apiKey)
