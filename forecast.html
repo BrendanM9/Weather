@@ -1156,6 +1156,9 @@ for (closeB = 0; closeB < close.length; closeB++) {
             //forecast(currentpressure);
             //feelslike(hindex, wchill);
         }
+        function moreForecastInformation(number){
+            alert(number)
+        }
             /*
         function trafficCam(camID){
             fetch('https://api.odot.state.or.us/tripcheck/Cctv/Inventory?DeviceId='+camID+'&key='+tripCheckAPI, {
@@ -1276,9 +1279,21 @@ for (closeB = 0; closeB < close.length; closeB++) {
 
             })
         }
+        var oneDayOut = document.getElementById("1Out")
+        var twoDayOut = document.getElementById("2Out")
+        var threeDayOut = document.getElementById("3Out")
+        var fourDayOut = document.getElementById("4Out")
+        var fiveDayOut = document.getElementById("5Out")
+        var sixDayOut = document.getElementById("6Out")
         window.onload = function(){
             //load();
             weatherBalloon(bendID, ICAO, Lat, Long);
+            oneDayOut.addEventListener("click", function(){moreForecastInformation("1")});
+            twoDayOut.addEventListener("click", function(){moreForecastInformation("2")});
+            threeDayOut.addEventListener("click", function(){moreForecastInformation("3")});
+            fourDayOut.addEventListener("click", function(){moreForecastInformation("4")});
+            fiveDayOut.addEventListener("click", function(){moreForecastInformation("5")});
+            sixDayOut.addEventListener("click", function(){moreForecastInformation("6")});
             //trafficCam(tripCheckDevice);
             //forecast(currentpressure);
         }
