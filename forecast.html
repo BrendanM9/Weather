@@ -1168,10 +1168,10 @@ for (closeB = 0; closeB < close.length; closeB++) {
             });
         }
         function moreForecastInformation(number){
-            fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat+','+Long+'&format=json&units=e&language=en-US&apiKey='+key)
+            fetch('https://api.weather.com/v3/wx/forecast/daily/5day?geocode='+Lat+','+Long+'&format=json&units=e&language=en-US&apiKey='+apiKey)
             .then(function(resp) {return resp.json()})
             .then (function(data) {
-                evenMoreforecastInformation(data, Lat1, Long1, number);
+                evenMoreforecastInformation(data, Lat, Long, number);
             })
             .catch(function(){
         
