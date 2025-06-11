@@ -1275,7 +1275,7 @@ for (closeB = 0; closeB < close.length; closeB++) {
             .catch(function(){
         
             });
-            fetch('https://api.weather.gov/alerts/active?point='+Lat+'%2C'+Long+'&limit=500')
+            fetch('https://api.weather.gov/alerts/active?point='+Lat+'%2C'+Long)
             .then(function(resp) {return resp.json()})
             .then (function(data) {
                 nwsAlerts(data);
