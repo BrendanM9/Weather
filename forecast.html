@@ -577,15 +577,40 @@
                     });
                     //alert("I worked");
                 })
-                
+                var alertDiv1 = document.createElement("div")
+                alertDiv1.className = "alert warning"
+                var closeObj1 = document.createElement("span")
+                closeObj1.className = "closebtn1"
+                closeObj1.innerHTML = "&times"
+                var title1 = document.createElement("strong")
+                title1.innerHTML = g.features[1].properties.event
+                var text1 = document.createElement("p")
+                var more1 = document.createElement("a")
+                text.innerHTML = g.features[1].properties.headline+"\n\n"+g.features[1].properties.description;
+                more.innerHTML = "  <u>View Weather Statement</u>"
+                more.addEventListener("click", function(){
+                    //alert(text.innerHTML)
+                    Swal.fire({
+                        title: title.innerHTML,
+                        confirmButtonColor: '#3085d6',
+                        text: text.innerHTML,
+                        confirmButtonText: 'OK'
+                    });
+                    //alert("I worked");
+                })
                 
                 
                 alertDiv.appendChild(closeObj)
                 alertDiv.appendChild(title)
                 //alertDiv.appendChild(text)
                 alertDiv.appendChild(more);
+                alertDiv1.appendChild(closeObj1)
+                alertDiv1.appendChild(title1)
+                //alertDiv.appendChild(text)
+                alertDiv1.appendChild(more1);
                 document.getElementById("alerts").innerHTML = ""
                 document.getElementById("alerts").appendChild(alertDiv);
+                document.getElementById("alerts").appendChild(alertDiv1);
                 /*if(g.features[1].properties.event !== null){
                 var alertDiv1 = document.createElement("div")
                 alertDiv1.className = "alert warning"
